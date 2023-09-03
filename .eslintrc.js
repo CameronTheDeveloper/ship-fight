@@ -7,7 +7,6 @@ module.exports = {
 
     extends: [
         'eslint:recommended',
-        'plugin:prettier/recommended',
     ],
 
     rules: {
@@ -16,5 +15,6 @@ module.exports = {
         'no-use-before-define': 'error',
         'comma-dangle': ['warn', 'always-multiline'],
         'semi': ['error', 'always'],
+        'no-unused-vars': 'warn',
     },
 };
