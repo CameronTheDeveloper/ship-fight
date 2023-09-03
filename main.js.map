@@ -1,0 +1,1 @@
+{"version":3,"file":"main.js","mappings":";;;;;AAAA,0B","sources":["webpack://ship-fight/./src/index.js"],"sourcesContent":["console.log('Test Hello');"],"names":[],"sourceRoot":""}
