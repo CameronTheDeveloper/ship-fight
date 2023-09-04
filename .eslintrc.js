@@ -10,6 +10,12 @@ module.exports = {
         'eslint:recommended',
     ],
 
+    'parserOptions': {
+        'sourceType': 'module',
+    },
+
+    'plugins': ['import'],
+
     rules: {
         'quotes': ['warn', 'single'],
         'indent': ['error', 4],

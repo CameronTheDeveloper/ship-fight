@@ -6,4 +6,4 @@ const ship = (length) => {
     };
 };
 
-module.exports = ship;
+export { ship };
