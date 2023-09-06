@@ -18,6 +18,7 @@ describe('Ship object', () => {
 
     it('hasn\'t sunk with hits less than length', () => {
         ship1.hit();
+        ship1.isSunk();
         expect(ship1.sunk).toBe(false);
     });
 
