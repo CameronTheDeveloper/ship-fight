@@ -6,7 +6,6 @@ const ship = (length) => {
 
         hit() {
             this.hits++;
-            this.isSunk();
         },
         isSunk() {
             if (this.hits >= this.length) {
