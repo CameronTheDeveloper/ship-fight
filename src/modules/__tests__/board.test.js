@@ -10,11 +10,11 @@ describe('Board initialization and properties', () => {
     });
 
     it('should have the correct length', () => { //Remove if implementation changes
-        expect(testBoard.length).toBe(11);
+        expect(testBoard.width).toBe(11);
     });
 
     it('should have the correct width', () => { //Remove if implementation changes
-        expect(testBoard.width).toBe(7);
+        expect(testBoard.length).toBe(7);
     });
 });
 
