@@ -8,7 +8,7 @@ const boardPos = (x, y) => {
 
 const board = () => {
     return {
-        pos: new map(),
+        pos: new Map(),
         length: 0,
         width: 0,
         shipCount: 0,
@@ -24,7 +24,8 @@ const board = () => {
 
         _getLengthAr(lengthInput) {
             let lengthAr = [];
-            for (let i = 0; i <= lengthInput; i++) {
+            for (let i = 0; i < lengthInput; i++) {
+                this.length++;
                 lengthAr.push(i);
             }
             return lengthAr;
@@ -32,15 +33,23 @@ const board = () => {
 
         _getWidthAr(widthInput) {
             let widthAr = [];
-            for (let i = 0; i <= widthInput; i++) {
+            for (let i = 0; i < widthInput; i++) {
+                this.width++;
                 widthAr.push(i);
             }
             return widthAr;
         },
 
-        setSize(widthInput, lengthInput) {
+        setSize(lengthInput, widthInput) {
             const lengthAr = this._getLengthAr(lengthInput);
             const widthAr = this._getWidthAr(widthInput);
+
+            for (let i = 0; i < lengthAr.length; i++) {
+                for (let j = 0; j < widthAr.length; j++) {
+                    this.setPosition([i, j]);
+                }
+            }
+
         },
 
         addShip(ship) {

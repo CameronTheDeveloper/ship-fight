@@ -1,7 +1,7 @@
 import { board } from '../board';
 import { ship } from '../ship';
 
-xdescribe('Board initialization and properties', () => {
+describe('Board initialization and properties', () => {
     let testBoard;
 
     beforeEach(() => {
@@ -9,11 +9,11 @@ xdescribe('Board initialization and properties', () => {
         testBoard.setSize(11, 7);
     });
 
-    it('should have the correct length', () => {
+    it('should have the correct length', () => { //Remove if implementation changes
         expect(testBoard.length).toBe(11);
     });
 
-    it('should have the correct width', () => {
+    it('should have the correct width', () => { //Remove if implementation changes
         expect(testBoard.width).toBe(7);
     });
 
