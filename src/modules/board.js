@@ -6,7 +6,7 @@ const boardPos = (x, y) => {
     };
 };
 
-const board = (length = 10, width = 10) => {
+const board = () => {
     return {
         pos: new map(),
         length: 0,
@@ -21,16 +21,28 @@ const board = (length = 10, width = 10) => {
         setAdjacentPosition(position, adjPosition) {
             this.pos.get(position).push(adjPosition);
         },
-        getHeightAr() {
 
+        _getLengthAr(lengthInput) {
+            let lengthAr = [];
+            for (let i = 0; i <= lengthInput; i++) {
+                lengthAr.push(i);
+            }
+            return lengthAr;
         },
-        getWidthAr() {
 
+        _getWidthAr(widthInput) {
+            let widthAr = [];
+            for (let i = 0; i <= widthInput; i++) {
+                widthAr.push(i);
+            }
+            return widthAr;
         },
-        getPositions() {
-            heightAr = this.getHeightAr();
-            widthAr = this.getWidthAr();
+
+        setSize(widthInput, lengthInput) {
+            const lengthAr = this._getLengthAr(lengthInput);
+            const widthAr = this._getWidthAr(widthInput);
         },
+
         addShip(ship) {
             shipCount++;
         },
