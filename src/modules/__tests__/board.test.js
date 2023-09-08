@@ -1,7 +1,25 @@
 import { board } from '../board';
 import { ship } from '../ship';
 
-describe('Board object placeShip()', () => {
+xdescribe('Board initialization and properties', () => {
+    let testBoard;
+
+    beforeEach(() => {
+        testBoard = board();
+        testBoard.setSize(11, 7);
+    });
+
+    it('should have the correct length', () => {
+        expect(testBoard.length).toBe(11);
+    });
+
+    it('should have the correct width', () => {
+        expect(testBoard.width).toBe(7);
+    });
+
+});
+
+xdescribe('Board object placeShip()', () => {
 
     let testBoard;
     let ship1;
@@ -11,7 +29,7 @@ describe('Board object placeShip()', () => {
         testShip1 = ship(4);
     });
 
-    xit('places a ship vertically', () => {
+    xit('should place a ship vertically', () => {
         placeShipVertically(ship1, [5, 5]);
         expect(board.pos[5, 5].taken).toBe(true);
         expect(board.pos[5, 4].taken).toBe(true);
@@ -19,7 +37,7 @@ describe('Board object placeShip()', () => {
         expect(board.pos[5, 2].taken).toBe(true);
     });
 
-    xit('places ship horizontally', () => {
+    xit('should place a ship horizontally', () => {
         placeShipHorizontally(ship1, [5, 5]);
         expect(board.pos[5, 5].taken).toBe(true);
         expect(board.pos[6, 5].taken).toBe(true);
