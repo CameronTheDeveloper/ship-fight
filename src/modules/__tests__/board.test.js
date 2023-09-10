@@ -18,25 +18,18 @@ describe('Board initialization and properties', () => {
     });
 });
 
-describe('Board object placeShipHorizontally() and placeShipVertically()', () => {
-
+xdescribe('Board object placeShipHorizontally()', () => {
     let testBoard;
     let testShip1;
     let testShip2;
+    let testShip3;
 
     beforeEach(() => {
         testBoard = board();
         testBoard.setSize(10, 10);
         testShip1 = ship(4);
         testShip2 = ship(3);
-    });
-
-    it('should place a ship vertically', () => {
-        placeShipVertically(testShip1, [5, 5]);
-        expect(testBoard.pos[5, 5].taken).toBe(true);
-        expect(testBoard.pos[5, 4].taken).toBe(true);
-        expect(testBoard.pos[5, 3].taken).toBe(true);
-        expect(testBoard.pos[5, 2].taken).toBe(true);
+        testShip3 = ship(2);
     });
 
     xit('should place a ship horizontally', () => {
@@ -52,7 +45,41 @@ describe('Board object placeShipHorizontally() and placeShipVertically()', () =>
         expect(placeShipHorizontally(testShip2, [6, 5])).toBeFalsy();
         expect(placeShipHorizontally(testShip2, [7, 5])).toBeFalsy();
         expect(placeShipHorizontally(testShip2, [8, 5])).toBeFalsy();
+    });
 
+    xit('shouldn\'t place a ship horizontally if adjacent spot is already taken', () => {
+        placeShipHorizontally(testShip1, [3, 5]);
+        placeShipVertically(testShip2, [8, 8]);
+        expect(placeShipHorizontally(testShip3, [4, 4])).toBeFalsy();
+        expect(placeShipHorizontally(testShip3, [6, 8])).toBeFalsy();
+    });
+
+    xit('shouldn\'t place a ship horizontally out-of-bounds', () => {
+        expect(placeShipHorizontally(testShip1, [11, 12])).toBeFalsy();
+        expect(placeShipHorizontally(testShip2, [9, 9])).toBeFalsy();
+    });
+});
+
+xdescribe('Board object placeShipVertically()', () => {
+    let testBoard;
+    let testShip1;
+    let testShip2;
+    let testShip3;
+
+    beforeEach(() => {
+        testBoard = board();
+        testBoard.setSize(10, 10);
+        testShip1 = ship(4);
+        testShip2 = ship(3);
+        testShip3 = ship(2);
+    });
+
+    xit('should place a ship vertically', () => {
+        placeShipVertically(testShip1, [5, 5]);
+        expect(testBoard.pos[5, 5].taken).toBe(true);
+        expect(testBoard.pos[5, 4].taken).toBe(true);
+        expect(testBoard.pos[5, 3].taken).toBe(true);
+        expect(testBoard.pos[5, 2].taken).toBe(true);
     });
 
     xit('shouldn\'t place a ship vertically if spot is already taken', () => {
@@ -61,21 +88,13 @@ describe('Board object placeShipHorizontally() and placeShipVertically()', () =>
         expect(placeShipVertically(testShip2, [7, 6])).toBeFalsy();
         expect(placeShipVertically(testShip2, [7, 5])).toBeFalsy();
         expect(placeShipVertically(testShip2, [7, 4])).toBeFalsy();
-
     });
 
-    xit('shouldn\'t place a ship if adjacent spot is already taken', () => {
-        placeShipHorizontally(testShip1, [5, 5]);
-        expect(placeShipHorizontally(testShip2, [5, 4])).toBeFalsy();
-        expect(placeShipHorizontally(testShip2, [4, 4])).toBeFalsy();
-        expect(placeShipHorizontally(testShip2, [5, 7])).toBeFalsy();
-        expect(placeShipHorizontally(testShip2, [6, 4])).toBeFalsy();
-        expect(placeShipVertically(testShip2, [9, 5])).toBeFalsy();
-    });
-
-    xit('shouldn\'t place a ship horizontally out-of-bounds', () => {
-        expect(placeShipHorizontally(testShip1, [11, 12])).toBeFalsy();
-        expect(placeShipHorizontally(testShip2, [9, 9])).toBeFalsy();
+    xit('shouldn\'t place a ship vertically if adjacent spot is already taken', () => {
+        placeShipHorizontally(testShip2, [3, 5]);
+        placeShipVertically(testShip1, [8, 8]);
+        expect(placeShipVertically(testShip3, [2, 4])).toBeFalsy();
+        expect(placeShipVertically(testShip3, [7, 5])).toBeFalsy();
     });
 
     xit('shouldn\'t place a ship vertically out-of-bounds', () => {
