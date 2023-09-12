@@ -72,13 +72,13 @@ describe('Board object place ship', () => {
         });
     });
 
-    xdescribe('when isPlacingShipVertically = true', () => {
+    describe('when isPlacingShipVertically = true', () => {
 
         beforeEach(() => {
             testBoard.isPlacingShipVertically = true;
         });
 
-        xit('should place a ship vertically', () => {
+        it('should place a ship vertically', () => {
             expect(testBoard.takenPositions).toContainEqual([8, 8]);
             expect(testBoard.takenPositions).toContainEqual([8, 7]);
             expect(testBoard.takenPositions).toContainEqual([8, 6]);

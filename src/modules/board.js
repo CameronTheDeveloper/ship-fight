@@ -1,11 +1,3 @@
-const boardPos = (x, y) => {
-    return {
-        x: x,
-        y: y,
-        taken: false,
-    };
-};
-
 const board = () => {
 
     return {
@@ -13,7 +5,8 @@ const board = () => {
         length: 0,
         width: 0,
         shipCount: 0,
-        shipVertical: true,
+        isPlacingShipVertically: false,
+        takenPositions: [],
 
         setPosition(newPos) {
             this.pos.set(newPos, []);
@@ -30,8 +23,8 @@ const board = () => {
 
             for (let position of posKeys) {
                 for (let adjPosDistance of adjPosDistances) {
-                    let xPos = position.x + adjPosDistance[0];
-                    let yPos = position.y + adjPosDistance[1];
+                    let xPos = position[0] + adjPosDistance[0];
+                    let yPos = position[0] + adjPosDistance[1];
                     if (xPos >= 1 && yPos >= 1 && xPos <= this.width && yPos <= this.length) {
                         let adjPosition = [xPos, yPos];
                         this.setAdjacentPosition(position, adjPosition);
@@ -46,15 +39,39 @@ const board = () => {
 
             for (let i = 1; i <= this.width; i++) {
                 for (let j = 1; j <= this.length; j++) {
-                    this.setPosition(boardPos(i, j));
+                    this.setPosition([i, j]);
                 }
             }
             this._connectPositions();
         },
 
-        // addShip(ship) {
-        //     shipCount++;
-        // },
+        _placeShipHorizontally(xCord, yCord, shipLength) {
+            let shipPos;
+            for (let i = 0; i < shipLength; i++) {
+                shipPos = [xCord + i, yCord];
+                this.takenPositions.push(shipPos);
+            }
+        },
+
+        _placeShipVertically(xCord, yCord, shipLength) {
+            let shipPos;
+            for (let i = 0; i < shipLength; i++) {
+                shipPos = [xCord, yCord - i];
+                this.takenPositions.push(shipPos);
+            }
+        },
+
+        placeShip(ship, headCord) {
+            let xCord = headCord[0];
+            let yCord = headCord[1];
+
+            if (this.isPlacingShipVertically) {
+                this._placeShipVertically(xCord, yCord, ship.length);
+            } else {
+                this._placeShipHorizontally(xCord, yCord, ship.length);
+            }
+            this.shipCount++;
+        },
     };
 };
 
