@@ -6,7 +6,7 @@ const board = () => {
         width: 0,
         shipCount: 0,
         isPlacingShipVertically: false,
-        takenPositions: [],
+        takenPositions: {},
 
         setPosition(newPos) {
             this.pos.set(newPos, []);
@@ -46,23 +46,33 @@ const board = () => {
         },
 
         _placeShipHorizontally(xCord, yCord, shipLength) {
-            let shipPosAr = [];
+            let shipPositionsAr = [];
+            let shipPos = [];
 
             for (let i = 0; i < shipLength; i++) {
-                shipPosAr.push([xCord + i, yCord]);
-                this.takenPositions.push(shipPosAr);
+                shipPos = [xCord + i, yCord];
+                if (this.takenPositions[shipPos]) {
+                    return null;
+                }
+                this.takenPositions[shipPos] = true;
+                shipPositionsAr.push(shipPos);
             }
-            return shipPosAr;
+            return shipPositionsAr;
         },
 
         _placeShipVertically(xCord, yCord, shipLength) {
-            let shipPosAr = [];
+            let shipPositionsAr = [];
+            let shipPos = [];
 
             for (let i = 0; i < shipLength; i++) {
-                shipPosAr.push([xCord, yCord - i]);
-                this.takenPositions.push(shipPosAr);
+                shipPos = [xCord, yCord - i];
+                if (this.takenPositions[shipPos]) {
+                    return null;
+                }
+                this.takenPositions[shipPos] = true;
+                shipPositionsAr.push(shipPos);
             }
-            return shipPosAr;
+            return shipPositionsAr;
         },
 
         placeShip(ship, headCord) {
