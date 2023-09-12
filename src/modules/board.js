@@ -46,31 +46,38 @@ const board = () => {
         },
 
         _placeShipHorizontally(xCord, yCord, shipLength) {
-            let shipPos;
+            let shipPosAr = [];
+
             for (let i = 0; i < shipLength; i++) {
-                shipPos = [xCord + i, yCord];
-                this.takenPositions.push(shipPos);
+                shipPosAr.push([xCord + i, yCord]);
+                this.takenPositions.push(shipPosAr);
             }
+            return shipPosAr;
         },
 
         _placeShipVertically(xCord, yCord, shipLength) {
-            let shipPos;
+            let shipPosAr = [];
+
             for (let i = 0; i < shipLength; i++) {
-                shipPos = [xCord, yCord - i];
-                this.takenPositions.push(shipPos);
+                shipPosAr.push([xCord, yCord - i]);
+                this.takenPositions.push(shipPosAr);
             }
+            return shipPosAr;
         },
 
         placeShip(ship, headCord) {
             let xCord = headCord[0];
             let yCord = headCord[1];
+            let shipCords;
 
             if (this.isPlacingShipVertically) {
-                this._placeShipVertically(xCord, yCord, ship.length);
+                shipCords = this._placeShipVertically(xCord, yCord, ship.length);
             } else {
-                this._placeShipHorizontally(xCord, yCord, ship.length);
+                shipCords = this._placeShipHorizontally(xCord, yCord, ship.length);
             }
             this.shipCount++;
+
+            return shipCords;
         },
     };
 };

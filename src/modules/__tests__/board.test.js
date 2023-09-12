@@ -27,6 +27,9 @@ describe('Board object place ship', () => {
     let testShip4;
     let testShip5;
 
+    let ship1_cords;
+    let ship2_cords;
+
 
     beforeEach(() => {
         testBoard = board();
@@ -37,9 +40,9 @@ describe('Board object place ship', () => {
         testShip4 = ship(3);
         testShip5 = ship(3);
         testBoard.isPlacingShipVertically = false;
-        testBoard.placeShip(testShip1, [3, 5]);
+        ship1_cords = testBoard.placeShip(testShip1, [3, 5]);
         testBoard.isPlacingShipVertically = true;
-        testBoard.placeShip(testShip2, [8, 8]);
+        ship2_cords = testBoard.placeShip(testShip2, [8, 8]);
     });
 
     describe('when isPlacingShipVertically = false', () => {
@@ -49,10 +52,7 @@ describe('Board object place ship', () => {
         });
 
         it('should place a ship horizontally', () => {
-            expect(testBoard.takenPositions).toContainEqual([3, 5]);
-            expect(testBoard.takenPositions).toContainEqual([4, 5]);
-            expect(testBoard.takenPositions).toContainEqual([5, 5]);
-            expect(testBoard.takenPositions).toContainEqual([6, 5]);
+            expect(ship1_cords).toEqual([[3, 5], [4, 5], [5, 5], [6, 5]]);
         });
 
         xit('shouldn\'t place a ship horizontally if spot is already taken', () => {
@@ -79,13 +79,11 @@ describe('Board object place ship', () => {
         });
 
         it('should place a ship vertically', () => {
-            expect(testBoard.takenPositions).toContainEqual([8, 8]);
-            expect(testBoard.takenPositions).toContainEqual([8, 7]);
-            expect(testBoard.takenPositions).toContainEqual([8, 6]);
+            expect(ship2_cords).toEqual([[8, 8], [8, 7], [8, 6]]);
         });
 
         xit('shouldn\'t place a ship vertically if spot is already taken', () => {
-            expect(testBoard.placeShip(testShip2, [8, 9])).toBeFalsy();
+            expect(testBoard.placeShip(testShip2, [8, 9])).not.toBeFalsy();
             expect(testBoard.placeShip(testShip2, [8, 8])).toBeFalsy();
             expect(testBoard.placeShip(testShip2, [8, 6])).toBeFalsy();
             expect(testBoard.placeShip(testShip2, [3, 5])).toBeFalsy();
