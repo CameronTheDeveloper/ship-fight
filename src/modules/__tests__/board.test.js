@@ -18,12 +18,15 @@ describe('Board initialization and properties', () => {
     });
 });
 
-xdescribe('Board object place ship', () => {
+describe('Board object place ship', () => {
 
     let testBoard;
     let testShip1;
     let testShip2;
     let testShip3;
+    let testShip4;
+    let testShip5;
+
 
     beforeEach(() => {
         testBoard = board();
@@ -39,17 +42,17 @@ xdescribe('Board object place ship', () => {
         testBoard.placeShip(testShip2, [8, 8]);
     });
 
-    xdescribe('when isPlacingShipVertically = false', () => {
+    describe('when isPlacingShipVertically = false', () => {
 
         beforeEach(() => {
             testBoard.isPlacingShipVertically = false;
         });
 
-        xit('should place a ship horizontally', () => {
-            expect(testBoard.pos[3, 5].taken).toBe(true);
-            expect(testBoard.pos[4, 5].taken).toBe(true);
-            expect(testBoard.pos[5, 5].taken).toBe(true);
-            expect(testBoard.pos[6, 5].taken).toBe(true);
+        it('should place a ship horizontally', () => {
+            expect(testBoard.takenPositions).toContainEqual([3, 5]);
+            expect(testBoard.takenPositions).toContainEqual([4, 5]);
+            expect(testBoard.takenPositions).toContainEqual([5, 5]);
+            expect(testBoard.takenPositions).toContainEqual([6, 5]);
         });
 
         xit('shouldn\'t place a ship horizontally if spot is already taken', () => {
@@ -76,9 +79,9 @@ xdescribe('Board object place ship', () => {
         });
 
         xit('should place a ship vertically', () => {
-            expect(testBoard.pos[8, 8].taken).toBe(true);
-            expect(testBoard.pos[8, 7].taken).toBe(true);
-            expect(testBoard.pos[8, 6].taken).toBe(true);
+            expect(testBoard.takenPositions).toContainEqual([8, 8]);
+            expect(testBoard.takenPositions).toContainEqual([8, 7]);
+            expect(testBoard.takenPositions).toContainEqual([8, 6]);
         });
 
         xit('shouldn\'t place a ship vertically if spot is already taken', () => {
