@@ -46,33 +46,42 @@ const board = () => {
         },
 
         _placeShipHorizontally(xCord, yCord, shipLength) {
-            let shipPositionsAr = [];
-            let shipPos = [];
+            let shipCordsAr = [];
+            let shipCord = [];
 
             for (let i = 0; i < shipLength; i++) {
-                shipPos = [xCord + i, yCord];
-                if (this.takenPositions[shipPos]) {
+                shipCord = [xCord + i, yCord];
+                if (this.takenPositions[shipCord]) {
                     return null;
                 }
-                this.takenPositions[shipPos] = true;
-                shipPositionsAr.push(shipPos);
+                this.takenPositions[shipCord] = true;
+                shipCordsAr.push(shipCord);
             }
-            return shipPositionsAr;
+            return shipCordsAr;
         },
 
         _placeShipVertically(xCord, yCord, shipLength) {
-            let shipPositionsAr = [];
-            let shipPos = [];
+            let shipCordsAr = [];
+            let shipCord = [];
 
             for (let i = 0; i < shipLength; i++) {
-                shipPos = [xCord, yCord - i];
-                if (this.takenPositions[shipPos]) {
+                shipCord = [xCord, yCord - i];
+                if (this.takenPositions[shipCord]) {
                     return null;
                 }
-                this.takenPositions[shipPos] = true;
-                shipPositionsAr.push(shipPos);
+                this.takenPositions[shipCord] = true;
+                shipCordsAr.push(shipCord);
             }
-            return shipPositionsAr;
+            return shipCordsAr;
+        },
+
+        _placeShipAdjCords(shipCords) {
+            let shipCord;
+            for (let i = 0; i < shipCords.length; i++) {
+                shipCord = this.pos.get(shipCords[i]);
+            }
+            //get this.pos adjCords
+            //mark adjCords as taken
         },
 
         placeShip(ship, headCord) {
@@ -85,6 +94,8 @@ const board = () => {
             } else {
                 shipCords = this._placeShipHorizontally(xCord, yCord, ship.length);
             }
+
+            // this._placeShipAdjCords(shipCords);
             this.shipCount++;
 
             return shipCords;
