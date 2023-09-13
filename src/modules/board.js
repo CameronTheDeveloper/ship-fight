@@ -9,10 +9,10 @@ const board = () => {
         takenPositions: {},
 
         setBoardPos(newPos) {
-            this.pos.set(newPos, []);
+            this.pos.set(JSON.stringify(newPos), []);
         },
 
-        setAdjBoardPos(position, adjPosition) {
+        setBoardAdjPos(position, adjPosition) {
             this.pos.get(position).push(adjPosition);
         },
 
@@ -22,12 +22,13 @@ const board = () => {
             let posKeys = this.pos.keys();
 
             for (let position of posKeys) {
+                let parsedPosition = JSON.parse([position]);
                 for (let adjPosDistance of adjPosDistances) {
-                    let xPos = position[0] + adjPosDistance[0];
-                    let yPos = position[0] + adjPosDistance[1];
+                    let xPos = parsedPosition[0] + adjPosDistance[0];
+                    let yPos = parsedPosition[0] + adjPosDistance[1];
                     if (xPos >= 1 && yPos >= 1 && xPos <= this.width && yPos <= this.length) {
                         let adjPosition = [xPos, yPos];
-                        this.setAdjBoardPos(position, adjPosition);
+                        this.setBoardAdjPos(position, adjPosition);
                     }
                 }
             }
@@ -66,7 +67,7 @@ const board = () => {
 
             for (let i = 0; i < shipLength; i++) {
                 shipCord = [xCord, yCord - i];
-                if (this.takenPositions[shipCord]) {
+                if (this.takenPositions[shipCord]) {    //or shipCord is out of bounds
                     return null;
                 }
                 this.takenPositions[shipCord] = true;
@@ -78,10 +79,11 @@ const board = () => {
         _placeShipAdjCords(shipCords) {
             let shipCord;
             for (let i = 0; i < shipCords.length; i++) {
-                shipCord = this.pos.get(shipCords[i]);
+                shipCord = this.pos.get(JSON.stringify(shipCords[i]));
+                for (let adjCord of shipCord) {
+                    this.takenPositions[adjCord] = true;
+                }
             }
-            //get this.pos adjCords
-            //mark adjCords as taken
         },
 
         placeShip(ship, headCord) {
@@ -95,8 +97,10 @@ const board = () => {
                 shipCords = this._placeShipHorizontally(xCord, yCord, ship.length);
             }
 
-            // this._placeShipAdjCords(shipCords);
-            this.shipCount++;
+            if (shipCords) {
+                this._placeShipAdjCords(shipCords);
+                this.shipCount++;
+            }
 
             return shipCords;
         },

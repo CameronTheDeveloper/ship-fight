@@ -61,7 +61,7 @@ describe('Board object place ship', () => {
             expect(testBoard.placeShip(testShip2, [5, 5])).toBeFalsy();
         });
 
-        xit('shouldn\'t place a ship horizontally if adjacent spot is already taken', () => {
+        it('shouldn\'t place a ship horizontally if adjacent spot is already taken', () => {
             expect(testBoard.placeShip(testShip3, [4, 4])).toBeFalsy();
             expect(testBoard.placeShip(testShip3, [6, 8])).toBeFalsy();
         });
@@ -89,7 +89,7 @@ describe('Board object place ship', () => {
             expect(testBoard.placeShip(testShip2, [3, 5])).toBeFalsy();
         });
 
-        xit('shouldn\'t place a ship vertically if adjacent spot is already taken', () => {
+        it('shouldn\'t place a ship vertically if adjacent spot is already taken', () => {
             expect(testBoard.placeShip(testShip3, [2, 4])).toBeFalsy();
             expect(testBoard.placeShip(testShip3, [7, 5])).toBeFalsy();
         });
