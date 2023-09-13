@@ -91,6 +91,11 @@ const board = () => {
             let yCord = headCord[1];
             let shipCords;
 
+            if (xCord > this.width || yCord > this.length ||
+                xCord < 1 || yCord < 1) {
+                return null;
+            }
+
             if (this.isPlacingShipVertically) {
                 shipCords = this._placeShipVertically(xCord, yCord, ship.length);
             } else {
