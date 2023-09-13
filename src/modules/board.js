@@ -8,15 +8,15 @@ const board = () => {
         isPlacingShipVertically: false,
         takenPositions: {},
 
-        setPosition(newPos) {
+        setBoardPos(newPos) {
             this.pos.set(newPos, []);
         },
 
-        setAdjacentPosition(position, adjPosition) {
+        setAdjBoardPos(position, adjPosition) {
             this.pos.get(position).push(adjPosition);
         },
 
-        _connectPositions() {
+        _connectAdjPositions() {
             const adjPosDistances = [[0, 1], [1, 1], [1, 0], [1, -1],
             [0, -1], [-1, -1], [-1, 0], [-1, 1]];
             let posKeys = this.pos.keys();
@@ -27,7 +27,7 @@ const board = () => {
                     let yPos = position[0] + adjPosDistance[1];
                     if (xPos >= 1 && yPos >= 1 && xPos <= this.width && yPos <= this.length) {
                         let adjPosition = [xPos, yPos];
-                        this.setAdjacentPosition(position, adjPosition);
+                        this.setAdjBoardPos(position, adjPosition);
                     }
                 }
             }
@@ -39,10 +39,10 @@ const board = () => {
 
             for (let i = 1; i <= this.width; i++) {
                 for (let j = 1; j <= this.length; j++) {
-                    this.setPosition([i, j]);
+                    this.setBoardPos([i, j]);
                 }
             }
-            this._connectPositions();
+            this._connectAdjPositions();
         },
 
         _placeShipHorizontally(xCord, yCord, shipLength) {
