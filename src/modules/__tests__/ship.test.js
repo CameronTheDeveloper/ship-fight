@@ -10,19 +10,19 @@ describe('Ship object', () => {
         ship1 = ship(3);
     });
 
-    it('takes hits', () => {
+    it('should take hits', () => {
         ship1.hit();
         ship1.hit();
         expect(ship1.hits).toBe(2);
     });
 
-    it('hasn\'t sunk with hits less than length', () => {
+    it('should not sink without enough hits', () => {
         ship1.hit();
         ship1.isSunk();
         expect(ship1.sunk).toBe(false);
     });
 
-    it('has sunk when hits = length', () => {
+    it('should sink with enough hits', () => {
         ship1.hit();
         ship1.hit();
         ship1.hit();
