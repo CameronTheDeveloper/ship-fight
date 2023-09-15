@@ -47,13 +47,26 @@ const board = () => {
             this._connectAdjPositions();
         },
 
+        _outOfBounds(cords) {
+            let xCord = cords[0];
+            let yCord = cords[1];
+
+            if (xCord > this.width || yCord > this.length ||
+                xCord < 1 || yCord < 1) {
+                return true;
+            } else {
+                return false;
+            }
+        },
+
         _placeShipHorizontally(xCord, yCord, shipLength) {
             let shipCordsAr = [];
             let shipCord = [];
 
             for (let i = 0; i < shipLength; i++) {
                 shipCord = [xCord + i, yCord];
-                if (this.takenPositions[shipCord]) {
+                if (this.takenPositions[shipCord] ||
+                    this._outOfBounds(shipCord)) {
                     return null;
                 }
                 this.takenPositions[shipCord] = true;
@@ -68,7 +81,8 @@ const board = () => {
 
             for (let i = 0; i < shipLength; i++) {
                 shipCord = [xCord, yCord - i];
-                if (this.takenPositions[shipCord]) {    //or shipCord is out of bounds
+                if (this.takenPositions[shipCord] ||
+                    this._outOfBounds(shipCord)) {
                     return null;
                 }
                 this.takenPositions[shipCord] = true;
@@ -92,8 +106,7 @@ const board = () => {
             let yCord = headCord[1];
             let shipCords;
 
-            if (xCord > this.width || yCord > this.length ||
-                xCord < 1 || yCord < 1) {
+            if (this._outOfBounds(headCord)) {
                 return null;
             }
 
@@ -110,12 +123,15 @@ const board = () => {
 
             return shipCords;
         },
+
         receiveAttack(position) {
             let attackedPos = JSON.stringify(position);
 
-            if (this.attackedPositions[attackedPos]) {
+            if (this._outOfBounds(position) ||
+                this.attackedPositions[attackedPos]) {
                 return null;
             }
+
             this.attackedPositions[attackedPos] = true;
         },
     };
