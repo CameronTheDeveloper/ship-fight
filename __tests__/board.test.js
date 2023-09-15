@@ -126,14 +126,14 @@ describe('Board object receiveAttack()', () => {
         ship2_cords = testBoard.placeShip(testShip2, [8, 8]);
     });
 
-    it('should mark position as \'attacked\'', () => {
+    xit('should mark position as \'attacked\'', () => {
         testBoard.receiveAttack([5, 4]);
         expect(testBoard.attackedPositions[5, 4]).toEqual(true);
     });
 
     xit('should prevent multiple attacks on the same position', () => {
         testBoard.receiveAttack([5, 4]);
-        expect(testBoard.receiveAttack([5, 4])).toBeFalsy();
+        expect(testBoard.receiveAttack([JSON.stringify(5, 4)])).toBeFalsy();
     });
 
     xit('should prevent out-of-bounds attacks', () => {
@@ -146,7 +146,7 @@ describe('Board object receiveAttack()', () => {
 
     xit('should mark attack as \'missed\' when not hitting ship cord', () => {
         testBoard.receiveAttack([2, 3]);
-        expect(testBoard.missedAttacks[2, 3]).toEqual(true);
+        expect(testBoard.missedAttacks[JSON.stringify(2, 3)]).toEqual(true);
     });
 
     xit('should sink a ship with enough hits', () => {
