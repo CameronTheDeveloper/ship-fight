@@ -2,14 +2,14 @@ const ship = (length) => {
     return {
         length: length,
         hits: 0,
-        sunk: false,
+        isSunk: false,
 
         hit() {
             this.hits++;
         },
-        isSunk() {
+        checkIfSunk() {
             if (this.hits >= this.length) {
-                this.sunk = true;
+                this.isSunk = true;
             }
         }
     };
