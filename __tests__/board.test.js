@@ -18,7 +18,7 @@ describe('Board initialization and properties', () => {
     });
 });
 
-describe('Board object place ship', () => {
+describe('Board object placeShip()', () => {
 
     let testBoard;
     let testShip1;
@@ -29,10 +29,8 @@ describe('Board object place ship', () => {
     let testShip6;
     let testShip7;
 
-
     let ship1_cords;
     let ship2_cords;
-
 
     beforeEach(() => {
         testBoard = board();
@@ -110,8 +108,70 @@ describe('Board object place ship', () => {
     });
 });
 
-xdescribe('Board object receiveAttack()', () => {
-    it('marks coordinate as \'attacked\' when receiving attack', () => {
+describe('Board object receiveAttack()', () => {
+    let testBoard;
+    let testShip1;
+    let testShip2;
+    let ship1_cords;
+    let ship2_cords;
 
+    beforeEach(() => {
+        testBoard = board();
+        testBoard.setSize(10, 10);
+        testShip1 = ship(4);
+        testShip2 = ship(3);
+        testBoard.isPlacingShipVertically = false;
+        ship1_cords = testBoard.placeShip(testShip1, [3, 5]);
+        testBoard.isPlacingShipVertically = true;
+        ship2_cords = testBoard.placeShip(testShip2, [8, 8]);
+    });
+
+    it('should mark position as \'attacked\'', () => {
+        testBoard.receiveAttack([5, 4]);
+        expect(testBoard.attackedPositions[5, 4]).toEqual(true);
+    });
+
+    xit('should prevent multiple attacks on the same position', () => {
+        testBoard.receiveAttack([5, 4]);
+        expect(testBoard.receiveAttack([5, 4])).toBeFalsy();
+    });
+
+    xit('should prevent out-of-bounds attacks', () => {
+        expect(testBoard.receiveAttack([12, 4])).toBeFalsy();
+        expect(testBoard.receiveAttack([5, 41])).toBeFalsy();
+        expect(testBoard.receiveAttack([5, -1])).toBeFalsy();
+        expect(testBoard.receiveAttack([-2, 4])).toBeFalsy();
+
+    });
+
+    xit('should mark attack as \'missed\' when not hitting ship cord', () => {
+        testBoard.receiveAttack([2, 3]);
+        expect(testBoard.missedAttacks[2, 3]).toEqual(true);
+    });
+
+    xit('should sink a ship with enough hits', () => {
+        expect(testShip1.isSunk).toBe(false);
+
+        testBoard.receiveAttack([3, 5]);
+        testBoard.receiveAttack([4, 5]);
+        testBoard.receiveAttack([5, 5]);
+        testBoard.receiveAttack([6, 5]);
+
+        expect(testShip1.isSunk).toBe(true);
+    });
+
+    xit('should report that all ships have sunk', () => {
+        expect(testBoard.gameOver).toBe(false);
+
+        testBoard.receiveAttack([3, 5]);
+        testBoard.receiveAttack([4, 5]);
+        testBoard.receiveAttack([5, 5]);
+        testBoard.receiveAttack([6, 5]);
+
+        testBoard.receiveAttack([8, 8]);
+        testBoard.receiveAttack([8, 7]);
+        testBoard.receiveAttack([8, 6]);
+
+        expect(testBoard.gameOver).toBe(true);
     });
 });
