@@ -7,6 +7,7 @@ const board = () => {
         shipCount: 0,
         isPlacingShipVertically: false,
         takenPositions: {},
+        attackedPositions: {},
 
         setBoardPos(newPos) {
             this.pos.set(JSON.stringify(newPos), []);
@@ -108,6 +109,14 @@ const board = () => {
             }
 
             return shipCords;
+        },
+        receiveAttack(position) {
+            let attackedPos = JSON.stringify(position);
+
+            if (this.attackedPositions[attackedPos]) {
+                return null;
+            }
+            this.attackedPositions[attackedPos] = true;
         },
     };
 };
