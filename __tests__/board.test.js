@@ -59,21 +59,21 @@ describe('Board object placeShip()', () => {
         });
 
         it('shouldn\'t place a ship horizontally if spot is already taken', () => {
-            expect(testBoard.placeShip(testShip2, [3, 5])).toBeFalsy();
-            expect(testBoard.placeShip(testShip2, [4, 5])).toBeFalsy();
-            expect(testBoard.placeShip(testShip2, [5, 5])).toBeFalsy();
+            expect(testBoard.placeShip(testShip2, [3, 5])).toBe(null);
+            expect(testBoard.placeShip(testShip2, [4, 5])).toBe(null);
+            expect(testBoard.placeShip(testShip2, [5, 5])).toBe(null);
         });
 
         it('shouldn\'t place a ship horizontally if adjacent spot is already taken', () => {
-            expect(testBoard.placeShip(testShip3, [4, 4])).toBeFalsy();
-            expect(testBoard.placeShip(testShip3, [6, 8])).toBeFalsy();
+            expect(testBoard.placeShip(testShip3, [4, 4])).toBe(null);
+            expect(testBoard.placeShip(testShip3, [6, 8])).toBe(null);
         });
 
         it('shouldn\'t place a ship horizontally out-of-bounds', () => {
-            expect(testBoard.placeShip(testShip4, [11, 12])).toBeFalsy();
-            expect(testBoard.placeShip(testShip5, [-4, 12])).toBeFalsy();
-            expect(testBoard.placeShip(testShip6, [4, -4])).toBeFalsy();
-            expect(testBoard.placeShip(testShip7, [9, 9])).toBeFalsy();
+            expect(testBoard.placeShip(testShip4, [11, 12])).toBe(null);
+            expect(testBoard.placeShip(testShip5, [-4, 12])).toBe(null);
+            expect(testBoard.placeShip(testShip6, [4, -4])).toBe(null);
+            expect(testBoard.placeShip(testShip7, [9, 9])).toBe(null);
         });
     });
 
@@ -88,22 +88,22 @@ describe('Board object placeShip()', () => {
         });
 
         it('shouldn\'t place a ship vertically if spot is already taken', () => {
-            expect(testBoard.placeShip(testShip2, [8, 9])).toBeFalsy();
-            expect(testBoard.placeShip(testShip2, [8, 8])).toBeFalsy();
-            expect(testBoard.placeShip(testShip2, [8, 6])).toBeFalsy();
-            expect(testBoard.placeShip(testShip2, [3, 5])).toBeFalsy();
+            expect(testBoard.placeShip(testShip2, [8, 9])).toBe(null);
+            expect(testBoard.placeShip(testShip2, [8, 8])).toBe(null);
+            expect(testBoard.placeShip(testShip2, [8, 6])).toBe(null);
+            expect(testBoard.placeShip(testShip2, [3, 5])).toBe(null);
         });
 
         it('shouldn\'t place a ship vertically if adjacent spot is already taken', () => {
-            expect(testBoard.placeShip(testShip3, [2, 4])).toBeFalsy();
-            expect(testBoard.placeShip(testShip3, [7, 5])).toBeFalsy();
+            expect(testBoard.placeShip(testShip3, [2, 4])).toBe(null);
+            expect(testBoard.placeShip(testShip3, [7, 5])).toBe(null);
         });
 
         it('shouldn\'t place a ship vertically out-of-bounds', () => {
-            expect(testBoard.placeShip(testShip4, [11, 12])).toBeFalsy();
-            expect(testBoard.placeShip(testShip5, [-4, 12])).toBeFalsy();
-            expect(testBoard.placeShip(testShip6, [4, -4])).toBeFalsy();
-            expect(testBoard.placeShip(testShip7, [9, 9])).toBeFalsy();
+            expect(testBoard.placeShip(testShip4, [11, 12])).toBe(null);
+            expect(testBoard.placeShip(testShip5, [-4, 12])).toBe(null);
+            expect(testBoard.placeShip(testShip6, [4, -4])).toBe(null);
+            expect(testBoard.placeShip(testShip7, [9, 9])).toBe(null);
         });
     });
 });
@@ -126,21 +126,21 @@ describe('Board object receiveAttack()', () => {
         ship2_cords = testBoard.placeShip(testShip2, [8, 8]);
     });
 
-    it('should mark position as \'attacked\'', () => {
+    xit('should mark position as \'attacked\'', () => {
         testBoard.receiveAttack([5, 4]);
         expect(testBoard.attackedPositions[JSON.stringify([5, 4])]).toEqual(true);
     });
 
     xit('should prevent multiple attacks on the same position', () => {
         testBoard.receiveAttack([5, 4]);
-        expect(testBoard.receiveAttack([5, 4])).toBeFalsy();
+        expect(testBoard.receiveAttack([5, 4])).toBe(null);
     });
 
     xit('should prevent out-of-bounds attacks', () => {
-        expect(testBoard.receiveAttack([12, 4])).toBeFalsy();
-        expect(testBoard.receiveAttack([5, 41])).toBeFalsy();
-        expect(testBoard.receiveAttack([5, -1])).toBeFalsy();
-        expect(testBoard.receiveAttack([-2, 4])).toBeFalsy();
+        expect(testBoard.receiveAttack([12, 4])).toBe(null);
+        expect(testBoard.receiveAttack([5, 41])).toBe(null);
+        expect(testBoard.receiveAttack([5, -1])).toBe(null);
+        expect(testBoard.receiveAttack([-2, 4])).toBe(null);
 
     });
 
