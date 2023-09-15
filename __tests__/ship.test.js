@@ -1,4 +1,4 @@
-import { ship } from '../ship';
+import { ship } from '../src/modules/ship';
 
 
 

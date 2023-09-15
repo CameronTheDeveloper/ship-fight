@@ -1,5 +1,5 @@
-import { board } from '../board';
-import { ship } from '../ship';
+import { board } from '../src/modules/board';
+import { ship } from '../src/modules/ship';
 
 describe('Board initialization and properties', () => {
     let testBoard;
