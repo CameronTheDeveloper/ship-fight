@@ -26,7 +26,7 @@ const board = () => {
                 let parsedPosition = JSON.parse([position]);
                 for (let adjPosDistance of adjPosDistances) {
                     let xPos = parsedPosition[0] + adjPosDistance[0];
-                    let yPos = parsedPosition[0] + adjPosDistance[1];
+                    let yPos = parsedPosition[1] + adjPosDistance[1];
                     if (xPos >= 1 && yPos >= 1 && xPos <= this.width && yPos <= this.length) {
                         let adjPosition = [xPos, yPos];
                         this.setBoardAdjPos(position, adjPosition);
