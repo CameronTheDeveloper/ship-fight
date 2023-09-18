@@ -97,7 +97,7 @@ describe('Board object placeShip()', () => {
             expect(testBoard.placeShip(testShip4, [11, 12])).toBe(null);
             expect(testBoard.placeShip(testShip4, [-4, 12])).toBe(null);
             expect(testBoard.placeShip(testShip4, [4, -4])).toBe(null);
-            expect(testBoard.placeShip(testShip4, [9, 9])).toBe(null);
+            expect(testBoard.placeShip(testShip4, [9, 1])).toBe(null);
         });
     });
 });
