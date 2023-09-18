@@ -8,6 +8,7 @@ const board = () => {
         isPlacingShipVertically: false,
         takenPositions: {},
         attackedPositions: {},
+        missedAttacks: {},
 
         setBoardPos(newPos) {
             this.pos.set(JSON.stringify(newPos), []);
@@ -129,6 +130,10 @@ const board = () => {
             if (this._outOfBounds(position) ||
                 this.attackedPositions[position]) {
                 return null;
+            }
+
+            if (!this.takenPositions[position]) {
+                this.missedAttacks[position] = true;
             }
 
             this.attackedPositions[position] = true;

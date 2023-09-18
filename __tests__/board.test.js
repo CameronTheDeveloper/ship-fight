@@ -138,16 +138,17 @@ describe('Board object receiveAttack()', () => {
 
     });
 
+    it('should mark attack as \'missed\' when not hitting ship cord', () => {
+        testBoard.receiveAttack([2, 3]);
+        expect(testBoard.missedAttacks[[2, 3]]).toEqual(true);
+    });
+
     xit('should add hits to the correct ship', () => {
         testBoard.receiveAttack([3, 5]);
         testBoard.receiveAttack([4, 5]);
         expect(testShip1.hits).toBe(2);
     });
 
-    xit('should mark attack as \'missed\' when not hitting ship cord', () => {
-        testBoard.receiveAttack([2, 3]);
-        expect(testBoard.missedAttacks[[2, 3]]).toEqual(true);
-    });
 
     xit('should sink a ship with enough hits', () => {
         expect(testShip1.isSunk).toBe(false);
