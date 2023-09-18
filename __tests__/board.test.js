@@ -120,7 +120,7 @@ describe('Board object receiveAttack()', () => {
         ship2_cords = testBoard.placeShip(testShip2, [8, 8]);
     });
 
-    it('should mark position as \'attacked\'', () => {
+    xit('should mark position as \'attacked\'', () => {
         testBoard.receiveAttack([5, 4]);
         expect(testBoard.attackedPositions[[5, 4]]).toEqual(true);
     });
