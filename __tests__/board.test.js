@@ -120,7 +120,7 @@ describe('Board object receiveAttack()', () => {
         ship2_cords = testBoard.placeShip(testShip2, [8, 8]);
     });
 
-    xit('should mark position as \'attacked\'', () => {
+    xit('should record position as \'attacked\'', () => {
         testBoard.receiveAttack([5, 4]);
         expect(testBoard.attackedPositions[[5, 4]]).toEqual(true);
     });
@@ -138,7 +138,7 @@ describe('Board object receiveAttack()', () => {
 
     });
 
-    it('should mark attack as \'missed\' when not hitting ship cord', () => {
+    it('should record attack as \'missed\' when not hitting ship cord', () => {
         testBoard.receiveAttack([2, 3]);
         expect(testBoard.missedAttacks[[2, 3]]).toEqual(true);
     });
