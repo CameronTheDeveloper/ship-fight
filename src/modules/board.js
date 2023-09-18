@@ -92,7 +92,7 @@ const board = () => {
         },
 
         _placeShipAdjCords(shipCords) {
-            let shipCord;
+            let shipCord = [];
             for (let i = 0; i < shipCords.length; i++) {
                 shipCord = this.pos.get(JSON.stringify(shipCords[i]));
                 for (let adjCord of shipCord) {
@@ -104,7 +104,7 @@ const board = () => {
         placeShip(ship, headCord) {
             let xCord = headCord[0];
             let yCord = headCord[1];
-            let shipCords;
+            let shipCords = [];
 
             if (this._outOfBounds(headCord)) {
                 return null;

@@ -4,7 +4,7 @@ import { ship } from '../src/modules/ship';
 
 describe('Ship object', () => {
 
-    let ship1;
+    let ship1 = null;
 
     beforeEach(() => {
         ship1 = ship(3);

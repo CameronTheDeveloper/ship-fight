@@ -2,7 +2,7 @@ import { board } from '../src/modules/board';
 import { ship } from '../src/modules/ship';
 
 describe('Board initialization and properties', () => {
-    let testBoard;
+    let testBoard = null;
 
     beforeEach(() => {
         testBoard = board();
@@ -20,14 +20,14 @@ describe('Board initialization and properties', () => {
 
 describe('Board object placeShip()', () => {
 
-    let testBoard;
-    let testShip1;
-    let testShip2;
-    let testShip3;
-    let testShip4;
+    let testBoard = null;
+    let testShip1 = null;
+    let testShip2 = null;
+    let testShip3 = null;
+    let testShip4 = null;
 
-    let ship1_cords;
-    let ship2_cords;
+    let ship1_cords = null;
+    let ship2_cords = null;
 
     beforeEach(() => {
         testBoard = board();
@@ -103,11 +103,11 @@ describe('Board object placeShip()', () => {
 });
 
 describe('Board object receiveAttack()', () => {
-    let testBoard;
-    let testShip1;
-    let testShip2;
-    let ship1_cords;
-    let ship2_cords;
+    let testBoard = null;
+    let testShip1 = null;
+    let testShip2 = null;
+    let ship1_cords = null;
+    let ship2_cords = null;
 
     beforeEach(() => {
         testBoard = board();
