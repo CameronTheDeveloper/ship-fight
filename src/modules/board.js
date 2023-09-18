@@ -125,14 +125,13 @@ const board = () => {
         },
 
         receiveAttack(position) {
-            let attackedPos = JSON.stringify(position);
 
             if (this._outOfBounds(position) ||
-                this.attackedPositions[attackedPos]) {
+                this.attackedPositions[position]) {
                 return null;
             }
 
-            this.attackedPositions[attackedPos] = true;
+            this.attackedPositions[position] = true;
         },
     };
 };
