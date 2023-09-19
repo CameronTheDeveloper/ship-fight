@@ -184,7 +184,7 @@ describe('Board object gameIsOver', () => {
         ship2_cords = testBoard.placeShip(testShip2, [8, 8]);
     });
 
-    xit('shouldn\'t report \'game over\' if ships are still alive', () => {
+    it('shouldn\'t report \'game over\' if ships are still alive', () => {
         testBoard.receiveAttack([3, 5]);
         testBoard.receiveAttack([4, 5]);
         testBoard.receiveAttack([5, 5]);
@@ -193,7 +193,7 @@ describe('Board object gameIsOver', () => {
         expect(testBoard.gameIsOver()).toBe(false);
     });
 
-    xit('should report \'game over\' if all ships have sunk', () => {
+    it('should report \'game over\' if all ships have sunk', () => {
         testBoard.receiveAttack([3, 5]);
         testBoard.receiveAttack([4, 5]);
         testBoard.receiveAttack([5, 5]);
@@ -203,6 +203,6 @@ describe('Board object gameIsOver', () => {
         testBoard.receiveAttack([8, 7]);
         testBoard.receiveAttack([8, 6]);
 
-        expect(testBoard.gameIsOver).toBe(true);
+        expect(testBoard.gameIsOver()).toBe(true);
     });
 });

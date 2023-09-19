@@ -163,6 +163,10 @@ const board = () => {
 
             this.attackedPositions[position] = true;
         },
+
+        gameIsOver() {
+            return this.shipCount <= 0;
+        },
     };
 };
 
