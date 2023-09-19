@@ -140,6 +140,14 @@ const board = () => {
             return shipCords;
         },
 
+        _hitShip(position) {
+            let ship = this._getShip(position);
+            ship.hit();
+            if (ship.hasSunk()) {
+                this.shipCount--;
+            }
+        },
+
         receiveAttack(position) {
 
             if (this._outOfBounds(position) ||
@@ -150,9 +158,7 @@ const board = () => {
             if (!this._posTaken(position)) {
                 this.missedAttacks[position] = true;
             } else {
-                let ship = this._getShip(position);
-                ship.hit();
-                ship.checkIfSunk();
+                this._hitShip(position);
             }
 
             this.attackedPositions[position] = true;

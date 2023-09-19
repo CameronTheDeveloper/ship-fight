@@ -18,16 +18,15 @@ describe('Ship object', () => {
 
     it('should not sink without enough hits', () => {
         ship1.hit();
-        ship1.checkIfSunk();
-        expect(ship1.isSunk).toBe(false);
+        expect(ship1.hasSunk()).toBe(false);
     });
 
     it('should sink with enough hits', () => {
         ship1.hit();
         ship1.hit();
         ship1.hit();
-        ship1.checkIfSunk();
-        expect(ship1.isSunk).toBe(true);
+
+        expect(ship1.hasSunk()).toBe(true);
     });
 });
 
