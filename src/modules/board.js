@@ -135,16 +135,26 @@ const board = () => {
             if (shipCords) {
                 this._placeShipAdjCords(shipCords);
                 this.shipCount++;
+                return JSON.stringify(shipCords);
             }
 
             return shipCords;
+        },
+
+        // _attackAdjacentPositions(ship) {
+
+        // },
+
+        _sinkShip(shipLength) {
+            this.shipCount--;
+            // this._attackAdjacentPositions(shipLength);
         },
 
         _hitShip(position) {
             let ship = this._getShip(position);
             ship.hit();
             if (ship.hasSunk()) {
-                this.shipCount--;
+                this._sinkShip(ship.length);
             }
         },
 

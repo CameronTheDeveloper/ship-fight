@@ -2,7 +2,7 @@ const ship = (length) => {
     return {
         length: length,
         hits: 0,
-
+        cords: [],
         hit() {
             this.hits++;
         },
