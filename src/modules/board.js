@@ -24,7 +24,7 @@ const board = () => {
         },
 
         _posTaken(cord) {
-            return this.shipCord.get(cord);
+            return this.shipCord.get(JSON.stringify(cord));
         },
 
         _connectAdjPositions() {
@@ -143,12 +143,9 @@ const board = () => {
                 return null;
             }
 
-            if (!this.takenPositions[position]) {
+            if (!this._posTaken(position)) {
                 this.missedAttacks[position] = true;
             }
-
-            //Get ship that is in the position
-            //Add hit to that ship
 
             this.attackedPositions[position] = true;
         },
