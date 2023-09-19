@@ -23,6 +23,10 @@ const board = () => {
             this.shipCord.set(JSON.stringify(cord), ship);
         },
 
+        _getShip(cord) {
+            return this.shipCord.get(JSON.stringify(cord));
+        },
+
         _posTaken(cord) {
             return this.shipCord.get(JSON.stringify(cord));
         },
@@ -145,6 +149,9 @@ const board = () => {
 
             if (!this._posTaken(position)) {
                 this.missedAttacks[position] = true;
+            } else {
+                let ship = this._getShip(position);
+                ship.hit();
             }
 
             this.attackedPositions[position] = true;

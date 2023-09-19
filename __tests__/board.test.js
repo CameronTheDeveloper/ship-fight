@@ -149,7 +149,7 @@ describe('Board object receiveAttack()', () => {
 
     });
 
-    xit('should add hits to the correct ship', () => {
+    it('should add hits to the correct ship', () => {
         testBoard.receiveAttack([3, 5]);
         testBoard.receiveAttack([4, 5]);
         expect(testShip1.hits).toBe(2);
