@@ -2,6 +2,7 @@ const board = () => {
 
     return {
         pos: new Map(),
+        shipCord: new Map(),
         length: 0,
         width: 0,
         shipCount: 0,
@@ -10,12 +11,20 @@ const board = () => {
         attackedPositions: {},
         missedAttacks: {},
 
-        setBoardPos(newPos) {
+        _setBoardPos(newPos) {
             this.pos.set(JSON.stringify(newPos), []);
         },
 
-        setBoardAdjPos(position, adjPosition) {
+        _setBoardAdjPos(position, adjPosition) {
             this.pos.get(position).push(adjPosition);
+        },
+
+        _setShipCord(cord, ship) {
+            this.shipCord.set(JSON.stringify(cord), ship);
+        },
+
+        _posTaken(cord) {
+            return this.shipCord.get(cord);
         },
 
         _connectAdjPositions() {
@@ -30,7 +39,7 @@ const board = () => {
                     let yPos = parsedPosition[1] + adjPosDistance[1];
                     if (xPos >= 1 && yPos >= 1 && xPos <= this.width && yPos <= this.length) {
                         let adjPosition = [xPos, yPos];
-                        this.setBoardAdjPos(position, adjPosition);
+                        this._setBoardAdjPos(position, adjPosition);
                     }
                 }
             }
@@ -42,7 +51,7 @@ const board = () => {
 
             for (let i = 1; i <= this.width; i++) {
                 for (let j = 1; j <= this.length; j++) {
-                    this.setBoardPos([i, j]);
+                    this._setBoardPos([i, j]);
                 }
             }
             this._connectAdjPositions();
@@ -60,33 +69,35 @@ const board = () => {
             }
         },
 
-        _placeShipHorizontally(xCord, yCord, shipLength) {
+        _placeShipHorizontally(xCord, yCord, ship) {
             let shipCordsAr = [];
             let shipCord = [];
 
-            for (let i = 0; i < shipLength; i++) {
+            for (let i = 0; i < ship.length; i++) {
                 shipCord = [xCord + i, yCord];
                 if (this.takenPositions[shipCord] ||
                     this._outOfBounds(shipCord)) {
                     return null;
                 }
                 this.takenPositions[shipCord] = true;
+                this._setShipCord(shipCord, ship);
                 shipCordsAr.push(shipCord);
             }
             return shipCordsAr;
         },
 
-        _placeShipVertically(xCord, yCord, shipLength) {
+        _placeShipVertically(xCord, yCord, ship) {
             let shipCordsAr = [];
             let shipCord = [];
 
-            for (let i = 0; i < shipLength; i++) {
+            for (let i = 0; i < ship.length; i++) {
                 shipCord = [xCord, yCord - i];
                 if (this.takenPositions[shipCord] ||
                     this._outOfBounds(shipCord)) {
                     return null;
                 }
                 this.takenPositions[shipCord] = true;
+                this._setShipCord(shipCord, ship);
                 shipCordsAr.push(shipCord);
             }
             return shipCordsAr;
@@ -112,9 +123,9 @@ const board = () => {
             }
 
             if (this.isPlacingShipVertically) {
-                shipCords = this._placeShipVertically(xCord, yCord, ship.length);
+                shipCords = this._placeShipVertically(xCord, yCord, ship);
             } else {
-                shipCords = this._placeShipHorizontally(xCord, yCord, ship.length);
+                shipCords = this._placeShipHorizontally(xCord, yCord, ship);
             }
 
             if (shipCords) {
@@ -135,6 +146,9 @@ const board = () => {
             if (!this.takenPositions[position]) {
                 this.missedAttacks[position] = true;
             }
+
+            //Get ship that is in the position
+            //Add hit to that ship
 
             this.attackedPositions[position] = true;
         },
