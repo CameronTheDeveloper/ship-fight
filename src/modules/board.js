@@ -152,6 +152,7 @@ const board = () => {
             } else {
                 let ship = this._getShip(position);
                 ship.hit();
+                ship.checkIfSunk();
             }
 
             this.attackedPositions[position] = true;

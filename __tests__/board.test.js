@@ -155,7 +155,7 @@ describe('Board object receiveAttack()', () => {
         expect(testShip1.hits).toBe(2);
     });
 
-    xit('should sink a ship with enough hits', () => {
+    it('should sink a ship with enough hits', () => {
         expect(testShip1.isSunk).toBe(false);
 
         testBoard.receiveAttack([3, 5]);
