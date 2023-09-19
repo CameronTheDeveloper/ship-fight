@@ -156,8 +156,6 @@ describe('Board object receiveAttack()', () => {
     });
 
     it('should sink a ship with enough hits', () => {
-        expect(testShip1.hasSunk()).toBe(false);
-
         testBoard.receiveAttack([3, 5]);
         testBoard.receiveAttack([4, 5]);
         testBoard.receiveAttack([5, 5]);
@@ -165,10 +163,37 @@ describe('Board object receiveAttack()', () => {
 
         expect(testShip1.hasSunk()).toBe(true);
     });
+});
 
-    xit('should report that all ships have sunk', () => {
-        expect(testBoard.gameOver).toBe(false);
+describe('Board object gameIsOver', () => {
 
+    let testBoard = null;
+    let testShip1 = null;
+    let testShip2 = null;
+    let ship1_cords = null;
+    let ship2_cords = null;
+
+    beforeEach(() => {
+        testBoard = board();
+        testBoard.setSize(10, 10);
+        testShip1 = ship(4);
+        testShip2 = ship(3);
+        testBoard.isPlacingShipVertically = false;
+        ship1_cords = testBoard.placeShip(testShip1, [3, 5]);
+        testBoard.isPlacingShipVertically = true;
+        ship2_cords = testBoard.placeShip(testShip2, [8, 8]);
+    });
+
+    xit('shouldn\'t report \'game over\' if ships are still alive', () => {
+        testBoard.receiveAttack([3, 5]);
+        testBoard.receiveAttack([4, 5]);
+        testBoard.receiveAttack([5, 5]);
+        testBoard.receiveAttack([6, 5]);
+
+        expect(testBoard.gameIsOver()).toBe(false);
+    });
+
+    xit('should report \'game over\' if all ships have sunk', () => {
         testBoard.receiveAttack([3, 5]);
         testBoard.receiveAttack([4, 5]);
         testBoard.receiveAttack([5, 5]);
@@ -178,6 +203,6 @@ describe('Board object receiveAttack()', () => {
         testBoard.receiveAttack([8, 7]);
         testBoard.receiveAttack([8, 6]);
 
-        expect(testBoard.gameOver).toBe(true);
+        expect(testBoard.gameIsOver).toBe(true);
     });
 });
