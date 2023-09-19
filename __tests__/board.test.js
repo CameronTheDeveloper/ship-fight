@@ -120,7 +120,7 @@ describe('Board object receiveAttack()', () => {
         ship2_cords = testBoard.placeShip(testShip2, [8, 8]);
     });
 
-    xit('should record position as \'attacked\'', () => {
+    it('should record position as \'attacked\'', () => {
         testBoard.receiveAttack([5, 4]);
         expect(testBoard.attackedPositions[[5, 4]]).toEqual(true);
     });
@@ -143,12 +143,17 @@ describe('Board object receiveAttack()', () => {
         expect(testBoard.missedAttacks[[2, 3]]).toEqual(true);
     });
 
+    it('should record missed attack on adjacent ship cord', () => {
+        testBoard.receiveAttack([3, 4]);
+        expect(testBoard.missedAttacks[[3, 4]]).toEqual(true);
+
+    });
+
     xit('should add hits to the correct ship', () => {
         testBoard.receiveAttack([3, 5]);
         testBoard.receiveAttack([4, 5]);
         expect(testShip1.hits).toBe(2);
     });
-
 
     xit('should sink a ship with enough hits', () => {
         expect(testShip1.isSunk).toBe(false);
