@@ -159,7 +159,7 @@ describe('Board object receiveAttack()', () => {
         expect(testShip1.hasSunk()).toBe(true);
     });
 
-    xit('should mark ship\'s adjacent positions as attacked when ship sinks', () => {
+    it('should mark ship\'s adjacent positions as attacked when ship sinks', () => {
         testBoard.receiveAttack([3, 5]);
         testBoard.receiveAttack([4, 5]);
         testBoard.receiveAttack([5, 5]);

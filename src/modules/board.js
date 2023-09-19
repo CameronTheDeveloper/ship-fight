@@ -141,20 +141,27 @@ const board = () => {
             return shipCords;
         },
 
-        // _attackAdjacentPositions(ship) {
+        _attackAdjacentPositions(ship) {
+            const parsedShipCords = JSON.parse(ship.cords);
+            for (let i = 0; i < parsedShipCords.length; i++) {
+                let key = JSON.stringify(parsedShipCords[i]);
+                let adjCords = this.pos.get(key);
+                for (let adjCord of adjCords) {
+                    this.attackedPositions[adjCord] = true;
+                }
+            }
+        },
 
-        // },
-
-        _sinkShip(shipLength) {
+        _sinkShip(ship) {
             this.shipCount--;
-            // this._attackAdjacentPositions(shipLength);
+            this._attackAdjacentPositions(ship);
         },
 
         _hitShip(position) {
             let ship = this._getShip(position);
             ship.hit();
             if (ship.hasSunk()) {
-                this._sinkShip(ship.length);
+                this._sinkShip(ship);
             }
         },
 
