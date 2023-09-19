@@ -163,6 +163,18 @@ describe('Board object receiveAttack()', () => {
 
         expect(testShip1.hasSunk()).toBe(true);
     });
+
+    it('should mark ship\'s adjacent positions as attacked when ship sinks', () => {
+        testBoard.receiveAttack([3, 5]);
+        testBoard.receiveAttack([4, 5]);
+        testBoard.receiveAttack([5, 5]);
+        testBoard.receiveAttack([6, 5]);
+
+        expect(testBoard.attackedPositions[[2, 5]]).toEqual(true);
+        expect(testBoard.attackedPositions[[4, 6]]).toEqual(true);
+        expect(testBoard.attackedPositions[[5, 4]]).toEqual(true);
+        expect(testBoard.attackedPositions[[7, 5]]).toEqual(true);
+    });
 });
 
 describe('Board object gameIsOver', () => {
