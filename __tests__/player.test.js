@@ -20,6 +20,7 @@ describe('Player object', () => {
         player2.playerBoard.placeShip(ship1, [2, 2]);
         player1.enemy = player2;
         player2.enemy = player1;
+        player1.turn = true;
     });
 
     it('should be able to attack enemy game board position', () => {
@@ -27,9 +28,9 @@ describe('Player object', () => {
         expect(player2.playerBoard.attackedPositions[[5, 4]]).toEqual(true);
     });
 
-    xit('should prevent attacks after a miss', () => {
+    it('should prevent attacks after a miss', () => {
         player1.attackPos([5, 4]);
-        expect(player1.attackPos[7, 2]).toBe(null);
+        expect(player1.attackPos([7, 2])).toBe(null);
     });
 
     xit('should attack again after a hit', () => {
