@@ -135,16 +135,14 @@ const board = () => {
             if (shipCords) {
                 this._placeShipAdjCords(shipCords);
                 this.shipCount++;
-                return JSON.stringify(shipCords);
             }
 
             return shipCords;
         },
 
         _attackAdjacentPositions(ship) {
-            const parsedShipCords = JSON.parse(ship.cords);
-            for (let i = 0; i < parsedShipCords.length; i++) {
-                let key = JSON.stringify(parsedShipCords[i]);
+            for (let i = 0; i < ship.cords.length; i++) {
+                let key = JSON.stringify(ship.cords[i]);
                 let adjCords = this.pos.get(key);
                 for (let adjCord of adjCords) {
                     this.attackedPositions[adjCord] = true;

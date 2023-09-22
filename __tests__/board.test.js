@@ -46,7 +46,7 @@ describe('Board object placeShip()', () => {
         });
 
         it('should place a ship horizontally', () => {
-            expect(testShip1.cords).toEqual(JSON.stringify([[3, 5], [4, 5], [5, 5], [6, 5]]));
+            expect(testShip1.cords).toEqual([[3, 5], [4, 5], [5, 5], [6, 5]]);
         });
 
         it('shouldn\'t place a ship horizontally if spot is already taken', () => {
@@ -75,7 +75,7 @@ describe('Board object placeShip()', () => {
         });
 
         it('should place a ship vertically', () => {
-            expect(testShip2.cords).toEqual(JSON.stringify([[8, 8], [8, 7], [8, 6]]));
+            expect(testShip2.cords).toEqual([[8, 8], [8, 7], [8, 6]]);
         });
 
         it('shouldn\'t place a ship vertically if spot is already taken', () => {
