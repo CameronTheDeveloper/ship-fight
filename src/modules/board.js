@@ -179,6 +179,8 @@ const board = () => {
             }
 
             this.attackedPositions[position] = true;
+
+            return position;
         },
 
         gameIsOver() {
