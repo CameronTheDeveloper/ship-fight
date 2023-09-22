@@ -1,5 +1,7 @@
 import { board } from "../src/modules/board";
 import { ship } from "../src/modules/ship";
+import { player } from "../src/modules/player";
+
 
 describe('Player object', () => {
     let player1;
@@ -16,9 +18,11 @@ describe('Player object', () => {
         player1.playerBoard.setSize(10, 10);
         player2.playerBoard.setSize(10, 10);
         player2.playerBoard.placeShip(ship1, [2, 2]);
+        player1.enemy = player2;
+        player2.enemy = player1;
     });
 
-    xit('should be able to attack enemy game board position', () => {
+    it('should be able to attack enemy game board position', () => {
         player1.attackPos([5, 4]);
         expect(player2.playerBoard.attackedPositions[[5, 4]]).toEqual(true);
     });
