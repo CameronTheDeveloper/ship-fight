@@ -8,7 +8,6 @@ const board = () => {
         shipCount: 0,
         isPlacingShipVertically: false,
         takenPositions: {},
-        attackedPositions: {},
         availableAttacks: [],
         missedAttacks: {},
 
@@ -45,6 +44,10 @@ const board = () => {
         _removeAvailableAttack(position) {
             const posIndex = this.availableAttacks.indexOf(JSON.stringify(position));
             this.availableAttacks.splice(posIndex, 1);
+        },
+
+        _attackIsAvailable(position) {
+            return this.availableAttacks.includes(JSON.stringify(position));
         },
 
         _connectAdjPositions() {
@@ -161,7 +164,7 @@ const board = () => {
                 let key = JSON.stringify(ship.cords[i]);
                 let adjCords = this.pos.get(key);
                 for (let adjCord of adjCords) {
-                    this.attackedPositions[adjCord] = true;
+                    this._removeAvailableAttack(adjCord);
                 }
             }
         },
@@ -182,7 +185,7 @@ const board = () => {
         receiveAttack(position) {
 
             if (this._outOfBounds(position) ||
-                this.attackedPositions[position]) {
+                !this._attackIsAvailable(position)) {
                 return null;
             }
 
@@ -192,7 +195,7 @@ const board = () => {
                 this._hitShip(position);
             }
 
-            this.attackedPositions[position] = true;
+            this._removeAvailableAttack(position);
 
             return position;
         },
