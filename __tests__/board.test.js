@@ -115,11 +115,6 @@ describe('Board object receiveAttack()', () => {
         testShip2.cords = testBoard.placeShip(testShip2, [8, 8]);
     });
 
-    it('should record position as \'attacked\'', () => {
-        testBoard.receiveAttack([5, 4]);
-        expect(testBoard.attackedPositions[[5, 4]]).toEqual(true);
-    });
-
     it('should prevent multiple attacks on the same position', () => {
         testBoard.receiveAttack([5, 4]);
         expect(testBoard.receiveAttack([5, 4])).toBe(null);
@@ -159,16 +154,16 @@ describe('Board object receiveAttack()', () => {
         expect(testShip1.hasSunk()).toBe(true);
     });
 
-    it('should mark ship\'s adjacent positions as attacked when ship sinks', () => {
+    it('should prevent attacks on sunk ship adjacent positions', () => {
         testBoard.receiveAttack([3, 5]);
         testBoard.receiveAttack([4, 5]);
         testBoard.receiveAttack([5, 5]);
         testBoard.receiveAttack([6, 5]);
 
-        expect(testBoard.attackedPositions[[2, 5]]).toEqual(true);
-        expect(testBoard.attackedPositions[[4, 6]]).toEqual(true);
-        expect(testBoard.attackedPositions[[5, 4]]).toEqual(true);
-        expect(testBoard.attackedPositions[[7, 5]]).toEqual(true);
+        expect(testBoard.receiveAttack([2, 5])).toBe(null);
+        expect(testBoard.receiveAttack([4, 6])).toBe(null);
+        expect(testBoard.receiveAttack([7, 5])).toBe(null);
+        expect(testBoard.receiveAttack([5, 4])).toBe(null);
     });
 });
 
