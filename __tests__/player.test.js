@@ -25,7 +25,7 @@ describe('Player object', () => {
 
     it('should be able to attack enemy game board position', () => {
         player1.attackPos([5, 4]);
-        expect(player2.playerBoard.attackedPositions[[5, 4]]).toEqual(true);
+        expect(player2.playerBoard.missedAttacks[[5, 4]]).toEqual(true);
     });
 
     it('should prevent attacks after a miss', () => {
@@ -33,10 +33,9 @@ describe('Player object', () => {
         expect(player1.attackPos([7, 2])).toBe(null);
     });
 
-    xit('should attack again after a hit', () => {
+    it('should attack again after a hit', () => {
         player1.attackPos([2, 2]);
-        player1.attackPos([7, 2]);
-        expect(player2.playerBoard.attackedPositions[[7, 2]]).toEqual(true);
+        expect(player1.attackPos([7, 2])).not.toBe(null);;
     });
 });
 

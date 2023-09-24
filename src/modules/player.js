@@ -21,6 +21,7 @@ const player = (name = 'player') => {
             if (!this.enemy.playerBoard.takenPositions[[attackedPos]]) {
                 this._switchTurn();
             }
+            return attackedPos;
         },
     };
 };
