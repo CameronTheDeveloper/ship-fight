@@ -9,10 +9,21 @@ const board = () => {
         isPlacingShipVertically: false,
         takenPositions: {},
         attackedPositions: {},
+        availableAttacks: [],
         missedAttacks: {},
 
+        _addPosition(stringPos) {
+            this.pos.set(stringPos, []);
+        },
+
+        _addAvailableAttack(stringPos) {
+            this.availableAttacks.push(stringPos);
+        },
+
         _setBoardPos(newPos) {
-            this.pos.set(JSON.stringify(newPos), []);
+            let stringPos = JSON.stringify(newPos);
+            this._addPosition(stringPos);
+            this._addAvailableAttack(stringPos);
         },
 
         _setBoardAdjPos(position, adjPosition) {
