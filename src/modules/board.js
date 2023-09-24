@@ -42,6 +42,11 @@ const board = () => {
             return this.shipCord.get(JSON.stringify(cord));
         },
 
+        _removeAvailableAttack(position) {
+            const posIndex = this.availableAttacks.indexOf(JSON.stringify(position));
+            this.availableAttacks.splice(posIndex, 1);
+        },
+
         _connectAdjPositions() {
             const adjPosDistances = [[0, 1], [1, 1], [1, 0], [1, -1],
             [0, -1], [-1, -1], [-1, 0], [-1, 1]];
