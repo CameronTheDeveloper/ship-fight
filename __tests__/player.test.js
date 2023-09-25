@@ -40,7 +40,7 @@ describe('Player object', () => {
 });
 
 
-xdescribe('Player AI', () => {
+describe('Computer player', () => {
     let player1;
     let player2;
 
@@ -51,15 +51,29 @@ xdescribe('Player AI', () => {
         player1.playerBoard = board();
         player2.playerBoard = board();
 
-        player1.playerBoard.setSize(10, 10);
-        player2.playerBoard.setSize(10, 10);
+        player1.playerBoard.setSize(2, 2);
+        player2.playerBoard.setSize(2, 2);
+
+        player1.enemy = player2;
+        player2.enemy = player1;
+        player2.turn = true;
     });
 
-    xit('should attack a random position', () => {
-
+    it('should attack a valid random board position', () => {
+        expect(player2.attackRandomPos()).not.toBe(null);
     });
 
-    xit('should prevent attacking already attacked positions', () => {
+    it('should be able to attack the whole enemy board', () => {
+        player2.attackRandomPos();
+        player2.turn = true;
+        player2.attackRandomPos();
+        player2.turn = true;
+        player2.attackRandomPos();
+        player2.turn = true;
+        player2.attackRandomPos();
 
+        expect(player1.playerBoard.availableAttacks.length).toBe(0);
     });
+
+
 });
