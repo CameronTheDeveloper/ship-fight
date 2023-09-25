@@ -1,2 +1,4 @@
 node_modules/
 pseudo.txt
+dist/main.js
+dist/main.js.map
