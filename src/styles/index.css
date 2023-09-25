@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+#container {
+    display: grid;
+    grid-template-rows: 2fr 14fr 1fr;
+    height: 49.5em
+}
+
+#header {
+    background-color: rgb(194, 178, 128);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+}
+
+#content {
+    background-color: rgb(42, 68, 237);
+}
+
+#footer {
+    background-color: rgb(194, 178, 128);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+}
