@@ -11,6 +11,17 @@
 .board-top {
     border-bottom: 2px solid black;
     display: grid;
+    grid-template-rows: 1fr 1fr;
     place-content: center;
-    padding: 1rem;
+    padding: .7rem;
+}
+
+.player-name {
+    padding: .2rem;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: .2rem
 }
