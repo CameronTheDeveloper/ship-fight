@@ -1,0 +1,16 @@
+#board-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-content: center;
+}
+
+.board {
+    border: 2px solid black;
+}
+
+.board-top {
+    border-bottom: 2px solid black;
+    display: grid;
+    place-content: center;
+    padding: 1rem;
+}

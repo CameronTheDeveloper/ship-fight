@@ -19,6 +19,8 @@
 
 #content {
     background-color: rgb(42, 68, 237);
+    display: grid;
+    place-content: center;
 }
 
 #footer {
