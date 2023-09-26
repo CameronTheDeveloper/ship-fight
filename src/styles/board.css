@@ -5,11 +5,12 @@
 }
 
 .board {
-    border: 2px solid black;
+    border: 4px solid black;
+    margin: 2rem
 }
 
 .board-top {
-    border-bottom: 2px solid black;
+    border-bottom: 3px groove black;
     display: grid;
     grid-template-rows: 1fr 1fr;
     place-content: center;
