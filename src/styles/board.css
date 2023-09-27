@@ -26,3 +26,13 @@
     grid-template-columns: 1fr 1fr;
     padding: .2rem
 }
+
+.board-positions {
+    display: grid;
+}
+
+.board-pos {
+    height: 1rem;
+    width: 1rem;
+    border: 1px solid black;
+}
