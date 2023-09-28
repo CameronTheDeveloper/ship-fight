@@ -1,4 +1,5 @@
 import { addBoardPosAttributes } from "./attributes";
+import { addPosMouseEvents } from "./user-input";
 
 const addDiv = (parent) => {
     const newDiv = document.createElement('div');
@@ -16,6 +17,7 @@ const displayBoardPositions = (board, boardParent) => {
         for (let y = 0; y < board.length; y++) {
             let posDiv = addDiv(boardParent);
             addBoardPosAttributes(posDiv, x, y);
+            addPosMouseEvents(posDiv);
         }
     }
     setGridTemplate(boardParent, board.width, board.length);
