@@ -14,14 +14,13 @@ const player = (name = 'player') => {
             if (!this.turn) {
                 return null;
             }
-            let attackedPos = [];
 
-            attackedPos = this.enemy.playerBoard.receiveAttack(cord);
+            let attackHit = this.enemy.playerBoard.receiveAttack(cord);
 
-            if (!this.enemy.playerBoard.takenPositions[[attackedPos]]) {
+            if (!attackHit) {
                 this._switchTurn();
             }
-            return attackedPos;
+            return attackHit;
         },
 
         _getRandomAttackPos() {
