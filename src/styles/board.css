@@ -45,12 +45,17 @@
     height: 100%;
     width: 100%;
     border: 1px solid black;
-}
-
-.board-pos {
     cursor: pointer;
 }
 
 .board-pos.attacked {
     cursor: not-allowed;
+}
+
+.board-pos.attacked.hit {
+    background-color: rgb(89, 255, 0);
+}
+
+.board-pos.attacked.miss {
+    background-color: rgb(95, 5, 5);
 }
