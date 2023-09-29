@@ -24,4 +24,16 @@ const addBoardPositions = (board, boardParent, boardSide) => {
     }
 };
 
+const placeShipCord = (divID) => {
+    const shipDiv = document.getElementById(divID);
+    shipDiv.classList.add('taken');
+};
+
+const placeShipDOM = (shipCords, boardSide) => {
+    for (let i = 0; i < shipCords.length; i++) {
+        let divID = `${boardSide}-${shipCords[i]}`;
+        placeShipCord(divID);
+    }
+};
+
 export { addBoardPositions };
