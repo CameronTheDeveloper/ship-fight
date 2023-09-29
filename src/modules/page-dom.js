@@ -18,7 +18,7 @@ const addBoardPositions = (board, boardParent) => {
         for (let x = 1; x <= board.width; x++) {
             let posDiv = addDiv(boardParent);
             addBoardPosAttributes(posDiv, x, y);
-            addPosMouseEvents(posDiv);
+            addPosMouseEvents(posDiv, board, [x, y]);
         }
     }
 };

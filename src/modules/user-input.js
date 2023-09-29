@@ -1,10 +1,19 @@
-const addUserAttack = (posDiv) => {
-    posDiv.classList.add('attacked');
+const addUserAttack = (posDiv, board, pos) => {
+    let attackHit = board.receiveAttack(pos);
+    if (attackHit != null) {
+        posDiv.classList.add('attacked');
+
+        if (attackHit) {
+            posDiv.classList.add('hit');
+        } else {
+            posDiv.classList.add('miss');
+        }
+    }
 };
 
-const addPosClickEvent = (posDiv) => {
+const addPosClickEvent = (posDiv, board, pos) => {
     posDiv.addEventListener('click', () => {
-        addUserAttack(posDiv);
+        addUserAttack(posDiv, board, pos);
     });
 };
 
@@ -17,8 +26,8 @@ const addPosHoverEvents = (posDiv) => {
     });
 };
 
-const addPosMouseEvents = (posDiv) => {
-    addPosClickEvent(posDiv);
+const addPosMouseEvents = (posDiv, board, pos) => {
+    addPosClickEvent(posDiv, board, pos);
     addPosHoverEvents(posDiv);
 };
 
