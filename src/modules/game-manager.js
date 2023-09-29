@@ -1,13 +1,13 @@
 import { board } from "./board";
 import { player } from "./player";
-import { displayBoardPositions } from "./page-dom";
+import { addBoardPositions } from "./page-dom";
 
 const createPlayerBoard = (width, length, boardDiv) => {
     const playerBoard = board();
     const positionsDiv = boardDiv.querySelector('.board-positions');
 
     playerBoard.setSize(width, length);
-    displayBoardPositions(playerBoard, positionsDiv);
+    addBoardPositions(playerBoard, positionsDiv);
     return playerBoard;
 };
 

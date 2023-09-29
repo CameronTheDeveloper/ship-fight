@@ -12,7 +12,7 @@ const setGridTemplate = (element, width, length) => {
     element.style.gridTemplateRows = `repeat(${length}, 1fr)`;
 };
 
-const displayBoardPositions = (board, boardParent) => {
+const addBoardPositions = (board, boardParent) => {
     setGridTemplate(boardParent, board.width, board.length);
     for (let y = board.length; y >= 1; y--) {
         for (let x = 1; x <= board.width; x++) {
@@ -23,4 +23,4 @@ const displayBoardPositions = (board, boardParent) => {
     }
 };
 
-export { displayBoardPositions };
+export { addBoardPositions };
