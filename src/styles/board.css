@@ -52,6 +52,10 @@
     cursor: not-allowed;
 }
 
+.board-pos:hover {
+    background-color: rgba(0, 0, 0, .7);
+}
+
 .board-pos.attacked.hit {
     background-color: rgb(89, 255, 0);
 }

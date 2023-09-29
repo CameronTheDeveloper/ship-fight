@@ -17,18 +17,8 @@ const addPosClickEvent = (posDiv, board, pos) => {
     });
 };
 
-const addPosHoverEvents = (posDiv) => {
-    posDiv.addEventListener('mouseover', () => {
-        posDiv.style.backgroundColor = 'rgba(0, 0, 0, .7)';
-    });
-    posDiv.addEventListener('mouseleave', () => {
-        posDiv.style.backgroundColor = '';
-    });
-};
-
 const addPosMouseEvents = (posDiv, board, pos) => {
     addPosClickEvent(posDiv, board, pos);
-    addPosHoverEvents(posDiv);
 };
 
 export { addPosMouseEvents };
