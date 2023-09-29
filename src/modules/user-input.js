@@ -1,6 +1,10 @@
+const addUserAttack = (pos) => {
+    pos.classList.add('attacked');
+};
+
 const addPosClickEvent = (pos) => {
     pos.addEventListener('click', () => {
-        pos.classList.add('attacked');
+        addUserAttack(pos);
     });
 };
 
