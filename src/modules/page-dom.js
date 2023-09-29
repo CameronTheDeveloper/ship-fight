@@ -13,6 +13,7 @@ const setGridTemplate = (element, width, length) => {
 };
 
 const displayBoardPositions = (board, boardParent) => {
+    setGridTemplate(boardParent, board.width, board.length);
     for (let y = board.length; y >= 1; y--) {
         for (let x = 1; x <= board.width; x++) {
             let posDiv = addDiv(boardParent);
@@ -20,7 +21,6 @@ const displayBoardPositions = (board, boardParent) => {
             addPosMouseEvents(posDiv);
         }
     }
-    setGridTemplate(boardParent, board.width, board.length);
 };
 
 export { displayBoardPositions };
