@@ -10,4 +10,12 @@ const createPlayerBoard = (width, length, boardDiv) => {
     return playerBoard;
 };
 
-export { createPlayerBoard };
+const initializeGame = () => {
+    const leftBoardDiv = document.querySelector('#board-left');
+    const rightBoardDiv = document.querySelector('#board-right');
+
+    const leftBoard = createPlayerBoard(4, 4, leftBoardDiv);
+    const rightBoard = createPlayerBoard(4, 4, rightBoardDiv);
+};
+
+export { initializeGame };
