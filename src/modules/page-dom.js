@@ -12,7 +12,7 @@ const setGridTemplate = (element, width, length) => {
     element.style.gridTemplateRows = `repeat(${length}, 1fr)`;
 };
 
-const addBoardPositions = (board, boardParent, boardSide) => {
+const addBoardPositionsDOM = (board, boardParent, boardSide) => {
     setGridTemplate(boardParent, board.width, board.length);
     for (let y = board.length; y >= 1; y--) {
         for (let x = 1; x <= board.width; x++) {
@@ -31,9 +31,9 @@ const placeShipCord = (divID) => {
 
 const placeShipDOM = (shipCords, boardSide) => {
     for (let i = 0; i < shipCords.length; i++) {
-        let divID = `${boardSide}-${shipCords[i]}`;
+        let divID = `${boardSide}-[${shipCords[i]}]`;
         placeShipCord(divID);
     }
 };
 
-export { addBoardPositions };
+export { addBoardPositionsDOM, placeShipDOM };
