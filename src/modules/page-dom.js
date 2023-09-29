@@ -12,13 +12,13 @@ const setGridTemplate = (element, width, length) => {
     element.style.gridTemplateRows = `repeat(${length}, 1fr)`;
 };
 
-const addBoardPositions = (board, boardParent) => {
+const addBoardPositions = (board, boardParent, boardSide) => {
     setGridTemplate(boardParent, board.width, board.length);
     for (let y = board.length; y >= 1; y--) {
         for (let x = 1; x <= board.width; x++) {
             let posDiv = addDiv(boardParent);
             let pos = [x, y];
-            addBoardPosAttributes(posDiv, x, y);
+            addBoardPosAttributes(posDiv, x, y, boardSide);
             addPosMouseEvents(posDiv, board, pos);
         }
     }

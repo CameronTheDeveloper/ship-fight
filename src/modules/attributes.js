@@ -1,6 +1,6 @@
-const addBoardPosAttributes = (pos, x, y) => {
+const addBoardPosAttributes = (pos, x, y, boardSide) => {
     pos.classList.add('board-pos');
-    pos.classList.add(`[${x},${y}]`);
+    pos.setAttribute('id', `${boardSide}-[${x},${y}]`);
 };
 
 export { addBoardPosAttributes };
