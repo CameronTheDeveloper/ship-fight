@@ -1,4 +1,4 @@
-const addUserAttack = (posDiv, board, pos) => {
+const attackPlayerBoard = (posDiv, board, pos) => {
     let attackHit = board.receiveAttack(pos);
     if (attackHit != null) {
         posDiv.classList.add('attacked');
@@ -13,7 +13,7 @@ const addUserAttack = (posDiv, board, pos) => {
 
 const addPosClickEvent = (posDiv, board, pos) => {
     posDiv.addEventListener('click', () => {
-        addUserAttack(posDiv, board, pos);
+        attackPlayerBoard(posDiv, board, pos);
     });
 };
 
