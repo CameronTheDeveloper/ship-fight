@@ -13,8 +13,8 @@ const setGridTemplate = (element, width, length) => {
 };
 
 const displayBoardPositions = (board, boardParent) => {
-    for (let x = 0; x < board.width; x++) {
-        for (let y = 0; y < board.length; y++) {
+    for (let y = board.length; y >= 1; y--) {
+        for (let x = 1; x <= board.width; x++) {
             let posDiv = addDiv(boardParent);
             addBoardPosAttributes(posDiv, x, y);
             addPosMouseEvents(posDiv);
