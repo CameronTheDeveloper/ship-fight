@@ -1,25 +1,25 @@
-const addUserAttack = (pos) => {
-    pos.classList.add('attacked');
+const addUserAttack = (posDiv) => {
+    posDiv.classList.add('attacked');
 };
 
-const addPosClickEvent = (pos) => {
-    pos.addEventListener('click', () => {
-        addUserAttack(pos);
+const addPosClickEvent = (posDiv) => {
+    posDiv.addEventListener('click', () => {
+        addUserAttack(posDiv);
     });
 };
 
-const addPosHoverEvents = (pos) => {
-    pos.addEventListener('mouseover', () => {
-        pos.style.backgroundColor = 'rgba(0, 0, 0, .7)';
+const addPosHoverEvents = (posDiv) => {
+    posDiv.addEventListener('mouseover', () => {
+        posDiv.style.backgroundColor = 'rgba(0, 0, 0, .7)';
     });
-    pos.addEventListener('mouseleave', () => {
-        pos.style.backgroundColor = '';
+    posDiv.addEventListener('mouseleave', () => {
+        posDiv.style.backgroundColor = '';
     });
 };
 
-const addPosMouseEvents = (pos) => {
-    addPosClickEvent(pos);
-    addPosHoverEvents(pos);
+const addPosMouseEvents = (posDiv) => {
+    addPosClickEvent(posDiv);
+    addPosHoverEvents(posDiv);
 };
 
 export { addPosMouseEvents };
