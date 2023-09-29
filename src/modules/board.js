@@ -182,22 +182,25 @@ const board = () => {
             }
         },
 
+        _attackHit(position) {
+            if (this._posTaken(position)) {
+                this._hitShip(position);
+                return true;
+            }
+
+            this.missedAttacks[position] = true;
+            return false;
+        },
+
         receiveAttack(position) {
 
             if (this._outOfBounds(position) ||
                 !this._attackIsAvailable(position)) {
                 return null;
             }
-
-            if (!this._posTaken(position)) {
-                this.missedAttacks[position] = true;
-            } else {
-                this._hitShip(position);
-            }
-
             this._removeAvailableAttack(position);
 
-            return position;
+            return this._attackHit(position);
         },
 
         gameIsOver() {
