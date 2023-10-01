@@ -32,7 +32,8 @@
 .stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: .2rem
+    padding: .2rem;
+    gap: 1.5em;
 }
 
 /* Board positions */
