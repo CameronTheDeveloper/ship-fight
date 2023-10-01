@@ -19,8 +19,8 @@ const placePlayerShip = (board, shipSize, headCord) => {
 };
 
 const initializeGame = () => {
-    const leftBoardDiv = document.querySelector('#board-left');
-    const rightBoardDiv = document.querySelector('#board-right');
+    const leftBoardDiv = document.querySelector('#left-board');
+    const rightBoardDiv = document.querySelector('#right-board');
 
     const leftPlayer = player('Player 1');
     const rightPlayer = player('Player 2');
