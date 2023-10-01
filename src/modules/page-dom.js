@@ -24,6 +24,17 @@ const addBoardPositionsDOM = (board, boardParent, boardSide) => {
     }
 };
 
+const initBoardTopDOM = (player, boardSide) => {
+    const boardDiv = document.getElementById(boardSide);
+    const boardTopDiv = boardDiv.querySelector('.board-top');
+    const playerNameDiv = boardTopDiv.querySelector('.player-name');
+    const shipsRemainingDiv = boardTopDiv.querySelector('.ships-remaining');
+    const shipsRemainingNumberDiv = shipsRemainingDiv.querySelector('span');
+
+    playerNameDiv.textContent = player.name;
+    shipsRemainingNumberDiv.textContent = 0;
+};
+
 const placeShipCord = (divID) => {
     const shipDiv = document.getElementById(divID);
     shipDiv.classList.add('taken');
@@ -49,4 +60,9 @@ const attackPlayerBoard = (posDiv, board, pos) => {
     }
 };
 
-export { addBoardPositionsDOM, placeShipDOM, attackPlayerBoard };
+export {
+    addBoardPositionsDOM,
+    placeShipDOM,
+    attackPlayerBoard,
+    initBoardTopDOM
+};
