@@ -43,7 +43,9 @@ const board = () => {
 
         _removeAvailableAttack(position) {
             const posIndex = this.availableAttacks.indexOf(JSON.stringify(position));
-            this.availableAttacks.splice(posIndex, 1);
+            if (posIndex >= 0 && posIndex <= this.availableAttacks.length) {
+                this.availableAttacks.splice(posIndex, 1);
+            }
         },
 
         _attackIsAvailable(position) {
