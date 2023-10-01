@@ -13,9 +13,9 @@ const createPlayerBoard = (width, length, boardDiv, boardSide) => {
 };
 
 const placePlayerShip = (board, shipSize, headCord) => {
-    const ship1 = ship(shipSize);
-    ship1.cords = board.placeShip(ship1, headCord);
-    placeShipDOM(ship1.cords, 'left-board');
+    const playerShip = ship(shipSize);
+    playerShip.cords = board.placeShip(playerShip, headCord);
+    placeShipDOM(playerShip.cords, 'left-board');
 };
 
 const initializeGame = () => {
@@ -30,6 +30,7 @@ const initializeGame = () => {
     rightPlayer.playerBoard = createPlayerBoard(4, 4, rightBoardDiv, 'right-board');
 
     placePlayerShip(leftPlayer.playerBoard, 2, [2, 3]);
+    // placePlayerShip(leftPlayer.playerBoard, 2, [1, 1]);
 };
 
 export { initializeGame };
