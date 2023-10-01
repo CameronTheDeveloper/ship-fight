@@ -63,3 +63,7 @@
 .board-pos.attacked.miss {
     background-color: rgb(95, 5, 5);
 }
+
+.board-pos.taken {
+    background-color: rgba(89, 255, 0, 0.4);
+}
