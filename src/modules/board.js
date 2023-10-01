@@ -5,7 +5,7 @@ const board = () => {
         shipCord: new Map(),
         length: 0,
         width: 0,
-        shipCount: 0,
+        shipsRemaining: 0,
         isPlacingShipVertically: false,
         takenPositions: {},
         availableAttacks: [],
@@ -155,7 +155,7 @@ const board = () => {
 
             if (shipCords) {
                 this._placeShipAdjCords(shipCords);
-                this.shipCount++;
+                this.shipsRemaining++;
             }
 
             return shipCords;
@@ -172,7 +172,7 @@ const board = () => {
         },
 
         _sinkShip(ship) {
-            this.shipCount--;
+            this.shipsRemaining--;
             this._attackAdjacentPositions(ship);
         },
 
@@ -206,7 +206,7 @@ const board = () => {
         },
 
         gameIsOver() {
-            return this.shipCount <= 0;
+            return this.shipsRemaining <= 0;
         },
     };
 };
