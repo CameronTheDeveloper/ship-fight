@@ -101,7 +101,24 @@ describe('Board object getShip()', () => {
     });
 });
 
+describe('Board object getAdjacentPositions()', () => {
+    let testShip1 = null;
+    let adjPositions = [];
 
+    beforeEach(() => {
+        testShip1 = ship(2);
+        testBoard.isPlacingShipVertically = false;
+        testShip1.cords = testBoard.placeShip(testShip1, [3, 5]);
+    });
+
+
+    it('should return the adjacent positions of a ship', () => {
+        adjPositions = testBoard.getAdjacentPositions(testShip1.cords);
+
+        expect(adjPositions).toEqual(expect.arrayContaining([[3, 6], [4, 6], [4, 5],
+        [4, 4], [3, 4], [2, 4], [2, 5], [2, 6], [4, 6], [5, 6]]));
+    });
+});
 
 describe('Board object receiveAttack()', () => {
     let testShip1 = null;
