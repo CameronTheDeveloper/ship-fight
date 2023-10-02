@@ -86,6 +86,23 @@ describe('Board object placeShip()', () => {
     });
 });
 
+xdescribe('Board object getShip()', () => {
+
+    let testShip1 = null;
+
+    beforeEach(() => {
+        testShip1 = ship(3);
+        testBoard.isPlacingShipVertically = false;
+        testShip1.cords = testBoard.placeShip(testShip1, [3, 5]);
+    });
+
+    xit('should return the correct ship object', () => {
+        expect(testBoard.getShip([4, 5])).toBe(testShip1);
+    });
+});
+
+
+
 describe('Board object receiveAttack()', () => {
     let testShip1 = null;
     let testShip2 = null;
