@@ -173,14 +173,16 @@ const board = () => {
             return adjCordsAr;
         },
 
-        _sinkShip(ship) {
+        _sinkShip() {
             this.shipsRemaining--;
-            this._attackAdjacentPositions(ship);
         },
 
         _hitShip(position) {
             let ship = this.getShip(position);
             ship.hit();
+            if (ship.hasSunk()) {
+                this._sinkShip();
+            }
         },
 
         _attackHit(position) {
