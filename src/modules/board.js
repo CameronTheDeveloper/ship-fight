@@ -177,11 +177,8 @@ const board = () => {
         },
 
         _hitShip(position) {
-            let ship = this._getShip(position);
+            let ship = this.getShip(position);
             ship.hit();
-            if (ship.hasSunk()) {
-                this._sinkShip(ship);
-            }
         },
 
         _attackHit(position) {
