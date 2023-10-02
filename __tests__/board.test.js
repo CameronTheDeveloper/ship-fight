@@ -86,7 +86,7 @@ describe('Board object placeShip()', () => {
     });
 });
 
-xdescribe('Board object getShip()', () => {
+describe('Board object getShip()', () => {
 
     let testShip1 = null;
 
@@ -96,7 +96,7 @@ xdescribe('Board object getShip()', () => {
         testShip1.cords = testBoard.placeShip(testShip1, [3, 5]);
     });
 
-    xit('should return the correct ship object', () => {
+    it('should return the correct ship object', () => {
         expect(testBoard.getShip([4, 5])).toBe(testShip1);
     });
 });

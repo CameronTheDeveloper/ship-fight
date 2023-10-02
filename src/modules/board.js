@@ -33,7 +33,7 @@ const board = () => {
             this.shipCord.set(JSON.stringify(cord), ship);
         },
 
-        _getShip(cord) {
+        getShip(cord) {
             return this.shipCord.get(JSON.stringify(cord));
         },
 
