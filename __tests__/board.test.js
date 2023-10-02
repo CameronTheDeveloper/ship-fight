@@ -1,34 +1,21 @@
 import { board } from '../src/modules/board';
 import { ship } from '../src/modules/ship';
 
-describe('Board initialization and properties', () => {
-    let testBoard = null;
+let testBoard = null;
 
-    beforeEach(() => {
-        testBoard = board();
-        testBoard.setSize(11, 7);
-    });
-
-    it('should have the correct length', () => { //Remove if implementation changes
-        expect(testBoard.width).toBe(11);
-    });
-
-    it('should have the correct width', () => { //Remove if implementation changes
-        expect(testBoard.length).toBe(7);
-    });
+beforeEach(() => {
+    testBoard = board();
+    testBoard.setSize(10, 10);
 });
 
 describe('Board object placeShip()', () => {
 
-    let testBoard = null;
     let testShip1 = null;
     let testShip2 = null;
     let testShip3 = null;
     let testShip4 = null;
 
     beforeEach(() => {
-        testBoard = board();
-        testBoard.setSize(10, 10);
         testShip1 = ship(4);
         testShip2 = ship(3);
         testShip3 = ship(2);
@@ -100,13 +87,10 @@ describe('Board object placeShip()', () => {
 });
 
 describe('Board object receiveAttack()', () => {
-    let testBoard = null;
     let testShip1 = null;
     let testShip2 = null;
 
     beforeEach(() => {
-        testBoard = board();
-        testBoard.setSize(10, 10);
         testShip1 = ship(4);
         testShip2 = ship(3);
         testBoard.isPlacingShipVertically = false;
