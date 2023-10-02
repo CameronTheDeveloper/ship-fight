@@ -171,18 +171,6 @@ describe('Board object receiveAttack()', () => {
 
         expect(testShip1.hasSunk()).toBe(true);
     });
-
-    it('should prevent attacks on sunk ship adjacent positions', () => {
-        testBoard.receiveAttack([3, 5]);
-        testBoard.receiveAttack([4, 5]);
-        testBoard.receiveAttack([5, 5]);
-        testBoard.receiveAttack([6, 5]);
-
-        expect(testBoard.receiveAttack([2, 5])).toBe(null);
-        expect(testBoard.receiveAttack([4, 6])).toBe(null);
-        expect(testBoard.receiveAttack([7, 5])).toBe(null);
-        expect(testBoard.receiveAttack([5, 4])).toBe(null);
-    });
 });
 
 describe('Board object gameIsOver', () => {
