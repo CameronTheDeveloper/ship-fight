@@ -47,8 +47,7 @@ const placeShipDOM = (shipCords, boardSide) => {
     }
 };
 
-const attackBoardDOM = (posDiv, board, pos) => {
-    let attackHit = board.receiveAttack(pos);
+const attackBoardDOM = (posDiv, attackHit) => {
     if (attackHit != null) {
         posDiv.classList.add('attacked');
 
@@ -61,7 +60,9 @@ const attackBoardDOM = (posDiv, board, pos) => {
 };
 
 const attackPlayerBoard = (posDiv, board, pos) => {
-    attackBoardDOM(posDiv, board, pos);
+    let attackHit = board.receiveAttack(pos);
+
+    attackBoardDOM(posDiv, attackHit);
 };
 
 export {
