@@ -12,7 +12,8 @@ const createPlayerBoard = (width, length, boardDiv, boardSide, boardPlayer) => {
     const positionsDiv = boardDiv.querySelector('.board-positions');
 
     playerBoard.setSize(width, length);
-    addBoardPositionsDOM(playerBoard, positionsDiv, boardSide);
+    playerBoard.boardSide = boardSide;
+    addBoardPositionsDOM(playerBoard, positionsDiv);
     initBoardTopDOM(boardPlayer, boardSide);
 
     return playerBoard;
