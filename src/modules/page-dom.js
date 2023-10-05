@@ -59,10 +59,36 @@ const attackBoardDOM = (posDiv, attackHit) => {
     }
 };
 
+const attackAdjacentPositions = (board, pos) => {
+
+    const adjPositions = board.getAdjacentPositions(pos);
+
+    for (let adjPos of adjPositions) {
+        let adjPosDivID = `${board.boardSide}-${JSON.stringify(adjPos)}`;
+        let adjPosDiv = document.getElementById(adjPosDivID);
+        let attackHit = board.receiveAttack(adjPos);
+
+        attackBoardDOM(adjPosDiv, attackHit);
+    }
+};
+
+const sinkShipDOM = (board, ship) => {
+    for (let i = 0; i < ship.cords.length; i++) {
+        attackAdjacentPositions(board, ship.cords[i]);
+    }
+};
+
 const attackPlayerBoard = (posDiv, board, pos) => {
     let attackHit = board.receiveAttack(pos);
 
     attackBoardDOM(posDiv, attackHit);
+
+    if (attackHit) {
+        let ship = board.getShip(pos);
+        if (ship.hasSunk()) {
+            sinkShipDOM(board, ship);
+        }
+    }
 };
 
 export {
