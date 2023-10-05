@@ -161,16 +161,16 @@ const board = () => {
             return shipCords;
         },
 
-        getAdjacentPositions(cords) {
-            let adjCordsAr = [];
-            for (let i = 0; i < cords.length; i++) {
-                let key = JSON.stringify(cords[i]);
-                let adjCords = this.pos.get(key);
-                for (let adjCord of adjCords) {
-                    adjCordsAr.push(adjCord);
-                }
+        getAdjacentPositions(position) {
+            let adjPosAr = [];
+
+            let key = JSON.stringify(position);
+            let adjPositions = this.pos.get(key);
+            for (let adjPos of adjPositions) {
+                adjPosAr.push(adjPos);
             }
-            return adjCordsAr;
+
+            return adjPosAr;
         },
 
         _sinkShip() {
