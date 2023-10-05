@@ -3,6 +3,7 @@ const board = () => {
     return {
         pos: new Map(),
         shipCord: new Map(),
+        side: null,
         length: 0,
         width: 0,
         shipsRemaining: 0,
