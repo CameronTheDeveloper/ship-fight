@@ -112,11 +112,9 @@ describe('Board object getAdjacentPositions()', () => {
     });
 
 
-    it('should return the adjacent positions of a ship', () => {
-        adjPositions = testBoard.getAdjacentPositions(testShip1.cords);
-
-        expect(adjPositions).toEqual(expect.arrayContaining([[3, 6], [4, 6], [4, 5],
-        [4, 4], [3, 4], [2, 4], [2, 5], [2, 6], [4, 6], [5, 6]]));
+    it('should return the adjacent positions of a given position', () => {
+        expect(testBoard.getAdjacentPositions([3, 2])).toEqual(expect.arrayContaining([[4, 2],
+        [4, 1], [3, 1], [2, 1], [2, 2], [2, 3], [3, 3], [4, 3]]));
     });
 });
 
