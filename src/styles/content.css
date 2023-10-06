@@ -49,18 +49,19 @@
     display: grid;
     grid-template-rows: 1fr 1fr;
     place-content: center;
-    padding: .7em;
-    /* font-size: 2em; */
+    padding: .5em;
+    font-size: 1.25em;
 }
 
 .player-name {
-    padding: .2rem;
+    font-style: italic;
+    padding: .2em;
 }
 
 .stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: .2rem;
+    padding: .2em;
     gap: 1.5em;
 }
 
