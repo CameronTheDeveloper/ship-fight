@@ -12,7 +12,8 @@ const setGridTemplate = (element, width, length) => {
     element.style.gridTemplateRows = `repeat(${length}, 1fr)`;
 };
 
-const addBoardPositionsDOM = (board, boardParent) => {
+const addBoardPositionsDOM = (boardPlayer, boardParent) => {
+    const board = boardPlayer.playerBoard;
     setGridTemplate(boardParent, board.width, board.length);
     for (let y = board.length; y >= 1; y--) {
         for (let x = 1; x <= board.width; x++) {

@@ -7,16 +7,14 @@ import {
     initBoardTopDOM
 } from "./page-dom";
 
-const createPlayerBoard = (width, length, boardDiv, boardSide, boardPlayer) => {
-    const playerBoard = Board();
+const createPlayerBoard = (player, width, length, boardDiv, boardSide) => {
     const positionsDiv = boardDiv.querySelector('.board-positions');
+    player.playerBoard = Board();
 
-    playerBoard.setSize(width, length);
-    playerBoard.boardSide = boardSide;
-    addBoardPositionsDOM(playerBoard, positionsDiv);
-    initBoardTopDOM(boardPlayer, boardSide);
-
-    return playerBoard;
+    player.playerBoard.setSize(width, length);
+    player.playerBoard.boardSide = boardSide;
+    addBoardPositionsDOM(player, positionsDiv);
+    initBoardTopDOM(player, boardSide);
 };
 
 const placePlayerShip = (board, shipSize, headCord) => {
@@ -33,8 +31,8 @@ const initializeGame = () => {
     const rightPlayer = Player('Player 2');
 
 
-    leftPlayer.playerBoard = createPlayerBoard(4, 4, leftBoardDiv, 'left-board', leftPlayer);
-    rightPlayer.playerBoard = createPlayerBoard(4, 4, rightBoardDiv, 'right-board', rightPlayer);
+    createPlayerBoard(leftPlayer, 4, 4, leftBoardDiv, 'left-board');
+    createPlayerBoard(rightPlayer, 4, 4, rightBoardDiv, 'right-board');
 
     placePlayerShip(leftPlayer.playerBoard, 2, [2, 3]);
     // placePlayerShip(leftPlayer.playerBoard, 2, [1, 1]);
