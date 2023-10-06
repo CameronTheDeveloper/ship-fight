@@ -2,7 +2,7 @@
     background-color: rgb(42, 68, 237);
     display: grid;
     place-content: center;
-    padding-top: 5em;
+    padding-top: 2em;
     padding-bottom: 5em
 }
 
@@ -27,6 +27,7 @@
     width: 60em;
     gap: 4em;
     margin-bottom: 3rem;
+    margin-top: 2rem;
 }
 
 .board {
