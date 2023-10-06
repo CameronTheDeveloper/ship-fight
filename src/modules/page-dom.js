@@ -20,7 +20,7 @@ const addBoardPositionsDOM = (boardPlayer, boardParent) => {
             let posDiv = addDiv(boardParent);
             let pos = [x, y];
             addBoardPosAttributes(posDiv, x, y, board.boardSide);
-            addPosMouseEvents(posDiv, board, pos);
+            addPosMouseEvents(posDiv, boardPlayer, pos);
         }
     }
 };
@@ -79,15 +79,15 @@ const sinkShipDOM = (board, ship) => {
     }
 };
 
-const attackPlayerBoard = (posDiv, board, pos) => {
-    let attackHit = board.receiveAttack(pos);
+const attackPlayerBoard = (posDiv, boardPlayer, pos) => {
+    let attackHit = boardPlayer.enemy.attackPos(pos);
 
     attackBoardDOM(posDiv, attackHit);
 
     if (attackHit) {
-        let ship = board.getShip(pos);
+        let ship = boardPlayer.playerBoard.getShip(pos);
         if (ship.hasSunk()) {
-            sinkShipDOM(board, ship);
+            sinkShipDOM(boardPlayer.playerBoard, ship);
         }
     }
 };
