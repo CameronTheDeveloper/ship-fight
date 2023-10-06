@@ -73,9 +73,23 @@ const attackAdjacentPositions = (board, pos) => {
     }
 };
 
-const sinkShipDOM = (board, ship) => {
+const endGameDOM = (winnerPlayer) => {
+    const winnerNameDiv = document.querySelector('#winner-name-display');
+    const winnerBoardDiv = document.getElementById(winnerPlayer.playerBoard.boardSide);
+
+    winnerBoardDiv.classList.add('winner');
+    winnerNameDiv.textContent = `${winnerPlayer.name} Wins!`;
+
+
+};
+
+const sinkShipDOM = (player, ship) => {
     for (let i = 0; i < ship.cords.length; i++) {
-        attackAdjacentPositions(board, ship.cords[i]);
+        attackAdjacentPositions(player.playerBoard, ship.cords[i]);
+    }
+
+    if (player.playerBoard.gameIsOver()) {
+        endGameDOM(player.enemy);
     }
 };
 
@@ -87,20 +101,12 @@ const attackPlayerBoard = (posDiv, boardPlayer, pos) => {
     if (attackHit) {
         let ship = boardPlayer.playerBoard.getShip(pos);
         if (ship.hasSunk()) {
-            sinkShipDOM(boardPlayer.playerBoard, ship);
+            sinkShipDOM(boardPlayer, ship);
         }
     }
 };
 
-const endGameDOM = (winnerPlayer) => {
-    const winnerNameDiv = document.querySelector('#winner-name-display');
-    const winnerBoardDiv = document.getElementByID(winnerPlayer.playerBoard.boardSide);
 
-    winnerBoardDiv.classList.add('winner');
-    winnerNameDiv.textContent = winnerPlayer.name;
-
-
-};
 
 export {
     addBoardPositionsDOM,
