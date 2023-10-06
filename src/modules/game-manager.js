@@ -17,6 +17,11 @@ const createPlayerBoard = (player, width, length, boardDiv, boardSide) => {
     initBoardTopDOM(player, boardSide);
 };
 
+const assignPlayerEnemies = (player1, player2) => {
+    player1.enemy = player2;
+    player2.enemy = player1;
+};
+
 const placePlayerShip = (board, shipSize, headCord) => {
     const playerShip = Ship(shipSize);
     playerShip.cords = board.placeShip(playerShip, headCord);
@@ -30,12 +35,16 @@ const initializeGame = () => {
     const leftPlayer = Player('Player 1');
     const rightPlayer = Player('Player 2');
 
+    leftPlayer.turn = true;
+
+    assignPlayerEnemies(leftPlayer, rightPlayer);
 
     createPlayerBoard(leftPlayer, 4, 4, leftBoardDiv, 'left-board');
     createPlayerBoard(rightPlayer, 4, 4, rightBoardDiv, 'right-board');
 
     placePlayerShip(leftPlayer.playerBoard, 2, [2, 3]);
-    // placePlayerShip(leftPlayer.playerBoard, 2, [1, 1]);
+    placePlayerShip(leftPlayer.playerBoard, 2, [1, 1]);
+    placePlayerShip(rightPlayer.playerBoard, 2, [1, 1]);
 };
 
 export { initializeGame };
