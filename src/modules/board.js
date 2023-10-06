@@ -1,4 +1,4 @@
-const board = () => {
+const Board = () => {
 
     return {
         pos: new Map(),
@@ -213,4 +213,4 @@ const board = () => {
     };
 };
 
-export { board };
+export { Board };

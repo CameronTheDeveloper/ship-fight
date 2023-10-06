@@ -1,10 +1,10 @@
-import { board } from '../src/modules/board';
-import { ship } from '../src/modules/ship';
+import { Board } from '../src/modules/board';
+import { Ship } from '../src/modules/ship';
 
 let testBoard = null;
 
 beforeEach(() => {
-    testBoard = board();
+    testBoard = Board();
     testBoard.setSize(10, 10);
 });
 
@@ -16,10 +16,10 @@ describe('Board object placeShip()', () => {
     let testShip4 = null;
 
     beforeEach(() => {
-        testShip1 = ship(4);
-        testShip2 = ship(3);
-        testShip3 = ship(2);
-        testShip4 = ship(3);
+        testShip1 = Ship(4);
+        testShip2 = Ship(3);
+        testShip3 = Ship(2);
+        testShip4 = Ship(3);
         testBoard.isPlacingShipVertically = false;
         testShip1.cords = testBoard.placeShip(testShip1, [3, 5]);
         testBoard.isPlacingShipVertically = true;
@@ -91,7 +91,7 @@ describe('Board object getShip()', () => {
     let testShip1 = null;
 
     beforeEach(() => {
-        testShip1 = ship(3);
+        testShip1 = Ship(3);
         testBoard.isPlacingShipVertically = false;
         testShip1.cords = testBoard.placeShip(testShip1, [3, 5]);
     });
@@ -106,7 +106,7 @@ describe('Board object getAdjacentPositions()', () => {
     let adjPositions = [];
 
     beforeEach(() => {
-        testShip1 = ship(2);
+        testShip1 = Ship(2);
         testBoard.isPlacingShipVertically = false;
         testShip1.cords = testBoard.placeShip(testShip1, [3, 5]);
     });
@@ -123,8 +123,8 @@ describe('Board object receiveAttack()', () => {
     let testShip2 = null;
 
     beforeEach(() => {
-        testShip1 = ship(4);
-        testShip2 = ship(3);
+        testShip1 = Ship(4);
+        testShip2 = Ship(3);
         testBoard.isPlacingShipVertically = false;
         testShip1.cords = testBoard.placeShip(testShip1, [3, 5]);
         testBoard.isPlacingShipVertically = true;
@@ -178,10 +178,10 @@ describe('Board object gameIsOver', () => {
     let testShip2 = null;
 
     beforeEach(() => {
-        testBoard = board();
+        testBoard = Board();
         testBoard.setSize(10, 10);
-        testShip1 = ship(4);
-        testShip2 = ship(3);
+        testShip1 = Ship(4);
+        testShip2 = Ship(3);
         testBoard.isPlacingShipVertically = false;
         testShip1.cords = testBoard.placeShip(testShip1, [3, 5]);
         testBoard.isPlacingShipVertically = true;

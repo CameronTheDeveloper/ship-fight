@@ -1,4 +1,4 @@
-const player = (name = 'player') => {
+const Player = (name = 'player') => {
     return {
         name: name,
         playerBoard: null,
@@ -39,4 +39,4 @@ const player = (name = 'player') => {
     };
 };
 
-export { player };
+export { Player };

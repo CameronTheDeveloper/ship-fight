@@ -1,4 +1,4 @@
-const ship = (length) => {
+const Ship = (length) => {
     return {
         length: length,
         hits: 0,
@@ -12,4 +12,4 @@ const ship = (length) => {
     };
 };
 
-export { ship };
+export { Ship };

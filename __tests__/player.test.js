@@ -1,6 +1,6 @@
-import { board } from "../src/modules/board";
-import { ship } from "../src/modules/ship";
-import { player } from "../src/modules/player";
+import { Board } from "../src/modules/board";
+import { Ship } from "../src/modules/ship";
+import { Player } from "../src/modules/player";
 
 
 describe('Player object', () => {
@@ -9,11 +9,11 @@ describe('Player object', () => {
     let ship1;
 
     beforeEach(() => {
-        player1 = player();
-        player2 = player();
-        player1.playerBoard = board();
-        player2.playerBoard = board();
-        ship1 = ship(1);
+        player1 = Player();
+        player2 = Player();
+        player1.playerBoard = Board();
+        player2.playerBoard = Board();
+        ship1 = Ship(1);
 
         player1.playerBoard.setSize(10, 10);
         player2.playerBoard.setSize(10, 10);
@@ -45,11 +45,11 @@ describe('Computer player', () => {
     let player2;
 
     beforeEach(() => {
-        player1 = player();
-        player2 = player();
+        player1 = Player();
+        player2 = Player();
 
-        player1.playerBoard = board();
-        player2.playerBoard = board();
+        player1.playerBoard = Board();
+        player2.playerBoard = Board();
 
         player1.playerBoard.setSize(2, 2);
         player2.playerBoard.setSize(2, 2);

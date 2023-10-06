@@ -1,4 +1,4 @@
-import { ship } from '../src/modules/ship';
+import { Ship } from '../src/modules/ship';
 
 
 
@@ -7,7 +7,7 @@ describe('Ship object', () => {
     let ship1 = null;
 
     beforeEach(() => {
-        ship1 = ship(3);
+        ship1 = Ship(3);
     });
 
     it('should take hits', () => {
