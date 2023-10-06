@@ -4,6 +4,13 @@
     place-content: center;
 }
 
+#winner-name-display {
+    position: relative;
+    place-self: center;
+    height: 3rem;
+    font-size: 2rem;
+}
+
 
 /* Board container */
 
