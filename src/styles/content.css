@@ -8,6 +8,7 @@
     position: relative;
     place-self: center;
     height: 3rem;
+    margin-top: 2rem;
     font-size: 2rem;
     font-weight: 900;
     font-style: italic;
@@ -24,6 +25,7 @@
     height: 40em;
     width: 60em;
     gap: 4em;
+    margin-bottom: 3rem;
 }
 
 .board {
