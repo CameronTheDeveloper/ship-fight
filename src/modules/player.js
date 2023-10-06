@@ -17,7 +17,7 @@ const Player = (name = 'player') => {
 
             let attackHit = this.enemy.playerBoard.receiveAttack(cord);
 
-            if (!attackHit) {
+            if (attackHit == false) {
                 this._switchTurn();
             }
             return attackHit;
