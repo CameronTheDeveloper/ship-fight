@@ -92,6 +92,16 @@ const attackPlayerBoard = (posDiv, boardPlayer, pos) => {
     }
 };
 
+const endGameDOM = (winnerPlayer) => {
+    const winnerNameDiv = document.querySelector('#winner-name-display');
+    const winnerBoardDiv = document.getElementByID(winnerPlayer.playerBoard.boardSide);
+
+    winnerBoardDiv.classList.add('winner');
+    winnerNameDiv.textContent = winnerPlayer.name;
+
+
+};
+
 export {
     addBoardPositionsDOM,
     placeShipDOM,
