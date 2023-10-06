@@ -17,12 +17,6 @@
     font-size: 1em;
 }
 
-#content {
-    background-color: rgb(42, 68, 237);
-    display: grid;
-    place-content: center;
-}
-
 #footer {
     background-color: rgb(194, 178, 128);
     display: flex;
