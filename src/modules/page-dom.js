@@ -26,11 +26,8 @@ const addBoardPositionsDOM = (boardPlayer, boardParent) => {
 };
 
 const initBoardTopDOM = (player, boardSide) => {
-    const boardDiv = document.getElementById(boardSide);
-    const boardTopDiv = boardDiv.querySelector('.board-top');
-    const playerNameDiv = boardTopDiv.querySelector('.player-name');
-    const shipsRemainingDiv = boardTopDiv.querySelector('.ships-remaining');
-    const shipsRemainingNumberDiv = shipsRemainingDiv.querySelector('span');
+    const playerNameDiv = document.querySelector(`#${boardSide} .board-top .player-name`);
+    const shipsRemainingNumberDiv = document.querySelector(`#${boardSide} .board-top .ships-remaining span`);
 
     playerNameDiv.textContent = player.name;
     shipsRemainingNumberDiv.textContent = 0;
