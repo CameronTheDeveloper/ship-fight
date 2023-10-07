@@ -207,6 +207,10 @@ const Board = () => {
             return this._attackHit(position);
         },
 
+        clearAvailableAttacks() {
+            this.availableAttacks = [];
+        },
+
         gameIsOver() {
             return this.shipsRemaining <= 0;
         },
