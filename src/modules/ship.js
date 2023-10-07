@@ -1,3 +1,5 @@
+import { placeShipDOM } from "./page-dom";
+
 const Ship = (length) => {
     return {
         length: length,
@@ -12,4 +14,10 @@ const Ship = (length) => {
     };
 };
 
-export { Ship };
+const placePlayerShip = (board, shipSize, headCord) => {
+    const playerShip = Ship(shipSize);
+    playerShip.cords = board.placeShip(playerShip, headCord);
+    placeShipDOM(playerShip.cords, board.boardSide);
+};
+
+export { Ship, placePlayerShip };
