@@ -79,8 +79,8 @@ const endGameDOM = (winnerPlayer) => {
 
     winnerBoardDiv.classList.add('winner');
     winnerNameDiv.textContent = `${winnerPlayer.name} Wins!`;
-
-
+    winnerPlayer.playerBoard.clearAvailableAttacks();
+    winnerPlayer.enemy.playerBoard.clearAvailableAttacks();
 };
 
 const sinkShipDOM = (player, ship) => {
