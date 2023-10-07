@@ -210,3 +210,10 @@ describe('Board object gameIsOver', () => {
         expect(testBoard.gameIsOver()).toBe(true);
     });
 });
+
+describe('Board Object clearAvailableAttacks', () => {
+    it('should prevent attacks on the board', () => {
+        testBoard.clearAvailableAttacks();
+        expect(testBoard.receiveAttack([5, 5])).toBe(null);
+    });
+});
