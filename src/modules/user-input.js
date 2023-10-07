@@ -1,13 +1,13 @@
 import { attackPlayerBoard } from "./page-dom";
 
-const addPosClickEvent = (posDiv, boardPlayer, pos) => {
+const addPosClickAttack = (posDiv, boardPlayer, pos) => {
     posDiv.addEventListener('click', () => {
         attackPlayerBoard(posDiv, boardPlayer, pos);
     });
 };
 
 const addPosMouseEvents = (posDiv, boardPlayer, pos) => {
-    addPosClickEvent(posDiv, boardPlayer, pos);
+    addPosClickAttack(posDiv, boardPlayer, pos);
 };
 
 export { addPosMouseEvents };
