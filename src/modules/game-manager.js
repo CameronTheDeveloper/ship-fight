@@ -1,9 +1,7 @@
 import { Board } from "./board";
 import { Player } from "./player";
-import { Ship } from "./ship";
 import {
     addBoardPositionsDOM,
-    placeShipDOM,
     initBoardTopDOM
 } from "./page-dom";
 
@@ -22,11 +20,7 @@ const assignPlayerEnemies = (player1, player2) => {
     player2.enemy = player1;
 };
 
-const placePlayerShip = (board, shipSize, headCord) => {
-    const playerShip = Ship(shipSize);
-    playerShip.cords = board.placeShip(playerShip, headCord);
-    placeShipDOM(playerShip.cords, board.boardSide);
-};
+
 
 const initializeGame = () => {
     const leftBoardDiv = document.querySelector('#left-board');
@@ -42,9 +36,6 @@ const initializeGame = () => {
     createPlayerBoard(leftPlayer, 4, 4, leftBoardDiv, 'left-board');
     createPlayerBoard(rightPlayer, 4, 4, rightBoardDiv, 'right-board');
 
-    placePlayerShip(leftPlayer.playerBoard, 2, [2, 3]);
-    placePlayerShip(leftPlayer.playerBoard, 2, [1, 1]);
-    placePlayerShip(rightPlayer.playerBoard, 2, [1, 1]);
 };
 
 export { initializeGame };
