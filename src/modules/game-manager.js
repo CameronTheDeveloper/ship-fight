@@ -25,7 +25,7 @@ const assignPlayerEnemies = (player1, player2) => {
 const placePlayerShip = (board, shipSize, headCord) => {
     const playerShip = Ship(shipSize);
     playerShip.cords = board.placeShip(playerShip, headCord);
-    placeShipDOM(playerShip.cords, 'left-board');
+    placeShipDOM(playerShip.cords, board.boardSide);
 };
 
 const initializeGame = () => {
