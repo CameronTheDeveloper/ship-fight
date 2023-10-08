@@ -43,7 +43,7 @@ const placeShipDOM = (shipCords, boardSide) => {
     let divID = null;
 
     for (let i = 0; i < shipCords.length; i++) {
-        divID = `${boardSide}-[${shipCords[i]}]`;
+        divID = `${boardSide}-${shipCords[i]}`;
         placeShipCord(divID);
     }
 };
