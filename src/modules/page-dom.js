@@ -14,12 +14,14 @@ const setGridTemplate = (element, width, length) => {
 const addBoardPositionsDOM = (boardPlayer, boardParent) => {
     const board = boardPlayer.playerBoard;
     let posDiv = null;
+    let pos = null;
 
     setGridTemplate(boardParent, board.width, board.length);
     for (let y = board.length; y >= 1; y--) {
         for (let x = 1; x <= board.width; x++) {
+            pos = [x, y];
             posDiv = addDiv(boardParent);
-            addBoardPosAttributes(posDiv, x, y, board.boardSide);
+            addBoardPosAttributes(posDiv, pos, board.boardSide);
         }
     }
 };
