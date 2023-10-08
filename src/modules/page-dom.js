@@ -1,5 +1,4 @@
 import { addBoardPosAttributes } from "./attributes";
-import { addPosMouseEvents } from "./user-input";
 
 const addDiv = (parent) => {
     const newDiv = document.createElement('div');
@@ -20,7 +19,6 @@ const addBoardPositionsDOM = (boardPlayer, boardParent) => {
             let posDiv = addDiv(boardParent);
             let pos = [x, y];
             addBoardPosAttributes(posDiv, x, y, board.boardSide);
-            addPosMouseEvents(posDiv, boardPlayer, pos);
         }
     }
 };
