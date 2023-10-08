@@ -2,7 +2,6 @@ import { Board } from "./board";
 import { Player } from "./player";
 import {
     addBoardPositionsDOM,
-    placeShipDOM,
     initBoardTopDOM
 } from "./page-dom";
 
