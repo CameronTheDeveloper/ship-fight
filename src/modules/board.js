@@ -38,7 +38,7 @@ const Board = () => {
         },
 
         _posTaken(cord) {
-            return this.shipCord.get(JSON.stringify(cord));
+            return this.shipCord.get(cord);
         },
 
         _removeAvailableAttack(position) {
@@ -49,7 +49,7 @@ const Board = () => {
         },
 
         _attackIsAvailable(position) {
-            return this.availableAttacks.includes(JSON.stringify(position));
+            return this.availableAttacks.includes(position);
         },
 
         _connectAdjPositions() {
@@ -154,7 +154,6 @@ const Board = () => {
             } else {
                 shipCords = this._placeShipHorizontally(xCord, yCord, ship);
             }
-
 
             if (shipCords) {
                 this._placeShipAdjCords(shipCords);
