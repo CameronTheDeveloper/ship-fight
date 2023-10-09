@@ -32,7 +32,7 @@ const Player = (name = 'player') => {
 
         attackRandomPos() {
             const randomPos = this._getRandomAttackPos();
-            const attackedPos = this.attackPos(JSON.parse(randomPos));
+            const attackedPos = this.attackPos(randomPos);
 
             return attackedPos;
         },

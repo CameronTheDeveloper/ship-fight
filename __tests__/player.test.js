@@ -3,7 +3,7 @@ import { Ship } from "../src/modules/ship";
 import { Player } from "../src/modules/player";
 
 
-xdescribe('Player object', () => {
+describe('Player object', () => {
     let player1;
     let player2;
     let ship1;
@@ -40,7 +40,7 @@ xdescribe('Player object', () => {
 });
 
 
-xdescribe('Computer player', () => {
+describe('Computer player', () => {
     let player1;
     let player2;
 
