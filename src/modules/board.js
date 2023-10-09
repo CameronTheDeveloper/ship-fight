@@ -4,8 +4,8 @@ const Board = () => {
         pos: new Map(),
         shipCord: new Map(),
         side: null,
-        length: 0,
-        width: 0,
+        boardLength: 0,
+        boardWidth: 0,
         shipsRemaining: 0,
         isPlacingShipVertically: false,
         takenPositions: {},
@@ -63,7 +63,7 @@ const Board = () => {
                 for (let adjPosDistance of adjPosDistances) {
                     xPos += adjPosDistance[0];
                     yPos += adjPosDistance[1];
-                    if (xPos >= 1 && yPos >= 1 && xPos <= this.width && yPos <= this.length) {
+                    if (xPos >= 1 && yPos >= 1 && xPos <= this.boardWidth && yPos <= this.boardLength) {
                         let adjPosition = `${xPos}_${yPos}`;
                         this._setBoardAdjPos(position, adjPosition);
                     }
@@ -72,11 +72,11 @@ const Board = () => {
         },
 
         setSize(widthInput, lengthInput) {
-            this.width = widthInput;
-            this.length = lengthInput;
+            this.boardWidth = widthInput;
+            this.boardLength = lengthInput;
 
-            for (let i = 1; i <= this.width; i++) {
-                for (let j = 1; j <= this.length; j++) {
+            for (let i = 1; i <= this.boardWidth; i++) {
+                for (let j = 1; j <= this.boardLength; j++) {
                     this._setBoardPos(`${i}_${j}`);
                 }
             }
@@ -87,7 +87,7 @@ const Board = () => {
             let xCord = cords[0];
             let yCord = cords[1];
 
-            if (xCord > this.width || yCord > this.length ||
+            if (xCord > this.boardWidth || yCord > this.boardLength ||
                 xCord < 1 || yCord < 1) {
                 return true;
             } else {
