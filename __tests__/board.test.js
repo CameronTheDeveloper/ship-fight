@@ -86,7 +86,7 @@ describe('Board object placeShip()', () => {
     });
 });
 
-xdescribe('Board object getShip()', () => {
+describe('Board object getShip()', () => {
 
     let testShip1 = null;
 

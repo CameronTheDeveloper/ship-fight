@@ -34,7 +34,7 @@ const Board = () => {
         },
 
         getShip(cord) {
-            return this.shipCord.get(JSON.stringify(cord));
+            return this.shipCord.get(cord);
         },
 
         _posTaken(cord) {
