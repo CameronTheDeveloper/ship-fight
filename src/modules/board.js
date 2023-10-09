@@ -167,8 +167,7 @@ const Board = () => {
         getAdjacentPositions(position) {
             let adjPosAr = [];
 
-            let key = JSON.stringify(position);
-            let adjPositions = this.pos.get(key);
+            let adjPositions = this.pos.get(position);
             for (let adjPos of adjPositions) {
                 adjPosAr.push(adjPos);
             }

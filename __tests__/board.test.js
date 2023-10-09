@@ -101,7 +101,7 @@ describe('Board object getShip()', () => {
     });
 });
 
-xdescribe('Board object getAdjacentPositions()', () => {
+describe('Board object getAdjacentPositions()', () => {
     let testShip1 = null;
 
     beforeEach(() => {
