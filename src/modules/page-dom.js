@@ -16,10 +16,10 @@ const addBoardPositionsDOM = (boardPlayer, boardParent) => {
     let posDiv = null;
     let pos = null;
 
-    setGridTemplate(boardParent, board.width, board.length);
-    for (let y = board.length; y >= 1; y--) {
-        for (let x = 1; x <= board.width; x++) {
-            pos = [x, y];
+    setGridTemplate(boardParent, board.boardWidth, board.boardLength);
+    for (let y = board.boardLength; y >= 1; y--) {
+        for (let x = 1; x <= board.boardWidth; x++) {
+            pos = `${x}_${y}`;
             posDiv = addDiv(boardParent);
             addBoardPosAttributes(posDiv, pos, board.boardSide);
         }
