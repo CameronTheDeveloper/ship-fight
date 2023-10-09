@@ -14,7 +14,7 @@ const addBoardAttackListeners = (player) => {
 
     for (let y = board.length; y >= 1; y--) {
         for (let x = 1; x <= board.width; x++) {
-            pos = `${x}-${y}`;
+            pos = `${x}_${y}`;
             posDiv = document.querySelector(`#${boardSideID}-${pos}`);
             addPosClickAttack(posDiv, player, pos);
         }
