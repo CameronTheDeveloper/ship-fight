@@ -21,9 +21,8 @@ const Board = () => {
         },
 
         _setBoardPos(newPos) {
-            let stringPos = JSON.stringify(newPos);
-            this._addPosition(stringPos);
-            this._addAvailableAttack(stringPos);
+            this._addPosition(newPos);
+            this._addAvailableAttack(newPos);
         },
 
         _setBoardAdjPos(position, adjPosition) {
@@ -77,7 +76,7 @@ const Board = () => {
 
             for (let i = 1; i <= this.width; i++) {
                 for (let j = 1; j <= this.length; j++) {
-                    this._setBoardPos([i, j]);
+                    this._setBoardPos(`${i}_${j}`);
                 }
             }
             this._connectAdjPositions();
