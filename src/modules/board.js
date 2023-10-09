@@ -58,12 +58,13 @@ const Board = () => {
             let posKeys = this.pos.keys();
 
             for (let position of posKeys) {
-                let parsedPosition = JSON.parse([position]);
+                let xPos = +position.split('_')[0];
+                let yPos = +position.split('_')[1];
                 for (let adjPosDistance of adjPosDistances) {
-                    let xPos = parsedPosition[0] + adjPosDistance[0];
-                    let yPos = parsedPosition[1] + adjPosDistance[1];
+                    xPos += adjPosDistance[0];
+                    yPos += adjPosDistance[1];
                     if (xPos >= 1 && yPos >= 1 && xPos <= this.width && yPos <= this.length) {
-                        let adjPosition = [xPos, yPos];
+                        let adjPosition = `${xPos}_${yPos}`;
                         this._setBoardAdjPos(position, adjPosition);
                     }
                 }
