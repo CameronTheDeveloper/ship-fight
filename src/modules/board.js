@@ -118,7 +118,7 @@ const Board = () => {
             let shipCord = '';
 
             for (let i = 0; i < ship.length; i++) {
-                shipCord = `${+xCord + i}_${yCord}`;
+                shipCord = `${+xCord}_${yCord - i}`;
                 if (this.takenPositions[shipCord] ||
                     this._outOfBounds(shipCord)) {
                     return null;
