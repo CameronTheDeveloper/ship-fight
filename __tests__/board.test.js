@@ -138,30 +138,30 @@ describe('Board object receiveAttack()', () => {
         expect(testBoard.receiveAttack('1_1')).toBe(false);
     });
 
-    xit('should prevent multiple attacks on the same position', () => {
+    it('should prevent multiple attacks on the same position', () => {
         testBoard.receiveAttack('5_4');
         expect(testBoard.receiveAttack('5_4')).toBe(null);
     });
 
-    xit('should prevent out-of-bounds attacks', () => {
+    it('should prevent out-of-bounds attacks', () => {
         expect(testBoard.receiveAttack('12_4')).toBe(null);
         expect(testBoard.receiveAttack('5_-4')).toBe(null);
         expect(testBoard.receiveAttack('5_-1')).toBe(null);
         expect(testBoard.receiveAttack('-2_4')).toBe(null);
     });
 
-    xit('should record missed attack on adjacent ship cord', () => {
+    it('should record missed attack on adjacent ship cord', () => {
         testBoard.receiveAttack('3_4');
         expect(testBoard.missedAttacks['3_4']).toEqual(true);
     });
 
-    xit('should add hits to the correct ship', () => {
+    it('should add hits to the correct ship', () => {
         testBoard.receiveAttack('3_5');
         testBoard.receiveAttack('4_5');
         expect(testShip1.hits).toBe(2);
     });
 
-    xit('should sink a ship with enough hits', () => {
+    it('should sink a ship with enough hits', () => {
         testBoard.receiveAttack('3_5');
         testBoard.receiveAttack('4_5');
         testBoard.receiveAttack('5_5');
@@ -171,7 +171,7 @@ describe('Board object receiveAttack()', () => {
     });
 });
 
-xdescribe('Board object gameIsOver', () => {
+describe('Board object gameIsOver', () => {
 
     let testBoard = null;
     let testShip1 = null;
@@ -211,7 +211,7 @@ xdescribe('Board object gameIsOver', () => {
     });
 });
 
-xdescribe('Board Object clearAvailableAttacks', () => {
+describe('Board Object clearAvailableAttacks', () => {
     it('should prevent attacks on the board', () => {
         testBoard.clearAvailableAttacks();
         expect(testBoard.receiveAttack('5_5')).toBe(null);
