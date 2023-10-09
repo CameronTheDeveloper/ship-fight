@@ -56,13 +56,13 @@ const Board = () => {
             const adjPosDistances = [[0, 1], [1, 1], [1, 0], [1, -1],
             [0, -1], [-1, -1], [-1, 0], [-1, 1]];
             let posKeys = this.pos.keys();
+            let xPos = null;
+            let yPos = null;
 
             for (let position of posKeys) {
-                let xPos = +position.split('_')[0];
-                let yPos = +position.split('_')[1];
                 for (let adjPosDistance of adjPosDistances) {
-                    xPos += adjPosDistance[0];
-                    yPos += adjPosDistance[1];
+                    xPos = +position.split('_')[0] + adjPosDistance[0];
+                    yPos = +position.split('_')[1] + adjPosDistance[1];
                     if (xPos >= 1 && yPos >= 1 && xPos <= this.boardWidth && yPos <= this.boardLength) {
                         let adjPosition = `${xPos}_${yPos}`;
                         this._setBoardAdjPos(position, adjPosition);

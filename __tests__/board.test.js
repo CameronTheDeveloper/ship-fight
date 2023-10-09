@@ -42,12 +42,12 @@ describe('Board object placeShip()', () => {
             expect(testBoard.placeShip(testShip3, '5_5')).toBe(null);
         });
 
-        xit('shouldn\'t place a ship horizontally if adjacent spot is already taken', () => {
+        it('shouldn\'t place a ship horizontally if adjacent spot is already taken', () => {
             expect(testBoard.placeShip(testShip3, '4_4')).toBe(null);
             expect(testBoard.placeShip(testShip3, '6_8')).toBe(null);
         });
 
-        xit('shouldn\'t place a ship horizontally out-of-bounds', () => {
+        it('shouldn\'t place a ship horizontally out-of-bounds', () => {
             expect(testBoard.placeShip(testShip4, '11_12')).toBe(null);
             expect(testBoard.placeShip(testShip4, '-4_12')).toBe(null);
             expect(testBoard.placeShip(testShip4, '4_-4')).toBe(null);
