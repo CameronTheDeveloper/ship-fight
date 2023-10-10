@@ -109,11 +109,18 @@ const attackPlayerBoard = (posDiv, boardPlayer, pos) => {
     }
 };
 
+const attackRandomPos = (boardPlayer) => {
+    const randomAttackPos = boardPlayer.getRandomAttackPos();
+    const enemySide = boardPlayer.enemy.playerBoard.side;
+    const attackPosDiv = document.querySelector(`#${enemySide}-${randomAttackPos}`);
 
+    attackPlayerBoard(attackPosDiv, boardPlayer, randomAttackPos);
+};
 
 export {
     addBoardPositionsDOM,
     placeShipDOM,
     attackPlayerBoard,
-    initBoardTopDOM
+    initBoardTopDOM,
+    attackRandomPos
 };
