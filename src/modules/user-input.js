@@ -25,8 +25,8 @@ const addPosClickPlaceShip = (posDiv, player, pos) => {
     const board = player.playerBoard;
 
     posDiv.addEventListener('click', () => {
-        player.activeShip.cords = board.placeShip(player.activeShip, pos);
-        placeShipDOM(player.activeShip.cords, board.boardSide);
+        player.selectedShip.cords = board.placeShip(player.selectedShip, pos);
+        placeShipDOM(player.selectedShip.cords, board.boardSide);
     });
 };
 
