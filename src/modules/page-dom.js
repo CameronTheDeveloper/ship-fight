@@ -1,5 +1,4 @@
 import { addBoardPosAttributes } from "./attributes";
-import { addPosMouseEvents } from "./user-input";
 
 const addDiv = (parent) => {
     const newDiv = document.createElement('div');
@@ -14,13 +13,15 @@ const setGridTemplate = (element, width, length) => {
 
 const addBoardPositionsDOM = (boardPlayer, boardParent) => {
     const board = boardPlayer.playerBoard;
-    setGridTemplate(boardParent, board.width, board.length);
-    for (let y = board.length; y >= 1; y--) {
-        for (let x = 1; x <= board.width; x++) {
-            let posDiv = addDiv(boardParent);
-            let pos = [x, y];
-            addBoardPosAttributes(posDiv, x, y, board.boardSide);
-            addPosMouseEvents(posDiv, boardPlayer, pos);
+    let posDiv = null;
+    let pos = null;
+
+    setGridTemplate(boardParent, board.boardWidth, board.boardLength);
+    for (let y = board.boardLength; y >= 1; y--) {
+        for (let x = 1; x <= board.boardWidth; x++) {
+            pos = `${x}_${y}`;
+            posDiv = addDiv(boardParent);
+            addBoardPosAttributes(posDiv, pos, board.boardSide);
         }
     }
 };
@@ -39,8 +40,10 @@ const placeShipCord = (divID) => {
 };
 
 const placeShipDOM = (shipCords, boardSide) => {
+    let divID = null;
+
     for (let i = 0; i < shipCords.length; i++) {
-        let divID = `${boardSide}-[${shipCords[i]}]`;
+        divID = `${boardSide}-${shipCords[i]}`;
         placeShipCord(divID);
     }
 };
@@ -60,11 +63,14 @@ const attackBoardDOM = (posDiv, attackHit) => {
 const attackAdjacentPositions = (board, pos) => {
 
     const adjPositions = board.getAdjacentPositions(pos);
+    let adjPosDivID = null;
+    let adjPosDiv = null;
+    let attackHit = null;
 
     for (let adjPos of adjPositions) {
-        let adjPosDivID = `${board.boardSide}-${JSON.stringify(adjPos)}`;
-        let adjPosDiv = document.getElementById(adjPosDivID);
-        let attackHit = board.receiveAttack(adjPos);
+        adjPosDivID = `${board.boardSide}-${adjPos}`;
+        adjPosDiv = document.getElementById(adjPosDivID);
+        attackHit = board.receiveAttack(adjPos);
 
         attackBoardDOM(adjPosDiv, attackHit);
     }

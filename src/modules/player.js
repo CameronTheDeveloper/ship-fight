@@ -4,6 +4,7 @@ const Player = (name = 'player') => {
         playerBoard: null,
         enemy: null,
         turn: false,
+        selectedShip: null,
 
         _switchTurn() {
             this.turn = false;
@@ -23,18 +24,11 @@ const Player = (name = 'player') => {
             return attackHit;
         },
 
-        _getRandomAttackPos() {
+        getRandomAttackPos() {
             const enemyBoardLength = this.enemy.playerBoard.availableAttacks.length;
             const randomIndex = Math.floor(Math.random(0, enemyBoardLength - 1));
 
             return this.enemy.playerBoard.availableAttacks[randomIndex];
-        },
-
-        attackRandomPos() {
-            const randomPos = this._getRandomAttackPos();
-            const attackedPos = this.attackPos(JSON.parse(randomPos));
-
-            return attackedPos;
         },
     };
 };

@@ -15,12 +15,10 @@ const createPlayerBoard = (player, width, length, boardDiv, boardSide) => {
     initBoardTopDOM(player, boardSide);
 };
 
-const assignPlayerEnemies = (player1, player2) => {
-    player1.enemy = player2;
-    player2.enemy = player1;
+const assignPlayerEnemies = (leftPlayer, rightPlayer) => {
+    leftPlayer.enemy = rightPlayer;
+    rightPlayer.enemy = leftPlayer;
 };
-
-
 
 const initializeGame = () => {
     const leftBoardDiv = document.querySelector('#left-board');
