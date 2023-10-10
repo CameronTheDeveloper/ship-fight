@@ -25,8 +25,8 @@ const Player = (name = 'player') => {
         },
 
         getRandomAttackPos() {
-            const enemyBoardLength = this.enemy.playerBoard.availableAttacks.length;
-            const randomIndex = Math.floor(Math.random(0, enemyBoardLength - 1));
+            const availableAttacksLength = this.enemy.playerBoard.availableAttacks.length;
+            const randomIndex = Math.floor(Math.random() * availableAttacksLength);
 
             return this.enemy.playerBoard.availableAttacks[randomIndex];
         },
