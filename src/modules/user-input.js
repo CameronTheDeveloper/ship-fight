@@ -9,7 +9,7 @@ const addPosClickAttack = (posDiv, player, pos) => {
 
 const addBoardAttackListeners = (player) => {
     const board = player.playerBoard;
-    const boardSideID = board.boardSide;
+    const boardSideID = board.side;
     let pos = [];
     let posDiv = null;
     for (let y = board.boardLength; y >= 1; y--) {
@@ -26,13 +26,13 @@ const addPosClickPlaceShip = (posDiv, player, pos) => {
 
     posDiv.addEventListener('click', () => {
         player.selectedShip.cords = board.placeShip(player.selectedShip, pos);
-        placeShipDOM(player.selectedShip.cords, board.boardSide);
+        placeShipDOM(player.selectedShip.cords, board.side);
     });
 };
 
 const addBoardPlaceShipListeners = (player) => {
     const board = player.playerBoard;
-    const boardSideID = board.boardSide;
+    const boardSideID = board.side;
     let pos = [];
     let posDiv = null;
     for (let y = board.boardLength; y >= 1; y--) {

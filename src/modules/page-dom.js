@@ -21,7 +21,7 @@ const addBoardPositionsDOM = (boardPlayer, boardParent) => {
         for (let x = 1; x <= board.boardWidth; x++) {
             pos = `${x}_${y}`;
             posDiv = addDiv(boardParent);
-            addBoardPosAttributes(posDiv, pos, board.boardSide);
+            addBoardPosAttributes(posDiv, pos, board.side);
         }
     }
 };
@@ -68,7 +68,7 @@ const attackAdjacentPositions = (board, pos) => {
     let attackHit = null;
 
     for (let adjPos of adjPositions) {
-        adjPosDivID = `${board.boardSide}-${adjPos}`;
+        adjPosDivID = `${board.side}-${adjPos}`;
         adjPosDiv = document.getElementById(adjPosDivID);
         attackHit = board.receiveAttack(adjPos);
 
@@ -78,7 +78,7 @@ const attackAdjacentPositions = (board, pos) => {
 
 const endGameDOM = (winnerPlayer) => {
     const winnerNameDiv = document.querySelector('#winner-name-display');
-    const winnerBoardDiv = document.getElementById(winnerPlayer.playerBoard.boardSide);
+    const winnerBoardDiv = document.getElementById(winnerPlayer.playerBoard.side);
 
     winnerBoardDiv.classList.add('winner');
     winnerNameDiv.textContent = `${winnerPlayer.name} Wins!`;

@@ -10,7 +10,7 @@ const createPlayerBoard = (player, width, length, boardDiv, boardSide) => {
     player.playerBoard = Board();
 
     player.playerBoard.setSize(width, length);
-    player.playerBoard.boardSide = boardSide;
+    player.playerBoard.side = boardSide;
     addBoardPositionsDOM(player, positionsDiv);
     initBoardTopDOM(player, boardSide);
 };

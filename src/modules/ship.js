@@ -17,7 +17,7 @@ const Ship = (length) => {
 const placePlayerShip = (board, shipSize, headCord) => {
     const playerShip = Ship(shipSize);
     playerShip.cords = board.placeShip(playerShip, headCord);
-    placeShipDOM(playerShip.cords, board.boardSide);
+    placeShipDOM(playerShip.cords, board.side);
 };
 
 export { Ship, placePlayerShip };
