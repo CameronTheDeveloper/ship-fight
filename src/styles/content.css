@@ -88,11 +88,11 @@
     cursor: crosshair;
 }
 
-.board-pos.attacked {
+#right-board .board-pos.attacked {
     cursor: not-allowed;
 }
 
-.board-pos:hover {
+#right-board .board-pos:hover {
     background-color: rgba(0, 0, 0, .7);
 }
 
