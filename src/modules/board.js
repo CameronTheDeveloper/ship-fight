@@ -106,9 +106,12 @@ const Board = () => {
                     this._outOfBounds(shipCord)) {
                     return null;
                 }
-                this.takenPositions[shipCord] = true;
-                this._setShipCord(shipCord, ship);
                 shipCordsAr.push(shipCord);
+            }
+
+            for (let j = 0; j < shipCordsAr.length; j++) {
+                this._setShipCord(shipCordsAr[j], ship);
+                this.takenPositions[shipCordsAr[j]] = true;
             }
             return shipCordsAr;
         },
