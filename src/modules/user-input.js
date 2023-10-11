@@ -1,5 +1,5 @@
 import { attackPlayerBoard } from "./page-dom";
-import { placeShipDOM } from "./page-dom";
+import { placePlayerShip } from "./ship";
 
 const addPosClickAttack = (posDiv, player, pos) => {
     posDiv.addEventListener('click', () => {
@@ -26,8 +26,7 @@ const addPosClickPlaceShip = (posDiv, player, pos) => {
     const board = player.playerBoard;
 
     posDiv.addEventListener('click', () => {
-        player.selectedShip.cords = board.placeShip(player.selectedShip, pos);
-        placeShipDOM(player.selectedShip.cords, board.side);
+        placePlayerShip(board, player.selectedShipSize, pos);
     });
 };
 
