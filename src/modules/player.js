@@ -4,7 +4,7 @@ const Player = (name = 'player') => {
         playerBoard: null,
         enemy: null,
         turn: false,
-        selectedShip: null,
+        selectedShipSize: 0,
 
         _switchTurn() {
             this.turn = false;
