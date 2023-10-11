@@ -97,7 +97,7 @@ const sinkShipDOM = (player, ship) => {
 };
 
 const attackPlayerBoard = (posDiv, player, pos) => {
-    let attackHit = player.enemy.attackPos(pos);
+    let attackHit = player.attackPos(pos);
 
     attackBoardDOM(posDiv, attackHit);
 

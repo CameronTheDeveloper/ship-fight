@@ -9,9 +9,10 @@ const addPosClickAttack = (posDiv, player, pos) => {
 
 const addBoardAttackListeners = (player) => {
     const board = player.playerBoard;
-    const boardSideID = board.side;
+    const boardSideID = player.enemy.playerBoard.side;
     let pos = [];
     let posDiv = null;
+
     for (let y = board.boardLength; y >= 1; y--) {
         for (let x = 1; x <= board.boardWidth; x++) {
             pos = `${x}_${y}`;
