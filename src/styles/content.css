@@ -82,7 +82,10 @@
     height: 100%;
     width: 100%;
     border: 1px solid black;
-    cursor: pointer;
+}
+
+#right-board .board-pos {
+    cursor: crosshair;
 }
 
 .board-pos.attacked {
