@@ -11,8 +11,8 @@ const setGridTemplate = (element, width, length) => {
     element.style.gridTemplateRows = `repeat(${length}, 1fr)`;
 };
 
-const addBoardPositionsDOM = (boardPlayer, boardParent) => {
-    const board = boardPlayer.playerBoard;
+const addBoardPositionsDOM = (player, boardParent) => {
+    const board = player.playerBoard;
     let posDiv = null;
     let pos = null;
 
@@ -96,25 +96,25 @@ const sinkShipDOM = (player, ship) => {
     }
 };
 
-const attackPlayerBoard = (posDiv, boardPlayer, pos) => {
-    let attackHit = boardPlayer.enemy.attackPos(pos);
+const attackPlayerBoard = (posDiv, player, pos) => {
+    let attackHit = player.enemy.attackPos(pos);
 
     attackBoardDOM(posDiv, attackHit);
 
     if (attackHit) {
-        let ship = boardPlayer.playerBoard.getShip(pos);
+        let ship = player.playerBoard.getShip(pos);
         if (ship.hasSunk()) {
-            sinkShipDOM(boardPlayer, ship);
+            sinkShipDOM(player, ship);
         }
     }
 };
 
-const attackRandomPos = (boardPlayer) => {
-    const randomAttackPos = boardPlayer.getRandomAttackPos();
-    const enemySide = boardPlayer.enemy.playerBoard.side;
+const attackRandomPos = (player) => {
+    const randomAttackPos = player.getRandomAttackPos();
+    const enemySide = player.enemy.playerBoard.side;
     const attackPosDiv = document.querySelector(`#${enemySide}-${randomAttackPos}`);
 
-    attackPlayerBoard(attackPosDiv, boardPlayer, randomAttackPos);
+    attackPlayerBoard(attackPosDiv, player, randomAttackPos);
 };
 
 export {
