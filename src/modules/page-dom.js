@@ -1,4 +1,5 @@
 import { addBoardPosAttributes } from "./attributes";
+import { getRandomPos } from "./board";
 
 const addDiv = (parent) => {
     const newDiv = document.createElement('div');
@@ -46,6 +47,13 @@ const placeShipDOM = (shipCords, boardSide) => {
         divID = `${boardSide}-${shipCords[i]}`;
         placeShipCord(divID);
     }
+};
+
+const placeRandomShip = (ship, section, board) => {
+    const headCord = getRandomPos(section.minX, section.maxX, section.minY, section.maxY);
+
+    ship.cords = board.placeShip(ship, headCord);
+    placeShipDOM(ship.cords, board.side);
 };
 
 const attackBoardDOM = (posDiv, attackHit) => {
@@ -120,7 +128,8 @@ const attackRandomPos = (player) => {
 export {
     addBoardPositionsDOM,
     placeShipDOM,
+    placeRandomShip,
     attackPlayerBoard,
     initBoardTopDOM,
-    attackRandomPos
+    attackRandomPos,
 };
