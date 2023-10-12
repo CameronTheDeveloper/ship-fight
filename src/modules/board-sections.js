@@ -40,8 +40,17 @@ const boardSection = () => {
             this.setMaxY(3, board);
         },
     };
-
-
 };
 
-export { boardSection };
+const createBoardSection = (ship, board, minX, minY) => {
+    const newSection = boardSection();
+
+    if (board.isPlacingVertically) {
+        newSection.makeSectionVertical(minX, minY, ship.length, board);
+    } else {
+        newSection.makeSectionHorizontal(minX, minY, ship.length, board);
+    }
+    return newSection;
+};
+
+export { createBoardSection };
