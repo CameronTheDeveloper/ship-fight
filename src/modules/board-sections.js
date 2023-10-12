@@ -39,6 +39,13 @@ const boardSection = () => {
             this._setMaxX(shipLength, board);
             this.setMaxY(3, board);
         },
+
+        makeSectionVertical(newMinX, newMinY, shipLength, board) {
+            this._setMinX(newMinX);
+            this._setMinY(newMinY);
+            this.setMaxY(shipLength, board);
+            this.setMaxY(3, board);
+        },
     };
 };
 
