@@ -33,7 +33,7 @@ const boardSection = () => {
             }
         },
 
-        createHorizontalSection(newMinX, newMinY, shipLength, board) {
+        makeSectionHorizontal(newMinX, newMinY, shipLength, board) {
             this._setMinX(newMinX);
             this._setMinY(newMinY);
             this._setMaxX(shipLength, board);
