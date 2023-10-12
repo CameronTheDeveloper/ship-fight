@@ -220,4 +220,11 @@ const Board = () => {
     };
 };
 
-export { Board };
+const getRandomPos = (minX, maxX, minY, maxY) => {
+    const xPos = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
+    const yPos = Math.floor(Math.random() * (maxY - minY + 1)) + minY;
+
+    return `${xPos}_${yPos}`;
+};
+
+export { Board, getRandomPos };
