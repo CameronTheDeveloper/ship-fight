@@ -33,4 +33,9 @@ const Player = (name = 'player') => {
     };
 };
 
-export { Player };
+const assignPlayerEnemies = (leftPlayer, rightPlayer) => {
+    leftPlayer.enemy = rightPlayer;
+    rightPlayer.enemy = leftPlayer;
+};
+
+export { Player, assignPlayerEnemies };

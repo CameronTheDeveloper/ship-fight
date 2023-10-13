@@ -1,5 +1,5 @@
 import { Board } from "./board";
-import { Player } from "./player";
+import { Player, assignPlayerEnemies } from "./player";
 import {
     addBoardPositionsDOM,
     initBoardTopDOM
@@ -15,17 +15,14 @@ const createPlayerBoard = (player, width, length, boardDiv, boardSide) => {
     initBoardTopDOM(player, boardSide);
 };
 
-const assignPlayerEnemies = (leftPlayer, rightPlayer) => {
-    leftPlayer.enemy = rightPlayer;
-    rightPlayer.enemy = leftPlayer;
-};
-
 const initializeGame = () => {
     const leftBoardDiv = document.querySelector('#left-board');
     const rightBoardDiv = document.querySelector('#right-board');
 
     const leftPlayer = Player('Player 1');
     const rightPlayer = Player('Player 2');
+
+    assignPlayerEnemies(leftPlayer, rightPlayer);
 
     leftPlayer.turn = true;
 
