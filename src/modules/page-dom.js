@@ -56,6 +56,12 @@ const placeRandomShip = (ship, section, board) => {
     placeShipDOM(ship.cords, board.side);
 };
 
+const placeComputerShips = (shipsAr, sectionsAr, board) => {
+    for (let i = 0; i < shipsAr.length; i++) {
+        placeRandomShip(shipsAr[i], sectionsAr[i], board);
+    }
+};
+
 const attackBoardDOM = (posDiv, attackHit) => {
     if (attackHit != null) {
         posDiv.classList.add('attacked');
@@ -128,7 +134,7 @@ const attackRandomPos = (player) => {
 export {
     addBoardPositionsDOM,
     placeShipDOM,
-    placeRandomShip,
+    placeComputerShips,
     attackPlayerBoard,
     initBoardTopDOM,
     attackRandomPos,
