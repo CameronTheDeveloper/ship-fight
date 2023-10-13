@@ -86,16 +86,20 @@ const getMinYValues = (shipsAr, boardHeight) => {
     return minYValuesAr;
 };
 
-// const createBoardSectionsAr = (shipsAr, board) => {
-//     const sectionsAr = null;
-//     let minX = null;
-//     let minY = null;
+const getBoardSectionsAr = (shipsAr, board) => {
+    let sectionsAr = [];
+    let newSection = null;
+    const minXValues = getMinXValues(shipsAr, board.width);
+    const minYValues = getMinYValues(shipsAr, board.height);
 
-//     for (let i = 0; i < shipsAr.length; i++) {
-//         createBoardSection(shipAr[i], board,);
-//     }
+    for (let y = 0; y < minYValues.length; y++) {
+        for (let x = 0; x < minXValues.length; x++) {
+            // newSection = createBoardSection(board, minXValues[x], minYValues[y]);
+            // sectionsAr.push(newSection);
+        }
+    }
 
-//     return sectionsAr;
-// };
+    return sectionsAr;
+};
 
-export { createBoardSection };
+export { getBoardSectionsAr };
