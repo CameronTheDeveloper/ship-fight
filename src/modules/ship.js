@@ -1,15 +1,15 @@
 import { placeShipDOM } from "./page-dom";
 
-const Ship = (length) => {
+const Ship = (shipLength) => {
     return {
-        length: length,
+        shipLength: shipLength,
         hits: 0,
         cords: [],
         hit() {
             this.hits++;
         },
         hasSunk() {
-            return this.hits >= this.length;
+            return this.hits >= this.shipLength;
         }
     };
 };

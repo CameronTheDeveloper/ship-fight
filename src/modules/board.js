@@ -100,7 +100,7 @@ const Board = () => {
             let shipCordsAr = [];
             let shipCord = '';
 
-            for (let i = 0; i < ship.length; i++) {
+            for (let i = 0; i < ship.shipLength; i++) {
                 shipCord = `${+xCord + i}_${yCord}`;
                 if (this.takenPositions[shipCord] ||
                     this._outOfBounds(shipCord)) {
@@ -120,7 +120,7 @@ const Board = () => {
             let shipCordsAr = [];
             let shipCord = '';
 
-            for (let i = 0; i < ship.length; i++) {
+            for (let i = 0; i < ship.shipLength; i++) {
                 shipCord = `${+xCord}_${yCord - i}`;
                 if (this.takenPositions[shipCord] ||
                     this._outOfBounds(shipCord)) {
