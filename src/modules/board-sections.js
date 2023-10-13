@@ -27,10 +27,10 @@ const boardSection = (sectionSpace) => {
             }
         },
 
-        _setMaxY(boardHeight) {
+        _setMaxY(boardLength) {
             this.maxY = this.minY + this.sectionSpace;
-            if (this.maxY > boardHeight) {
-                this.maxY = boardHeight;
+            if (this.maxY > boardLength) {
+                this.maxY = boardLength;
             }
         },
 
@@ -38,7 +38,7 @@ const boardSection = (sectionSpace) => {
             this._setMinX(newMinX);
             this._setMinY(newMinY);
             this._setMaxX(board.boardWidth);
-            this._setMaxY(board.boardHeight);
+            this._setMaxY(board.boardLength);
         },
     };
 };
@@ -62,11 +62,11 @@ const getMinXValues = (shipsAr, boardWidth) => {
     return minXValuesAr;
 };
 
-const getMinYValues = (shipsAr, boardHeight) => {
+const getMinYValues = (shipsAr, boardLength) => {
     let minYValuesAr = [];
     let minY = null;
     const rowCount = Math.floor(shipsAr.length / 2);
-    const rowDistance = Math.ceil(boardHeight / rowCount);
+    const rowDistance = Math.ceil(boardLength / rowCount);
 
     for (let i = 0; i < rowCount; i++) {
         minY = i * rowDistance;
@@ -78,8 +78,8 @@ const getMinYValues = (shipsAr, boardHeight) => {
 const getBoardSectionsAr = (shipsAr, board) => {
     let sectionsAr = [];
     let newSection = null;
-    const minXValues = getMinXValues(shipsAr, board.width);
-    const minYValues = getMinYValues(shipsAr, board.height);
+    const minXValues = getMinXValues(shipsAr, board.boardWidth);
+    const minYValues = getMinYValues(shipsAr, board.boardLength);
     const sectionSpace = minYValues[1];
 
     for (let y = 0; y < minYValues.length; y++) {
