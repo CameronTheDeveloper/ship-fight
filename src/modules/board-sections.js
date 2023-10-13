@@ -60,4 +60,42 @@ const createBoardSection = (ship, board, minX, minY) => {
     return newSection;
 };
 
+const getMinXValues = (shipsAr, boardWidth) => {
+    let minXValuesAr = [];
+    let minX = null;
+    const columnCount = Math.ceil(shipsAr.length / 2);
+    const columnDistance = Math.ceil(boardWidth / rowCount);
+
+    for (let i = 0; i < columnCount; i++) {
+        minX = i * columnDistance;
+        minXValuesAr.push(minX);
+    }
+    return minXValuesAr;
+};
+
+const getMinYValues = (shipsAr, boardHeight) => {
+    let minYValuesAr = [];
+    let minY = null;
+    const rowCount = Math.floor(shipsAr.length / 2);
+    const rowDistance = Math.ceil(boardHeight / rowCount);
+
+    for (let i = 0; i < rowCount; i++) {
+        minY = i * rowDistance;
+        minYValuesAr.push(minY);
+    }
+    return minYValuesAr;
+};
+
+// const createBoardSectionsAr = (shipsAr, board) => {
+//     const sectionsAr = null;
+//     let minX = null;
+//     let minY = null;
+
+//     for (let i = 0; i < shipsAr.length; i++) {
+//         createBoardSection(shipAr[i], board,);
+//     }
+
+//     return sectionsAr;
+// };
+
 export { createBoardSection };
