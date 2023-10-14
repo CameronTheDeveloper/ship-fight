@@ -22,4 +22,19 @@ const placePlayerShip = (board, shipSize, headCord) => {
     }
 };
 
-export { Ship, placePlayerShip };
+const getShipsAr = (boardWidth) => {
+    const shipCount = Math.floor(boardWidth / 2.5);
+    let shipsAr = [];
+    let shipSizesAr = [1, 2, 3, 4];
+    let newShip = null;
+
+    for (let i = 0; i < shipCount; i++) {
+        newShip = Ship(shipSizesAr[i]);
+        shipsAr.push(newShip);
+        shipSizesAr.push(shipSizesAr[i]);
+    }
+
+    return shipsAr;
+};
+
+export { getShipsAr, placePlayerShip };
