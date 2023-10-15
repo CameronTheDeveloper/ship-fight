@@ -6,7 +6,7 @@
 #container {
     display: grid;
     grid-template-rows: 2fr 14fr 1fr;
-    height: 49.5em
+    /* height: 100%; */
 }
 
 #header {
@@ -15,7 +15,7 @@
     justify-content: center;
     align-items: center;
     font-size: 1.2em;
-    padding: 1em;
+    padding: 1%;
 }
 
 #footer {
@@ -24,5 +24,5 @@
     justify-content: center;
     align-items: center;
     font-size: 1.2em;
-    padding: 0.5em
+    padding: 0.8%;
 }
