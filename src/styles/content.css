@@ -1,7 +1,7 @@
 #content {
     background-color: rgb(42, 68, 237);
     display: grid;
-    grid-template-rows: 1fr 1fr 15fr
+    grid-template-rows: 3fr 2fr 15fr 15fr;
 }
 
 #winner-name-display {
@@ -45,7 +45,7 @@
 #board-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    place-content: center;
+    padding: 1em;
 }
 
 .board {
