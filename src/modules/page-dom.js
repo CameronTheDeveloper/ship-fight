@@ -1,4 +1,4 @@
-import { addBoardPosAttributes } from "./attributes";
+import { addBoardPosAttributes, addShipSelectionAttributes } from "./attributes";
 import { getRandomPos } from "./board";
 
 const addDiv = (parent) => {
@@ -35,6 +35,7 @@ const addShipSelectionsDOM = (shipsAr) => {
         selectionDiv = document.createElement('div');
         selectionDiv.textContent = shipsAr[i].shipLength;
         shipSelectionsDiv.appendChild(selectionDiv);
+        addShipSelectionAttributes(selectionDiv, shipsAr[i].shipLength);
     }
 
     setGridTemplate(shipSelectionsDiv, shipsAr.length, 1);

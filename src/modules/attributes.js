@@ -3,4 +3,9 @@ const addBoardPosAttributes = (posDiv, pos, boardSide) => {
     posDiv.setAttribute('id', `${boardSide}-${pos}`);
 };
 
-export { addBoardPosAttributes };
+const addShipSelectionAttributes = (selectionDiv, shipLength) => {
+    selectionDiv.classList.add('ship-selection');
+    selectionDiv.classList.add(`ship-length-${shipLength}`);
+};
+
+export { addBoardPosAttributes, addShipSelectionAttributes };
