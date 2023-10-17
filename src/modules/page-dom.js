@@ -90,12 +90,17 @@ const attackAdjacentPositions = (board, pos) => {
     }
 };
 
-const endGameDOM = (winnerPlayer) => {
-    const winnerNameDiv = document.querySelector('#winner-name-display');
-    const winnerBoardDiv = document.getElementById(winnerPlayer.playerBoard.side);
 
+const displayWinnerDOM = (winnerPlayer) => {
+    const winnerNameText = document.querySelector('#winner-name-text');
+    const winnerBoardDiv = document.getElementById(winnerPlayer.playerBoard.side);
     winnerBoardDiv.classList.add('winner');
-    winnerNameDiv.textContent = `${winnerPlayer.name} Wins!`;
+    winnerNameText.textContent = `${winnerPlayer.name} Wins!`;
+};
+
+
+const endGameDOM = (winnerPlayer) => {
+    displayWinnerDOM(winnerPlayer);
     winnerPlayer.playerBoard.clearAvailableAttacks();
     winnerPlayer.enemy.playerBoard.clearAvailableAttacks();
 };
