@@ -40,6 +40,16 @@
     border: 2px solid black
 }
 
+.ship-selection:hover {
+    font-weight: bold;
+    background-color: rgba(0, 255, 0, 0.759);
+}
+
+.ship-selection.selected {
+    font-weight: bold;
+    background-color: rgb(0, 255, 0);
+}
+
 /* Board container */
 
 #board-container {
