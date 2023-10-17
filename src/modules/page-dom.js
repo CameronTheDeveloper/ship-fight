@@ -98,8 +98,7 @@ const displayWinnerDOM = (winnerPlayer) => {
     winnerNameText.textContent = `${winnerPlayer.name} Wins!`;
 };
 
-
-const endGameDOM = (winnerPlayer) => {
+const endGame = (winnerPlayer) => {
     displayWinnerDOM(winnerPlayer);
     winnerPlayer.playerBoard.clearAvailableAttacks();
     winnerPlayer.enemy.playerBoard.clearAvailableAttacks();
@@ -111,7 +110,7 @@ const sinkShipDOM = (player, ship) => {
     }
 
     if (player.playerBoard.gameIsOver()) {
-        endGameDOM(player.enemy);
+        endGame(player.enemy);
     }
 };
 
