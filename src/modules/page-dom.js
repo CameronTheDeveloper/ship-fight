@@ -27,6 +27,19 @@ const addBoardPositionsDOM = (player, boardParent) => {
     }
 };
 
+const addShipSelectionsDOM = (shipsAr) => {
+    const shipSelectionsDiv = document.querySelector('#ship-selections');
+    let selectionDiv = null;
+
+    for (let i = 0; i < shipsAr.length; i++) {
+        selectionDiv = document.createElement('div');
+        selectionDiv.textContent = shipsAr[i].shipLength;
+        shipSelectionsDiv.appendChild(selectionDiv);
+    }
+
+    setGridTemplate(shipSelectionsDiv, shipsAr.length, 1);
+};
+
 const initBoardTopDOM = (player, boardSide) => {
     const playerNameDiv = document.querySelector(`#${boardSide} .board-top .player-name`);
     const shipsRemainingNumberDiv = document.querySelector(`#${boardSide} .board-top .ships-remaining span`);
@@ -137,6 +150,7 @@ const attackRandomPos = (player) => {
 
 export {
     addBoardPositionsDOM,
+    addShipSelectionsDOM,
     placeShipDOM,
     placeComputerShips,
     attackPlayerBoard,
