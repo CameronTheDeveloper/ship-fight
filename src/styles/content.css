@@ -22,6 +22,10 @@
     border: 4px solid black
 }
 
+#ship-menu-top {
+    justify-self: center;
+}
+
 #ship-selections {
     display: grid;
     justify-items: center;
