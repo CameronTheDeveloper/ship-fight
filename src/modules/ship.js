@@ -37,4 +37,4 @@ const getShipsAr = (boardWidth) => {
     return shipsAr;
 };
 
-export { getShipsAr, placePlayerShip };
+export { Ship, getShipsAr, placePlayerShip };
