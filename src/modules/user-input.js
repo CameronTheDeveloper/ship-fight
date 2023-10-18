@@ -1,4 +1,4 @@
-import { attackPlayerBoard } from "./page-dom";
+import { attackPlayerBoard, togglePlaceVertButtonDisplay } from "./page-dom";
 import { placePlayerShip } from "./ship";
 import { setActiveShipSelectionClass } from "./attributes";
 
@@ -27,8 +27,10 @@ const addClickTogglePlaceVertical = (board, button) => {
     button.addEventListener('click', () => {
         if (board.isPlacingShipVertically) {
             board.isPlacingShipVertically = false;
+            togglePlaceVertButtonDisplay(button, 'Horizontal');
         } else {
             board.isPlacingShipVertically = true;
+            togglePlaceVertButtonDisplay(button, 'Vertical');
         }
     });
 };

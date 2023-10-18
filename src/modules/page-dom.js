@@ -53,6 +53,12 @@ const initBoardTopDOM = (player, boardSide) => {
     shipsRemainingNumberDiv.textContent = 0;
 };
 
+const togglePlaceVertButtonDisplay = (button, text) => {
+    const textSpan = button.querySelector('span');
+    textSpan.textContent = text;
+    button.setAttribute('class', `${text.toLowerCase()}`);
+};
+
 const placeShipCord = (divID) => {
     const shipDiv = document.getElementById(divID);
     shipDiv.classList.add('taken');
@@ -156,6 +162,7 @@ const attackRandomPos = (player) => {
 export {
     addBoardPositionsDOM,
     addShipSelectionsDOM,
+    togglePlaceVertButtonDisplay,
     placeShipDOM,
     placeComputerShips,
     attackPlayerBoard,
