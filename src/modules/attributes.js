@@ -8,4 +8,13 @@ const addShipSelectionAttributes = (selectionDiv, shipLength) => {
     selectionDiv.classList.add(`ship-length-${shipLength}`);
 };
 
-export { addBoardPosAttributes, addShipSelectionAttributes };
+const setActiveShipSelectionClass = (selectedShipDiv) => {
+    const oldSelectedDiv = document.querySelector('#ship-selections .selected');
+
+    if (oldSelectedDiv) {
+        oldSelectedDiv.classList.remove('selected');
+    }
+    selectedShipDiv.classList.add('selected');
+};
+
+export { addBoardPosAttributes, addShipSelectionAttributes, setActiveShipSelectionClass };

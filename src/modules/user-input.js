@@ -1,5 +1,6 @@
 import { attackPlayerBoard } from "./page-dom";
 import { placePlayerShip } from "./ship";
+import { setActiveShipSelectionClass } from "./attributes";
 
 const addPosClickAttack = (posDiv, player, pos) => {
     posDiv.addEventListener('click', () => {
@@ -25,6 +26,7 @@ const addBoardAttackListeners = (player) => {
 const addClickShipSelection = (shipSelectionDiv, player, shipSize) => {
     shipSelectionDiv.addEventListener('click', () => {
         player.selectedShipSize = shipSize;
+        setActiveShipSelectionClass(shipSelectionDiv);
     });
 };
 
