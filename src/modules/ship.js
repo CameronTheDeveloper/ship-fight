@@ -1,4 +1,5 @@
 import { placeShipDOM } from "./page-dom";
+import { removeClickShipSelection } from "./user-input";
 
 const Ship = (shipLength) => {
     return {
@@ -19,6 +20,7 @@ const placePlayerShip = (board, shipSize, headCord) => {
     playerShip.cords = board.placeShip(playerShip, headCord);
     if (playerShip.cords) {
         placeShipDOM(playerShip.cords, board.side);
+        removeClickShipSelection();
     }
 };
 

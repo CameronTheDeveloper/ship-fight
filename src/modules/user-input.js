@@ -30,6 +30,14 @@ const addClickShipSelection = (shipSelectionDiv, player, shipSize) => {
     });
 };
 
+const removeClickShipSelection = () => {
+    const oldSelectedDiv = document.querySelector('#ship-selections .selected');
+
+    if (oldSelectedDiv) {
+        oldSelectedDiv.classList.remove('selected', false);
+    }
+};
+
 const addPosClickPlaceShip = (posDiv, player, pos) => {
     const board = player.playerBoard;
 
@@ -55,5 +63,6 @@ const addBoardPlaceShipListeners = (player) => {
 export {
     addBoardAttackListeners,
     addClickShipSelection,
+    removeClickShipSelection,
     addBoardPlaceShipListeners
 };
