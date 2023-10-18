@@ -23,6 +23,16 @@ const addBoardAttackListeners = (player) => {
     }
 };
 
+const addClickTogglePlaceVertical = (board, button) => {
+    button.addEventListener('click', () => {
+        if (board.isPlacingShipVertically) {
+            board.isPlacingShipVertically = false;
+        } else {
+            board.isPlacingShipVertically = true;
+        }
+    });
+};
+
 const addClickShipSelection = (shipSelectionDiv, player, shipSize) => {
     shipSelectionDiv.addEventListener('click', () => {
         player.selectedShipSize = shipSize;
@@ -60,6 +70,7 @@ const addBoardPlaceShipListeners = (player) => {
 };
 
 export {
+    addClickTogglePlaceVertical,
     addBoardAttackListeners,
     addClickShipSelection,
     removeClickShipSelection,
