@@ -218,6 +218,17 @@ const Board = () => {
     };
 };
 
+
+const createPlayerBoard = (player, boardSize, boardDiv, boardSide) => {
+    const positionsDiv = boardDiv.querySelector('.board-positions');
+
+    player.playerBoard = Board();
+    player.playerBoard.setSize(boardSize);
+    player.playerBoard.side = boardSide;
+    addBoardPositionsDOM(player, positionsDiv);
+    initBoardTopDOM(player, boardSide);
+};
+
 const getRandomPos = (minX, maxX, minY, maxY) => {
     const xPos = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
     const yPos = Math.floor(Math.random() * (maxY - minY + 1)) + minY;
@@ -225,4 +236,4 @@ const getRandomPos = (minX, maxX, minY, maxY) => {
     return `${xPos}_${yPos}`;
 };
 
-export { Board, getRandomPos };
+export { Board, createPlayerBoard, getRandomPos };
