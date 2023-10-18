@@ -32,11 +32,20 @@
 }
 
 #toggle-vertical-placement button {
+    cursor: pointer;
     border-radius: 3em;
     padding: 0.5em;
     font-size: 0.8em;
     width: 7em;
     height: 4em;
+}
+
+#toggle-vertical-placement button span {
+    font-weight: 700;
+}
+
+#toggle-vertical-placement button:hover {
+    background-color: rgb(64, 255, 0)
 }
 
 #ship-menu-title {
