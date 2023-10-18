@@ -15,12 +15,15 @@ const Ship = (shipLength) => {
     };
 };
 
-const placePlayerShip = (board, shipSize, headCord) => {
-    const playerShip = Ship(shipSize);
+const placePlayerShip = (player, headCord) => {
+    const board = player.playerBoard;
+    const playerShip = Ship(player.selectedShipSize);
+
     playerShip.cords = board.placeShip(playerShip, headCord);
     if (playerShip.cords) {
         placeShipDOM(playerShip.cords, board.side);
         removeClickShipSelection();
+        player.selectedShipSize = null;
     }
 };
 

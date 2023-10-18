@@ -40,10 +40,8 @@ const removeClickShipSelection = () => {
 };
 
 const addPosClickPlaceShip = (posDiv, player, pos) => {
-    const board = player.playerBoard;
-
     posDiv.addEventListener('click', () => {
-        placePlayerShip(board, player.selectedShipSize, pos);
+        placePlayerShip(player, pos);
     });
 };
 
