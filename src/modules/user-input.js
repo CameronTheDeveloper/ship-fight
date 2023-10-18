@@ -34,7 +34,8 @@ const removeClickShipSelection = () => {
     const oldSelectedDiv = document.querySelector('#ship-selections .selected');
 
     if (oldSelectedDiv) {
-        oldSelectedDiv.classList.remove('selected', false);
+        oldSelectedDiv.classList.remove('selected');
+        oldSelectedDiv.remove();
     }
 };
 
