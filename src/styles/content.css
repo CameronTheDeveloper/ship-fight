@@ -44,13 +44,11 @@
     font-weight: 700;
 }
 
-#toggle-vertical-placement.horizontal button:hover,
-#toggle-vertical-placement.vertical button {
+#toggle-vertical-placement button.vertical {
     background-color: rgb(64, 255, 0)
 }
 
-#toggle-vertical-placement.vertical button:hover,
-#toggle-vertical-placement.horizontal button {
+#toggle-vertical-placement button.horizontal {
     background-color: rgb(217, 255, 0)
 }
 
