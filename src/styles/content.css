@@ -44,8 +44,14 @@
     font-weight: 700;
 }
 
-#toggle-vertical-placement button:hover {
+#toggle-vertical-placement.horizontal button:hover,
+#toggle-vertical-placement.vertical button {
     background-color: rgb(64, 255, 0)
+}
+
+#toggle-vertical-placement.vertical button:hover,
+#toggle-vertical-placement.horizontal button {
+    background-color: rgb(217, 255, 0)
 }
 
 #ship-menu-title {
