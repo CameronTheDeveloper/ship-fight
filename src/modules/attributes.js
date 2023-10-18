@@ -3,9 +3,9 @@ const addBoardPosAttributes = (posDiv, pos, boardSide) => {
     posDiv.setAttribute('id', `${boardSide}-${pos}`);
 };
 
-const addShipSelectionAttributes = (selectionDiv, shipLength) => {
+const addShipSelectionAttributes = (selectionDiv, shipSize) => {
     selectionDiv.classList.add('ship-selection');
-    selectionDiv.classList.add(`ship-length-${shipLength}`);
+    selectionDiv.classList.add(`ship-length-${shipSize}`);
 };
 
 const setActiveShipSelectionClass = (selectedShipDiv) => {

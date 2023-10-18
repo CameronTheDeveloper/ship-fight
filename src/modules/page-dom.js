@@ -34,7 +34,7 @@ const addShipSelectionsDOM = (player, shipsAr) => {
     let shipSelectionLength = null;
 
     for (let i = 0; i < shipsAr.length; i++) {
-        shipSelectionLength = shipsAr[i].shipLength;
+        shipSelectionLength = shipsAr[i].shipSize;
         selectionDiv = document.createElement('div');
         selectionDiv.textContent = shipSelectionLength;
         shipSelectionsDiv.appendChild(selectionDiv);

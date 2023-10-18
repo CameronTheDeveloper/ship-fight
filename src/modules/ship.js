@@ -1,16 +1,16 @@
 import { placeShipDOM } from "./page-dom";
 import { removeClickShipSelection } from "./user-input";
 
-const Ship = (shipLength) => {
+const Ship = (shipSize) => {
     return {
-        shipLength: shipLength,
+        shipSize: shipSize,
         hits: 0,
         cords: [],
         hit() {
             this.hits++;
         },
         hasSunk() {
-            return this.hits >= this.shipLength;
+            return this.hits >= this.shipSize;
         }
     };
 };

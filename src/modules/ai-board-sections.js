@@ -62,11 +62,11 @@ const getMinYValues = (shipsAr, boardLength) => {
 const setSectionsSpacing = (board, shipsAr, sectionsAr) => {
     for (let i = 0; i < sectionsAr.length; i++) {
         if (board.isPlacingVertically) {
-            sectionsAr[i].sectionSpaceLength = shipsAr.length - shipsAr[i].shipLength;
+            sectionsAr[i].sectionSpaceLength = shipsAr.length - shipsAr[i].shipSize;
             sectionsAr[i].sectionSpaceWidth = shipsAr.length - 1;
         } else {
             sectionsAr[i].sectionSpaceLength = shipsAr.length - 1;
-            sectionsAr[i].sectionSpaceWidth = shipsAr.length - shipsAr[i].shipLength;
+            sectionsAr[i].sectionSpaceWidth = shipsAr.length - shipsAr[i].shipSize;
         }
         sectionsAr[i].setSectionBoundaries(board);
     }
