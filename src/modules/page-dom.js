@@ -1,5 +1,6 @@
 import { addBoardPosAttributes, addShipSelectionAttributes } from "./attributes";
 import { getRandomPos } from "./board";
+import { addClickShipSelection } from "./user-input";
 
 const addDiv = (parent) => {
     const newDiv = document.createElement('div');
@@ -27,15 +28,18 @@ const addBoardPositionsDOM = (player, boardParent) => {
     }
 };
 
-const addShipSelectionsDOM = (shipsAr) => {
+const addShipSelectionsDOM = (player, shipsAr) => {
     const shipSelectionsDiv = document.querySelector('#ship-selections');
     let selectionDiv = null;
+    let shipSelectionLength = null;
 
     for (let i = 0; i < shipsAr.length; i++) {
+        shipSelectionLength = shipsAr[i].shipLength;
         selectionDiv = document.createElement('div');
-        selectionDiv.textContent = shipsAr[i].shipLength;
+        selectionDiv.textContent = shipSelectionLength;
         shipSelectionsDiv.appendChild(selectionDiv);
-        addShipSelectionAttributes(selectionDiv, shipsAr[i].shipLength);
+        addShipSelectionAttributes(selectionDiv, shipSelectionLength);
+        addClickShipSelection(selectionDiv, player, shipSelectionLength);
     }
 
     setGridTemplate(shipSelectionsDiv, shipsAr.length, 1);
