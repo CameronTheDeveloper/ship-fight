@@ -13,16 +13,16 @@ const setGridTemplate = (element, width, length) => {
     element.style.gridTemplateRows = `repeat(${length}, 1fr)`;
 };
 
-const addBoardPositionsDOM = (player, boardParent) => {
-    const board = player.playerBoard;
+const addBoardPositionsDOM = (board, boardParentDiv) => {
+    const positionsDiv = boardParentDiv.querySelector('.board-positions');
     let posDiv = null;
     let pos = null;
 
-    setGridTemplate(boardParent, board.boardSize, board.boardSize);
+    setGridTemplate(positionsDiv, board.boardSize, board.boardSize);
     for (let y = board.boardSize; y >= 1; y--) {
         for (let x = 1; x <= board.boardSize; x++) {
             pos = `${x}_${y}`;
-            posDiv = addDiv(boardParent);
+            posDiv = addDiv(positionsDiv);
             addBoardPosAttributes(posDiv, pos, board.side);
         }
     }

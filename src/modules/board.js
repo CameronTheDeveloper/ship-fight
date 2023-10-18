@@ -218,15 +218,12 @@ const Board = () => {
     };
 };
 
+const createPlayerBoard = (boardSize, boardSide) => {
+    const playerBoard = Board();
+    playerBoard.setSize(boardSize);
+    playerBoard.side = boardSide;
 
-const createPlayerBoard = (player, boardSize, boardDiv, boardSide) => {
-    const positionsDiv = boardDiv.querySelector('.board-positions');
-
-    player.playerBoard = Board();
-    player.playerBoard.setSize(boardSize);
-    player.playerBoard.side = boardSide;
-    addBoardPositionsDOM(player, positionsDiv);
-    initBoardTopDOM(player, boardSide);
+    return playerBoard;
 };
 
 const getRandomPos = (minX, maxX, minY, maxY) => {

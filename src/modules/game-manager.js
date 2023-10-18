@@ -7,11 +7,18 @@ import {
 
 
 const initializeBoards = (leftPlayer, rightPlayer, boardSize) => {
-    const leftBoardDiv = document.querySelector('#left-board');
-    const rightBoardDiv = document.querySelector('#right-board');
+    const leftBoardSide = 'left-board';
+    const rightBoardSide = 'right-board';
+    const leftBoardDiv = document.querySelector(`#${leftBoardSide}`);
+    const rightBoardDiv = document.querySelector(`#${rightBoardSide}`);
 
-    createPlayerBoard(leftPlayer, boardSize, leftBoardDiv, 'left-board');
-    createPlayerBoard(rightPlayer, boardSize, rightBoardDiv, 'right-board');
+    leftPlayer.playerBoard = createPlayerBoard(boardSize, leftBoardSide);
+    rightPlayer.playerBoard = createPlayerBoard(boardSize, rightBoardSide);
+
+    addBoardPositionsDOM(leftPlayer.playerBoard, leftBoardDiv);
+    addBoardPositionsDOM(rightPlayer.playerBoard, rightBoardDiv);
+    initBoardTopDOM(leftPlayer, leftBoardSide);
+    initBoardTopDOM(rightPlayer, rightBoardSide);
 };
 
 const initializeGame = () => {
