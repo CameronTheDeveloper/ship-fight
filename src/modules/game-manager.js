@@ -15,10 +15,15 @@ const createPlayerBoard = (player, boardSize, boardDiv, boardSide) => {
     initBoardTopDOM(player, boardSide);
 };
 
-const initializeGame = () => {
+const initializeBoards = (leftPlayer, rightPlayer, boardSize) => {
     const leftBoardDiv = document.querySelector('#left-board');
     const rightBoardDiv = document.querySelector('#right-board');
 
+    createPlayerBoard(leftPlayer, boardSize, leftBoardDiv, 'left-board');
+    createPlayerBoard(rightPlayer, boardSize, rightBoardDiv, 'right-board');
+};
+
+const initializeGame = () => {
     const leftPlayer = Player('Player 1');
     const rightPlayer = Player('Player 2');
 
@@ -26,11 +31,7 @@ const initializeGame = () => {
 
     leftPlayer.turn = true;
 
-    assignPlayerEnemies(leftPlayer, rightPlayer);
-
-    createPlayerBoard(leftPlayer, 10, leftBoardDiv, 'left-board');
-    createPlayerBoard(rightPlayer, 10, rightBoardDiv, 'right-board');
-
+    initializeBoards(leftPlayer, rightPlayer, 10);
 };
 
 export { initializeGame };
