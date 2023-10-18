@@ -15,8 +15,8 @@ describe('Player object', () => {
         player2.playerBoard = Board();
         ship1 = Ship(1);
 
-        player1.playerBoard.setSize(10, 10);
-        player2.playerBoard.setSize(10, 10);
+        player1.playerBoard.setSize(10);
+        player2.playerBoard.setSize(10);
         player2.playerBoard.placeShip(ship1, '2_2');
         player1.enemy = player2;
         player2.enemy = player1;

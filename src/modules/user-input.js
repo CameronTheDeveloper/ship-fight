@@ -14,8 +14,8 @@ const addBoardAttackListeners = (player) => {
     let pos = [];
     let posDiv = null;
 
-    for (let y = board.boardLength; y >= 1; y--) {
-        for (let x = 1; x <= board.boardWidth; x++) {
+    for (let y = board.boardSize; y >= 1; y--) {
+        for (let x = 1; x <= board.boardSize; x++) {
             pos = `${x}_${y}`;
             posDiv = document.querySelector(`#${boardSideID}-${pos}`);
             addPosClickAttack(posDiv, player, pos);
@@ -62,8 +62,8 @@ const addBoardPlaceShipListeners = (player) => {
     const boardSideID = board.side;
     let pos = [];
     let posDiv = null;
-    for (let y = board.boardLength; y >= 1; y--) {
-        for (let x = 1; x <= board.boardWidth; x++) {
+    for (let y = board.boardSize; y >= 1; y--) {
+        for (let x = 1; x <= board.boardSize; x++) {
             pos = `${x}_${y}`;
             posDiv = document.querySelector(`#${boardSideID}-${pos}`);
             addPosClickPlaceShip(posDiv, player, pos);

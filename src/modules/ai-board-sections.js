@@ -7,23 +7,23 @@ const boardSection = (minX, minY) => {
         maxX: null,
         maxY: null,
 
-        _setMaxX(boardWidth) {
+        _setMaxX(boardSize) {
             this.maxX = this.minX + this.sectionSpaceWidth;
-            if (this.maxX > boardWidth) {
-                this.maxX = boardWidth;
+            if (this.maxX > boardSize) {
+                this.maxX = boardSize;
             }
         },
 
-        _setMaxY(boardLength) {
+        _setMaxY(boardSize) {
             this.maxY = this.minY + this.sectionSpaceLength;
-            if (this.maxY > boardLength) {
-                this.maxY = boardLength;
+            if (this.maxY > boardSize) {
+                this.maxY = boardSize;
             }
         },
 
         setSectionBoundaries(board) {
-            this._setMaxX(board.boardWidth);
-            this._setMaxY(board.boardLength);
+            this._setMaxX(board.boardSize);
+            this._setMaxY(board.boardSize);
         },
     };
 };
@@ -33,11 +33,11 @@ const createBoardSection = (minX, minY) => {
     return newSection;
 };
 
-const getMinXValues = (shipsAr, boardWidth) => {
+const getMinXValues = (shipsAr, boardSize) => {
     let minXValuesAr = [];
     let minX = null;
     const columnCount = Math.ceil(shipsAr.length / 2);
-    const columnDistance = Math.ceil(boardWidth / columnCount);
+    const columnDistance = Math.ceil(boardSize / columnCount);
 
     for (let i = 0; i < columnCount; i++) {
         minX = i * columnDistance + 1;
@@ -46,11 +46,11 @@ const getMinXValues = (shipsAr, boardWidth) => {
     return minXValuesAr;
 };
 
-const getMinYValues = (shipsAr, boardLength) => {
+const getMinYValues = (shipsAr, boardSize) => {
     let minYValuesAr = [];
     let minY = null;
     const rowCount = Math.floor(shipsAr.length / 2);
-    const rowDistance = Math.ceil(boardLength / rowCount);
+    const rowDistance = Math.ceil(boardSize / rowCount);
 
     for (let i = 0; i < rowCount; i++) {
         minY = i * rowDistance + 1;
@@ -75,8 +75,8 @@ const setSectionsSpacing = (board, shipsAr, sectionsAr) => {
 const getBoardSectionsAr = (shipsAr, board) => {
     let sectionsAr = [];
     let newSection = null;
-    const minXValues = getMinXValues(shipsAr, board.boardWidth);
-    const minYValues = getMinYValues(shipsAr, board.boardLength);
+    const minXValues = getMinXValues(shipsAr, board.boardSize);
+    const minYValues = getMinYValues(shipsAr, board.boardSize);
 
     for (let y = 0; y < minYValues.length; y++) {
         for (let x = 0; x < minXValues.length; x++) {

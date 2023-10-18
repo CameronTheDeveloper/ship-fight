@@ -27,8 +27,8 @@ const placePlayerShip = (player, headCord) => {
     }
 };
 
-const getShipsAr = (boardWidth) => {
-    const shipCount = Math.floor(boardWidth / 2.5);
+const getShipsAr = (boardSize) => {
+    const shipCount = Math.floor(boardSize / 2.5);
     let shipsAr = [];
     let shipSizesAr = [1, 2, 3, 4];
     let newShip = null;

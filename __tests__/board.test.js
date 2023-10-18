@@ -5,7 +5,7 @@ let testBoard = null;
 
 beforeEach(() => {
     testBoard = Board();
-    testBoard.setSize(10, 10);
+    testBoard.setSize(10);
 });
 
 describe('Board object placeShip()', () => {
@@ -179,7 +179,7 @@ describe('Board object gameIsOver', () => {
 
     beforeEach(() => {
         testBoard = Board();
-        testBoard.setSize(10, 10);
+        testBoard.setSize(10);
         testShip1 = Ship(4);
         testShip2 = Ship(3);
         testBoard.isPlacingShipVertically = false;

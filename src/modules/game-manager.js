@@ -5,11 +5,11 @@ import {
     initBoardTopDOM
 } from "./page-dom";
 
-const createPlayerBoard = (player, width, length, boardDiv, boardSide) => {
+const createPlayerBoard = (player, boardSize, boardDiv, boardSide) => {
     const positionsDiv = boardDiv.querySelector('.board-positions');
     player.playerBoard = Board();
 
-    player.playerBoard.setSize(width, length);
+    player.playerBoard.setSize(boardSize);
     player.playerBoard.side = boardSide;
     addBoardPositionsDOM(player, positionsDiv);
     initBoardTopDOM(player, boardSide);
@@ -28,8 +28,8 @@ const initializeGame = () => {
 
     assignPlayerEnemies(leftPlayer, rightPlayer);
 
-    createPlayerBoard(leftPlayer, 4, 4, leftBoardDiv, 'left-board');
-    createPlayerBoard(rightPlayer, 4, 4, rightBoardDiv, 'right-board');
+    createPlayerBoard(leftPlayer, 10, leftBoardDiv, 'left-board');
+    createPlayerBoard(rightPlayer, 10, rightBoardDiv, 'right-board');
 
 };
 
