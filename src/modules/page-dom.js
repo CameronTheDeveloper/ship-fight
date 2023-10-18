@@ -28,6 +28,24 @@ const addBoardPositionsDOM = (board, boardParentDiv) => {
     }
 };
 
+const initBoardTopDOM = (player, boardSide) => {
+    const playerNameDiv = document.querySelector(`#${boardSide} .board-top .player-name`);
+    const shipsRemainingNumberDiv = document.querySelector(`#${boardSide} .board-top .ships-remaining span`);
+
+    playerNameDiv.textContent = player.name;
+    shipsRemainingNumberDiv.textContent = 0;
+};
+
+const initPlayerBoardsDOM = (leftPlayer, rightPlayer, leftBoardSide, rightBoardSide) => {
+    const leftBoardDiv = document.querySelector(`#${leftBoardSide}`);
+    const rightBoardDiv = document.querySelector(`#${rightBoardSide}`);
+
+    addBoardPositionsDOM(leftPlayer.playerBoard, leftBoardDiv);
+    addBoardPositionsDOM(rightPlayer.playerBoard, rightBoardDiv);
+    initBoardTopDOM(leftPlayer, leftBoardSide);
+    initBoardTopDOM(rightPlayer, rightBoardSide);
+};
+
 const addShipSelectionsDOM = (player, shipsAr) => {
     const shipSelectionsDiv = document.querySelector('#ship-selections');
     let selectionDiv = null;
@@ -43,14 +61,6 @@ const addShipSelectionsDOM = (player, shipsAr) => {
     }
 
     setGridTemplate(shipSelectionsDiv, shipsAr.length, 1);
-};
-
-const initBoardTopDOM = (player, boardSide) => {
-    const playerNameDiv = document.querySelector(`#${boardSide} .board-top .player-name`);
-    const shipsRemainingNumberDiv = document.querySelector(`#${boardSide} .board-top .ships-remaining span`);
-
-    playerNameDiv.textContent = player.name;
-    shipsRemainingNumberDiv.textContent = 0;
 };
 
 const togglePlaceVertButtonDisplay = (button, text) => {
@@ -160,12 +170,11 @@ const attackRandomPos = (player) => {
 };
 
 export {
-    addBoardPositionsDOM,
+    initPlayerBoardsDOM,
     addShipSelectionsDOM,
     togglePlaceVertButtonDisplay,
     placeShipDOM,
     placeComputerShips,
     attackPlayerBoard,
-    initBoardTopDOM,
     attackRandomPos,
 };
