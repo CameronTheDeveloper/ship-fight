@@ -22,6 +22,12 @@ const addBoardAttackListeners = (player) => {
     }
 };
 
+const addClickShipSelection = (shipSelectionDiv, player, shipSize) => {
+    shipSelectionDiv.addEventListener('click', () => {
+        player.selectedShipSize = shipSize;
+    });
+};
+
 const addPosClickPlaceShip = (posDiv, player, pos) => {
     const board = player.playerBoard;
 
@@ -44,4 +50,8 @@ const addBoardPlaceShipListeners = (player) => {
     }
 };
 
-export { addBoardAttackListeners, addBoardPlaceShipListeners };
+export {
+    addBoardAttackListeners,
+    addClickShipSelection,
+    addBoardPlaceShipListeners
+};
