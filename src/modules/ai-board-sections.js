@@ -59,17 +59,17 @@ const getMinYValues = (shipsAr, boardSize) => {
     return minYValuesAr;
 };
 
-const setSectionsSpacing = (board, shipsAr, sectionsAr) => {
-    for (let i = 0; i < sectionsAr.length; i++) {
-        if (board.isPlacingVertically) {
-            sectionsAr[i].sectionSpaceLength = shipsAr.length - shipsAr[i].shipSize;
-            sectionsAr[i].sectionSpaceWidth = shipsAr.length - 1;
-        } else {
-            sectionsAr[i].sectionSpaceLength = shipsAr.length - 1;
-            sectionsAr[i].sectionSpaceWidth = shipsAr.length - shipsAr[i].shipSize;
-        }
-        sectionsAr[i].setSectionBoundaries(board);
+const setSectionSpacing = (board, ship, section, shipCount) => {
+
+    if (board.isPlacingVertically) {
+        section.sectionSpaceLength = shipCount - ship.shipSize;
+        section.sectionSpaceWidth = shipCount - 1;
+    } else {
+        section.sectionSpaceLength = shipCount - 1;
+        section.sectionSpaceWidth = shipCount - ship.shipSize;
     }
+    section.setSectionBoundaries(board);
+
 };
 
 const getBoardSectionsAr = (shipsAr, board) => {
@@ -85,7 +85,9 @@ const getBoardSectionsAr = (shipsAr, board) => {
         }
     }
 
-    setSectionsSpacing(board, shipsAr, sectionsAr);
+    for (let i = 0; i < sectionsAr.length; i++) {
+        setSectionSpacing(board, shipsAr[i], sectionsAr[i], shipsAr.length);
+    }
 
     return sectionsAr;
 };
