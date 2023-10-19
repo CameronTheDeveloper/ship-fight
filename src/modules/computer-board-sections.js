@@ -71,7 +71,8 @@ const getMinYValues = (shipsAr, boardSize) => {
 };
 
 const setSectionSpacing = (board, ship, section, shipCount) => {
-    if (board.isPlacingVertically) {
+    section.setRandomIsPlacingVertically();
+    if (section.isPlacingVertically) {
         section.sectionSpaceLength = shipCount - ship.shipSize;
         section.sectionSpaceWidth = shipCount - 1;
     } else {

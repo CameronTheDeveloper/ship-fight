@@ -85,7 +85,11 @@ const placeShipDOM = (shipCords, boardSide) => {
 
 const placeRandomShip = (ship, section, board) => {
     const headCord = getRandomPos(section.minX, section.maxX, section.minY, section.maxY);
-
+    if (section.isPlacingVertically) {
+        board.isPlacingShipVertically = true;
+    } else {
+        board.isPlacingShipVertically = false;
+    }
     ship.cords = board.placeShip(ship, headCord);
     placeShipDOM(ship.cords, board.side);
 };
