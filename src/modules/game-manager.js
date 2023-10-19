@@ -1,6 +1,6 @@
 import { Board, createPlayerBoard } from "./board";
 import { Player, assignPlayerEnemies } from "./player";
-import { getShipsAr } from "./ship";
+import { getShipsAr, shuffleShipsAr } from "./ship";
 import { getBoardSectionsAr } from "./computer-board-sections";
 import {
     initPlayerBoardsDOM,
@@ -31,8 +31,9 @@ const initializeHumanPlayer = (player, shipsAr) => {
 
 const initializeComputerPlayer = (shipsAr, computerPlayer) => {
     const computerBoard = computerPlayer.playerBoard;
-    const boardSectionsAr = getBoardSectionsAr(shipsAr, computerBoard);
-    placeComputerShips(shipsAr, boardSectionsAr, computerBoard);
+    const shuffledShipsAr = shuffleShipsAr(shipsAr);
+    const boardSectionsAr = getBoardSectionsAr(shuffledShipsAr, computerBoard);
+    placeComputerShips(shuffledShipsAr, boardSectionsAr, computerBoard);
 };
 
 const initializeGame = () => {

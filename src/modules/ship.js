@@ -42,4 +42,16 @@ const getShipsAr = (boardSize) => {
     return shipsAr;
 };
 
-export { Ship, getShipsAr, placePlayerShip };
+const shuffleShipsAr = (shipsAr) => {
+    let shuffledShipsAr = [];
+    let randomIndex = null;
+
+    while (shipsAr.length > 0) {
+        randomIndex = Math.floor(Math.random() * shipsAr.length);
+        shuffledShipsAr.push(shipsAr[randomIndex]);
+        shipsAr.splice(randomIndex, 1);
+    }
+    return shuffledShipsAr;
+};
+
+export { Ship, placePlayerShip, getShipsAr, shuffleShipsAr };
