@@ -1,12 +1,12 @@
-const boardSection = (minX, minY) => {
+const boardSection = (minX, maxY) => {
     return {
         sectionSpaceWidth: null,
         sectionSpaceLength: null,
-        isPlacingVertically: false,
+        isPlacingVertically: true,
         minX: minX,
-        minY: minY,
+        minY: null,
         maxX: null,
-        maxY: null,
+        maxY: maxY,
 
         _setMaxX(boardSize) {
             this.maxX = this.minX + this.sectionSpaceWidth;
@@ -15,10 +15,10 @@ const boardSection = (minX, minY) => {
             }
         },
 
-        _setMaxY(boardSize) {
-            this.maxY = this.minY + this.sectionSpaceLength;
-            if (this.maxY > boardSize) {
-                this.maxY = boardSize;
+        _setMinY() {
+            this.minY = this.maxY - this.sectionSpaceLength;
+            if (this.minY < 0) {
+                this.minY = 0;
             }
         },
 
@@ -34,13 +34,13 @@ const boardSection = (minX, minY) => {
 
         setSectionBoundaries(board) {
             this._setMaxX(board.boardSize);
-            this._setMaxY(board.boardSize);
+            this._setMinY();
         },
     };
 };
 
-const createBoardSection = (minX, minY) => {
-    const newSection = boardSection(minX, minY);
+const createBoardSection = (minX, maxY) => {
+    const newSection = boardSection(minX, maxY);
     return newSection;
 };
 
@@ -57,17 +57,17 @@ const getMinXValues = (shipsAr, boardSize) => {
     return minXValuesAr;
 };
 
-const getMinYValues = (shipsAr, boardSize) => {
-    let minYValuesAr = [];
-    let minY = null;
+const getMaxYValues = (shipsAr, boardSize) => {
+    let maxYValuesAr = [];
+    let maxY = null;
     const rowCount = Math.floor(shipsAr.length / 2);
     const rowDistance = Math.ceil(boardSize / rowCount);
 
-    for (let i = 0; i < rowCount; i++) {
-        minY = i * rowDistance + 1;
-        minYValuesAr.push(minY);
+    for (let i = 1; i <= rowCount; i++) {
+        maxY = i * rowDistance - 1;
+        maxYValuesAr.push(maxY);
     }
-    return minYValuesAr;
+    return maxYValuesAr;
 };
 
 const setSectionSpacing = (board, ship, section, shipCount) => {
@@ -86,11 +86,11 @@ const getBoardSectionsAr = (shipsAr, board) => {
     let sectionsAr = [];
     let newSection = null;
     const minXValues = getMinXValues(shipsAr, board.boardSize);
-    const minYValues = getMinYValues(shipsAr, board.boardSize);
+    const maxYValues = getMaxYValues(shipsAr, board.boardSize);
 
-    for (let y = 0; y < minYValues.length; y++) {
+    for (let y = 0; y < maxYValues.length; y++) {
         for (let x = 0; x < minXValues.length; x++) {
-            newSection = createBoardSection(minXValues[x], minYValues[y]);
+            newSection = createBoardSection(minXValues[x], maxYValues[y]);
             sectionsAr.push(newSection);
         }
     }
