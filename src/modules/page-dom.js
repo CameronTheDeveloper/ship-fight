@@ -138,23 +138,25 @@ const endGame = (winnerPlayer) => {
     winnerPlayer.enemy.playerBoard.clearAvailableAttacks();
 };
 
-const sinkShipDOM = (player, ship) => {
+const sinkShipDOM = (player, enemyPlayer, ship) => {
     for (let i = 0; i < ship.cords.length; i++) {
-        attackAdjacentPositions(player.playerBoard, ship.cords[i]);
+        attackAdjacentPositions(enemyPlayer.playerBoard, ship.cords[i]);
     }
 
-    if (player.playerBoard.gameIsOver()) {
-        endGame(player.enemy);
+    if (enemyPlayer.playerBoard.gameIsOver()) {
+        endGame(player);
     }
 };
 
 const attackPlayerBoard = (posDiv, player, pos) => {
-    let attackHit = player.attackPos(pos);
+    const attackHit = player.attackPos(pos);
+    const enemyPlayer = player.enemy;
+
     attackBoardDOM(posDiv, attackHit);
     if (attackHit) {
-        let ship = player.enemy.playerBoard.getShip(pos);
+        const ship = enemyPlayer.playerBoard.getShip(pos);
         if (ship.hasSunk()) {
-            sinkShipDOM(player, ship);
+            sinkShipDOM(player, enemyPlayer, ship);
         }
     }
 };
