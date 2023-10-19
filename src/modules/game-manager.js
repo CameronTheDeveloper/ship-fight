@@ -1,7 +1,7 @@
 import { Board, createPlayerBoard } from "./board";
 import { Player, assignPlayerEnemies } from "./player";
 import { getShipsAr } from "./ship";
-import { getBoardSectionsAr } from "./ai-board-sections";
+import { getBoardSectionsAr } from "./computer-board-sections";
 import {
     initPlayerBoardsDOM,
     addShipSelectionsDOM,
