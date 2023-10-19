@@ -2,6 +2,7 @@ const boardSection = (minX, minY) => {
     return {
         sectionSpaceWidth: null,
         sectionSpaceLength: null,
+        isPlacingVertically: false,
         minX: minX,
         minY: minY,
         maxX: null,
@@ -18,6 +19,16 @@ const boardSection = (minX, minY) => {
             this.maxY = this.minY + this.sectionSpaceLength;
             if (this.maxY > boardSize) {
                 this.maxY = boardSize;
+            }
+        },
+
+        setRandomIsPlacingVertically() {
+            const randomNum = Math.round(Math.random());
+
+            if (randomNum == 0) {
+                this.isPlacingVertically = true;
+            } else {
+                this.isPlacingVertically = false;
             }
         },
 
@@ -60,7 +71,6 @@ const getMinYValues = (shipsAr, boardSize) => {
 };
 
 const setSectionSpacing = (board, ship, section, shipCount) => {
-
     if (board.isPlacingVertically) {
         section.sectionSpaceLength = shipCount - ship.shipSize;
         section.sectionSpaceWidth = shipCount - 1;
@@ -69,7 +79,6 @@ const setSectionSpacing = (board, ship, section, shipCount) => {
         section.sectionSpaceWidth = shipCount - ship.shipSize;
     }
     section.setSectionBoundaries(board);
-
 };
 
 const getBoardSectionsAr = (shipsAr, board) => {
