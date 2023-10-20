@@ -47,7 +47,7 @@ const initPlayerBoardsDOM = (leftPlayer, rightPlayer, leftBoardSide, rightBoardS
 };
 
 const updateShipCountDOM = (board) => {
-    const shipCountDiv = document.querySelector(`#${board.boardSide} .stats .ships-remaining span`);
+    const shipCountDiv = document.querySelector(`#${board.side} .stats .ships-remaining span`);
     shipCountDiv.textContent = `${board.shipsRemaining}`;
 };
 
@@ -79,13 +79,13 @@ const placeShipCord = (divID) => {
     shipDiv.classList.add('taken');
 };
 
-const placeShipDOM = (shipCords, boardSide) => {
+const placeShipDOM = (shipCords, board) => {
     let divID = null;
-
     for (let i = 0; i < shipCords.length; i++) {
-        divID = `${boardSide}-${shipCords[i]}`;
+        divID = `${board.side}-${shipCords[i]}`;
         placeShipCord(divID);
     }
+    updateShipCountDOM(board);
 };
 
 const placeRandomShip = (ship, section, board) => {
@@ -96,7 +96,7 @@ const placeRandomShip = (ship, section, board) => {
         board.isPlacingShipVertically = false;
     }
     ship.cords = board.placeShip(ship, headCord);
-    placeShipDOM(ship.cords, board.side);
+    placeShipDOM(ship.cords, board);
 };
 
 const placeComputerShips = (shipsAr, sectionsAr, board) => {

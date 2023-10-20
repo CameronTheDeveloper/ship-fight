@@ -21,7 +21,7 @@ const placePlayerShip = (player, headCord) => {
 
     playerShip.cords = board.placeShip(playerShip, headCord);
     if (playerShip.cords) {
-        placeShipDOM(playerShip.cords, board.side);
+        placeShipDOM(playerShip.cords, board);
         removeClickShipSelection();
         player.selectedShipSize = null;
     }
