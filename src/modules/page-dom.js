@@ -29,8 +29,8 @@ const hideStartButtonDOM = () => {
 };
 
 const hideShipMenuDOM = () => {
-    const shipMenu = document.querySelector('#ship-menu');
-    shipMenu.setAttribute('class', 'inactive');
+    const shipMenu = document.querySelector('.ship-menu');
+    shipMenu.classList.add('inactive');
 };
 
 const addBoardPositionsDOM = (board, boardParentDiv) => {
