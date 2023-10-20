@@ -60,7 +60,7 @@ const getMinXValues = (shipsAr, boardSize) => {
 const getMaxYValues = (shipsAr, boardSize) => {
     let maxYValuesAr = [];
     let maxY = null;
-    const rowCount = Math.floor(shipsAr.length / 2);
+    const rowCount = Math.ceil(shipsAr.length / 2);
     const rowDistance = Math.ceil(boardSize / rowCount);
 
     for (let i = 1; i <= rowCount; i++) {
