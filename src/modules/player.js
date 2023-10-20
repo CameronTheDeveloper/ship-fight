@@ -1,6 +1,7 @@
 import {
     addShipSelectionsDOM,
     placeComputerShips,
+    attackPlayerBoard,
     attackRandomPos,
 } from "./page-dom";
 import {
@@ -64,6 +65,10 @@ const initializeComputerPlayer = (shipsAr, computerPlayer) => {
     placeComputerShips(shuffledShipsAr, boardSectionsAr, computerBoard);
 };
 
+const simulateUserAttackComputer = (posDiv, userPlayer, pos) => {
+    attackPlayerBoard(posDiv, userPlayer, pos);
+};
+
 const simulateComputerAttacks = (computerPlayer) => {
     while (computerPlayer.playerTurn) {
         attackRandomPos(computerPlayer);
@@ -75,5 +80,6 @@ export {
     assignPlayerEnemies,
     initializeHumanPlayer,
     initializeComputerPlayer,
+    simulateUserAttackComputer,
     simulateComputerAttacks
 };
