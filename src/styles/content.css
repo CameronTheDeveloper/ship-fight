@@ -46,7 +46,7 @@
 
 .ship-menu {
     display: grid;
-    grid-template-rows: 3fr 1fr;
+    grid-template-rows: 1fr 4fr;
     border: 4px solid black;
     padding: 1em
 }
@@ -96,12 +96,17 @@
 .ship-selections {
     display: grid;
     justify-self: center;
+    gap: 0.25em;
+
 }
 
 .ship-selection {
     display: flex;
     justify-content: center;
-    width: 3em;
+    align-items: center;
+    width: 2em;
+    height: 2em;
+    border-radius: 1em;
     cursor: pointer;
     border: 2px solid black
 }
