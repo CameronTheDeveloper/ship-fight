@@ -19,7 +19,12 @@ const initializeGame = () => {
     assignPlayerEnemies(leftPlayer, rightPlayer);
     initializeBoards(leftPlayer, rightPlayer, boardSize);
     initializeUserPlayer(leftPlayer, shipsAr);
-    initializeComputerPlayer(shipsAr, rightPlayer);
+    initializeGameAgainstComputer(leftPlayer, rightPlayer, shipsAr);
+};
+
+const initializeGameAgainstComputer = (userPlayer, computerPlayer, shipsAr) => {
+    initializeComputerPlayer(shipsAr, computerPlayer);
+    userPlayer.turn = true;
 };
 
 export { initializeGame };
