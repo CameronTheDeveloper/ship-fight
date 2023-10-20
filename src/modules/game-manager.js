@@ -2,7 +2,7 @@ import { initializeBoards } from "./board";
 import {
     Player,
     assignPlayerEnemies,
-    initializeHumanPlayer,
+    initializeUserPlayer,
     initializeComputerPlayer
 } from "./player";
 import { getShipsAr } from "./ship";
@@ -18,7 +18,7 @@ const initializeGame = () => {
 
     assignPlayerEnemies(leftPlayer, rightPlayer);
     initializeBoards(leftPlayer, rightPlayer, boardSize);
-    initializeHumanPlayer(leftPlayer, shipsAr);
+    initializeUserPlayer(leftPlayer, shipsAr);
     initializeComputerPlayer(shipsAr, rightPlayer);
 };
 

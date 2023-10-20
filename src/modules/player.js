@@ -51,7 +51,7 @@ const assignPlayerEnemies = (leftPlayer, rightPlayer) => {
     rightPlayer.enemy = leftPlayer;
 };
 
-const initializeHumanPlayer = (player, shipsAr) => {
+const initializeUserPlayer = (player, shipsAr) => {
     addShipSelectionsDOM(player, shipsAr);
     addBoardPlaceShipListeners(player);
     addClickTogglePlaceVertical(player.playerBoard);
@@ -78,7 +78,7 @@ const simulateComputerAttacks = (computerPlayer) => {
 export {
     Player,
     assignPlayerEnemies,
-    initializeHumanPlayer,
+    initializeUserPlayer,
     initializeComputerPlayer,
     simulateUserAttackComputer,
     simulateComputerAttacks
