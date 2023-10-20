@@ -6,7 +6,10 @@ import {
     initializeComputerPlayer
 } from "./player";
 import { getShipsAr } from "./ship";
-import { addStartGameClickListener } from "./user-input";
+import {
+    addBoardAttackListeners,
+    addStartGameClickListener
+} from "./user-input";
 
 
 const initializeGame = () => {
@@ -24,6 +27,7 @@ const initializeGame = () => {
 };
 
 const initializeGameAgainstComputer = (userPlayer, computerPlayer, shipsAr) => {
+    addBoardAttackListeners(userPlayer);
     initializeComputerPlayer(shipsAr, computerPlayer);
     userPlayer.turn = true;
 };

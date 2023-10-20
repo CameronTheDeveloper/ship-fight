@@ -6,7 +6,7 @@ import {
 } from "./page-dom";
 import {
     addBoardPlaceShipListeners,
-    addClickTogglePlaceVertical, addBoardAttackListeners
+    addClickTogglePlaceVertical
 } from "./user-input";
 import { getBoardSectionsAr } from "./computer-board-sections";
 import { shuffleShipsAr } from "./ship";
@@ -55,7 +55,6 @@ const initializeUserPlayer = (player, shipsAr) => {
     addShipSelectionsDOM(player, shipsAr);
     addBoardPlaceShipListeners(player);
     addClickTogglePlaceVertical(player.playerBoard);
-    addBoardAttackListeners(player);
 };
 
 const initializeComputerPlayer = (shipsAr, computerPlayer) => {
