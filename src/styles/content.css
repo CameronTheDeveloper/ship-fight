@@ -50,6 +50,10 @@
     border: 4px solid black
 }
 
+#ship-menu.inactive {
+    display: none;
+}
+
 #ship-menu-top {
     display: grid;
     grid-template-columns: repeat(3, 1fr)

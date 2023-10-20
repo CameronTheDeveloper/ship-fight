@@ -1,7 +1,8 @@
 import {
     togglePlaceVertButtonDisplay,
     activateStartButtonDOM,
-    hideStartButtonDOM
+    hideStartButtonDOM,
+    hideShipMenuDOM
 } from "./page-dom";
 import { simulateUserVsComputerTurn } from "./player";
 import { placePlayerShip } from "./ship";
@@ -84,6 +85,7 @@ const addStartGameClickListener = (userPlayer, computerPlayer, shipsAr) => {
     startGameButton.addEventListener('click', () => {
         initializeGameAgainstComputer(userPlayer, computerPlayer, shipsAr);
         hideStartButtonDOM();
+        hideShipMenuDOM();
     });
 };
 

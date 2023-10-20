@@ -28,6 +28,11 @@ const hideStartButtonDOM = () => {
     startGameButtonDiv.setAttribute('class', 'invisible');
 };
 
+const hideShipMenuDOM = () => {
+    const shipMenu = document.querySelector('#ship-menu');
+    shipMenu.setAttribute('class', 'inactive');
+};
+
 const addBoardPositionsDOM = (board, boardParentDiv) => {
     const positionsDiv = boardParentDiv.querySelector('.board-positions');
     let posDiv = null;
@@ -201,6 +206,7 @@ export {
     placeShipDOM,
     activateStartButtonDOM,
     hideStartButtonDOM,
+    hideShipMenuDOM,
     placeComputerShips,
     attackPlayerBoard,
     attackRandomPos,
