@@ -46,6 +46,11 @@ const initPlayerBoardsDOM = (leftPlayer, rightPlayer, leftBoardSide, rightBoardS
     initBoardTopDOM(rightPlayer, rightBoardSide);
 };
 
+const updateShipCountDOM = (board) => {
+    const shipCountDiv = document.querySelector(`#${board.boardSide} .stats .ships-remaining span`);
+    shipCountDiv.textContent = `${board.shipsRemaining}`;
+};
+
 const addShipSelectionsDOM = (player, shipsAr) => {
     const shipSelectionsDiv = document.querySelector('#ship-selections');
     let selectionDiv = null;
