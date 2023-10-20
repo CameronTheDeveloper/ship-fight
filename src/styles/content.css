@@ -149,8 +149,12 @@
     background-color: rgba(0, 0, 0, .7);
 }
 
-.board-pos.attacked.hit {
+#right-board .board-pos.attacked.hit {
     background-color: rgb(89, 255, 0);
+}
+
+#left-board .board-pos.attacked.hit {
+    background-color: rgb(32 35 2);
 }
 
 .board-pos.attacked.miss {
@@ -162,7 +166,7 @@
 }
 
 #left-board .board-pos.taken {
-    background-color: rgba(89, 255, 0, 0.4);
+    background-color: rgba(89, 255, 0, 0.5);
 }
 
 .board.winner .board-pos {
