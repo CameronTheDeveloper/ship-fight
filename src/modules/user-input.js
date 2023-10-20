@@ -2,6 +2,7 @@ import { togglePlaceVertButtonDisplay } from "./page-dom";
 import { simulateUserVsComputerTurn } from "./player";
 import { placePlayerShip } from "./ship";
 import { setActiveShipSelectionClass } from "./attributes";
+import { initializeGameAgainstComputer } from "./game-manager";
 
 const addPosClickAttack = (posDiv, player, pos) => {
     posDiv.addEventListener('click', () => {
@@ -73,10 +74,18 @@ const addBoardPlaceShipListeners = (player) => {
     }
 };
 
+const addStartGameClickListener = (userPlayer, computerPlayer, shipsAr) => {
+    const startGameButton = document.querySelector('#start-game-button button');
+    startGameButton.addEventListener('click', () => {
+        initializeGameAgainstComputer(userPlayer, computerPlayer, shipsAr);
+    });
+};
+
 export {
     addClickTogglePlaceVertical,
     addBoardAttackListeners,
     addClickShipSelection,
     removeClickShipSelection,
-    addBoardPlaceShipListeners
+    addBoardPlaceShipListeners,
+    addStartGameClickListener
 };

@@ -6,6 +6,7 @@ import {
     initializeComputerPlayer
 } from "./player";
 import { getShipsAr } from "./ship";
+import { addStartGameClickListener } from "./user-input";
 
 
 const initializeGame = () => {
@@ -19,7 +20,7 @@ const initializeGame = () => {
     assignPlayerEnemies(leftPlayer, rightPlayer);
     initializeBoards(leftPlayer, rightPlayer, boardSize);
     initializeUserPlayer(leftPlayer, shipsAr);
-    initializeGameAgainstComputer(leftPlayer, rightPlayer, shipsAr);
+    addStartGameClickListener(leftPlayer, rightPlayer, shipsAr);
 };
 
 const initializeGameAgainstComputer = (userPlayer, computerPlayer, shipsAr) => {
@@ -27,4 +28,4 @@ const initializeGameAgainstComputer = (userPlayer, computerPlayer, shipsAr) => {
     userPlayer.turn = true;
 };
 
-export { initializeGame };
+export { initializeGame, initializeGameAgainstComputer };
