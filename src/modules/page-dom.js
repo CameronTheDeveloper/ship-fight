@@ -166,6 +166,7 @@ const attackPlayerBoard = (posDiv, player, pos) => {
         const ship = enemyPlayer.playerBoard.getShip(pos);
         if (ship.hasSunk()) {
             sinkShipDOM(player, enemyPlayer, ship);
+            updateShipCountDOM(enemyPlayer.playerBoard);
         }
     }
 };
