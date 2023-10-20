@@ -70,8 +70,17 @@ const simulateUserAttackComputer = (posDiv, userPlayer, pos) => {
 };
 
 const simulateComputerAttacks = (computerPlayer) => {
-    while (computerPlayer.playerTurn) {
+    while (computerPlayer.turn) {
         attackRandomPos(computerPlayer);
+    }
+};
+
+const simulateUserVsComputerTurn = (posDiv, userPlayer, pos) => {
+    const computerPlayer = userPlayer.enemy;
+
+    simulateUserAttackComputer(posDiv, userPlayer, pos);
+    if (computerPlayer.turn) {
+        simulateComputerAttacks(computerPlayer);
     }
 };
 
@@ -80,6 +89,5 @@ export {
     assignPlayerEnemies,
     initializeUserPlayer,
     initializeComputerPlayer,
-    simulateUserAttackComputer,
-    simulateComputerAttacks
+    simulateUserVsComputerTurn,
 };
