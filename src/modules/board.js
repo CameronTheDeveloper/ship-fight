@@ -1,3 +1,5 @@
+import { initPlayerBoardsDOM } from "./page-dom";
+
 const Board = () => {
 
     return {
@@ -222,15 +224,21 @@ const createPlayerBoard = (boardSize, boardSide) => {
     const playerBoard = Board();
     playerBoard.setSize(boardSize);
     playerBoard.side = boardSide;
-
     return playerBoard;
 };
 
 const getRandomPos = (minX, maxX, minY, maxY) => {
     const xPos = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
     const yPos = Math.floor(Math.random() * (maxY - minY + 1)) + minY;
-
     return `${xPos}_${yPos}`;
 };
 
-export { Board, createPlayerBoard, getRandomPos };
+const initializeBoards = (leftPlayer, rightPlayer, boardSize) => {
+    const leftBoardSide = 'left-board';
+    const rightBoardSide = 'right-board';
+    leftPlayer.playerBoard = createPlayerBoard(boardSize, leftBoardSide);
+    rightPlayer.playerBoard = createPlayerBoard(boardSize, rightBoardSide);
+    initPlayerBoardsDOM(leftPlayer, rightPlayer, leftBoardSide, rightBoardSide);
+};
+
+export { Board, getRandomPos, initializeBoards };

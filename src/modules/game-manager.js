@@ -1,4 +1,4 @@
-import { Board, createPlayerBoard } from "./board";
+import { initializeBoards } from "./board";
 import {
     Player,
     assignPlayerEnemies,
@@ -6,20 +6,7 @@ import {
     initializeComputerPlayer
 } from "./player";
 import { getShipsAr } from "./ship";
-import {
-    initPlayerBoardsDOM,
-} from "./page-dom";
 
-
-const initializeBoards = (leftPlayer, rightPlayer, boardSize) => {
-    const leftBoardSide = 'left-board';
-    const rightBoardSide = 'right-board';
-
-    leftPlayer.playerBoard = createPlayerBoard(boardSize, leftBoardSide);
-    rightPlayer.playerBoard = createPlayerBoard(boardSize, rightBoardSide);
-
-    initPlayerBoardsDOM(leftPlayer, rightPlayer, leftBoardSide, rightBoardSide);
-};
 
 const initializeGame = () => {
     const leftPlayer = Player('Player 1');
