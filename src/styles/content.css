@@ -18,12 +18,28 @@
     color: rgb(0, 255, 60);
 }
 
+/* Start Game Button */
+
 #start-game-button button {
     height: 2em;
     width: 10em;
-    background-color: greenyellow;
+    font-weight: 700;
     border-radius: 1em;
+    border-width: 2px;
+}
+
+#start-game-button button.inactive {
+    cursor: not-allowed;
+    background-color: rgba(255, 47, 47, 0.214);
+}
+
+#start-game-button button.active {
     cursor: pointer;
+    background-color: greenyellow;
+}
+
+#start-game-button.invisible {
+    display: none;
 }
 
 /* Ship Menu */
