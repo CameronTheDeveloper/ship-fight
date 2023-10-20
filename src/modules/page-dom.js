@@ -13,6 +13,21 @@ const setGridTemplate = (element, width, length) => {
     element.style.gridTemplateRows = `repeat(${length}, 1fr)`;
 };
 
+const activateStartButtonDOM = () => {
+    const startGameButton = document.querySelector('#start-game-button button');
+    startGameButton.setAttribute('class', 'active');
+};
+
+const deActivateStartButtonDOM = () => {
+    const startGameButton = document.querySelector('#start-game-button button');
+    startGameButton.setAttribute('class', 'inactive');
+};
+
+const hideStartButtonDOM = () => {
+    const startGameButtonDiv = document.querySelector('#start-game-button');
+    startGameButtonDiv.setAttribute('class', 'invisible');
+};
+
 const addBoardPositionsDOM = (board, boardParentDiv) => {
     const positionsDiv = boardParentDiv.querySelector('.board-positions');
     let posDiv = null;
@@ -184,6 +199,8 @@ export {
     addShipSelectionsDOM,
     togglePlaceVertButtonDisplay,
     placeShipDOM,
+    activateStartButtonDOM,
+    hideStartButtonDOM,
     placeComputerShips,
     attackPlayerBoard,
     attackRandomPos,

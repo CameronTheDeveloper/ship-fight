@@ -1,4 +1,8 @@
-import { togglePlaceVertButtonDisplay } from "./page-dom";
+import {
+    togglePlaceVertButtonDisplay,
+    activateStartButtonDOM,
+    hideStartButtonDOM
+} from "./page-dom";
 import { simulateUserVsComputerTurn } from "./player";
 import { placePlayerShip } from "./ship";
 import { setActiveShipSelectionClass } from "./attributes";
@@ -76,8 +80,10 @@ const addBoardPlaceShipListeners = (player) => {
 
 const addStartGameClickListener = (userPlayer, computerPlayer, shipsAr) => {
     const startGameButton = document.querySelector('#start-game-button button');
+    activateStartButtonDOM();
     startGameButton.addEventListener('click', () => {
         initializeGameAgainstComputer(userPlayer, computerPlayer, shipsAr);
+        hideStartButtonDOM();
     });
 };
 
