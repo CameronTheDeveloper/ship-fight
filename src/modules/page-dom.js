@@ -72,7 +72,7 @@ const updateShipCountDOM = (board) => {
 };
 
 const addShipSelectionsDOM = (player, shipsAr) => {
-    const shipSelectionsDiv = document.querySelector('#ship-selections');
+    const shipSelectionsDiv = document.querySelector('.ship-selections');
     let selectionDiv = null;
     let shipSelectionLength = null;
 

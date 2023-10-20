@@ -9,7 +9,7 @@ const addShipSelectionAttributes = (selectionDiv, shipSize) => {
 };
 
 const setActiveShipSelectionClass = (selectedShipDiv) => {
-    const oldSelectedDiv = document.querySelector('#ship-selections .selected');
+    const oldSelectedDiv = document.querySelector('.ship-selections .selected');
 
     if (oldSelectedDiv) {
         oldSelectedDiv.classList.remove('selected');

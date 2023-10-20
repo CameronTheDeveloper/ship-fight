@@ -64,11 +64,11 @@
     justify-self: center;
 }
 
-#toggle-vertical-placement {
+.toggle-vertical-placement {
     justify-self: start;
 }
 
-#toggle-vertical-placement button {
+.toggle-vertical-placement button {
     cursor: pointer;
     border-radius: 3em;
     padding: 0.5em;
@@ -77,15 +77,15 @@
     height: 4em;
 }
 
-#toggle-vertical-placement button span {
+.toggle-vertical-placement button span {
     font-weight: 700;
 }
 
-#toggle-vertical-placement button.vertical {
+.toggle-vertical-placement button.vertical {
     background-color: rgb(64, 255, 0)
 }
 
-#toggle-vertical-placement button.horizontal {
+.toggle-vertical-placement button.horizontal {
     background-color: rgb(217, 255, 0)
 }
 
@@ -93,7 +93,7 @@
     justify-self: center;
 }
 
-#ship-selections {
+.ship-selections {
     display: grid;
     justify-self: center;
 }

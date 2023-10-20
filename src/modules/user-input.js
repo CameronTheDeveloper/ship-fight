@@ -31,7 +31,7 @@ const addBoardAttackListeners = (player) => {
 };
 
 const addClickTogglePlaceVertical = (board) => {
-    const placeVertButton = document.querySelector('#toggle-vertical-placement button');
+    const placeVertButton = document.querySelector('.toggle-vertical-placement button');
     placeVertButton.addEventListener('click', () => {
         if (board.isPlacingShipVertically) {
             board.isPlacingShipVertically = false;
@@ -51,7 +51,7 @@ const addClickShipSelection = (shipSelectionDiv, player, shipSize) => {
 };
 
 const removeClickShipSelection = () => {
-    const oldSelectedDiv = document.querySelector('#ship-selections .selected');
+    const oldSelectedDiv = document.querySelector('.ship-selections .selected');
 
     if (oldSelectedDiv) {
         oldSelectedDiv.classList.remove('selected');
