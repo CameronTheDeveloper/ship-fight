@@ -1,17 +1,14 @@
 import { Board, createPlayerBoard } from "./board";
-import { Player, assignPlayerEnemies } from "./player";
-import { getShipsAr, shuffleShipsAr } from "./ship";
-import { getBoardSectionsAr } from "./computer-board-sections";
+import {
+    Player,
+    assignPlayerEnemies,
+    initializeHumanPlayer,
+    initializeComputerPlayer
+} from "./player";
+import { getShipsAr } from "./ship";
 import {
     initPlayerBoardsDOM,
-    addShipSelectionsDOM,
-    placeComputerShips
 } from "./page-dom";
-import {
-    addBoardPlaceShipListeners,
-    addClickTogglePlaceVertical,
-    addBoardAttackListeners
-} from "./user-input";
 
 
 const initializeBoards = (leftPlayer, rightPlayer, boardSize) => {
@@ -22,20 +19,6 @@ const initializeBoards = (leftPlayer, rightPlayer, boardSize) => {
     rightPlayer.playerBoard = createPlayerBoard(boardSize, rightBoardSide);
 
     initPlayerBoardsDOM(leftPlayer, rightPlayer, leftBoardSide, rightBoardSide);
-};
-
-const initializeHumanPlayer = (player, shipsAr) => {
-    addShipSelectionsDOM(player, shipsAr);
-    addBoardPlaceShipListeners(player);
-    addClickTogglePlaceVertical(player.playerBoard);
-    addBoardAttackListeners(player);
-};
-
-const initializeComputerPlayer = (shipsAr, computerPlayer) => {
-    const computerBoard = computerPlayer.playerBoard;
-    const shuffledShipsAr = shuffleShipsAr(shipsAr);
-    const boardSectionsAr = getBoardSectionsAr(shuffledShipsAr, computerBoard);
-    placeComputerShips(shuffledShipsAr, boardSectionsAr, computerBoard);
 };
 
 const initializeGame = () => {

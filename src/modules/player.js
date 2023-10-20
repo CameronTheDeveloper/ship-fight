@@ -1,3 +1,14 @@
+import {
+    addShipSelectionsDOM,
+    placeComputerShips
+} from "./page-dom";
+import {
+    addBoardPlaceShipListeners,
+    addClickTogglePlaceVertical, addBoardAttackListeners
+} from "./user-input";
+import { getBoardSectionsAr } from "./computer-board-sections";
+import { shuffleShipsAr } from "./ship";
+
 const Player = (name = 'player') => {
     return {
         name: name,
@@ -38,4 +49,23 @@ const assignPlayerEnemies = (leftPlayer, rightPlayer) => {
     rightPlayer.enemy = leftPlayer;
 };
 
-export { Player, assignPlayerEnemies };
+const initializeHumanPlayer = (player, shipsAr) => {
+    addShipSelectionsDOM(player, shipsAr);
+    addBoardPlaceShipListeners(player);
+    addClickTogglePlaceVertical(player.playerBoard);
+    addBoardAttackListeners(player);
+};
+
+const initializeComputerPlayer = (shipsAr, computerPlayer) => {
+    const computerBoard = computerPlayer.playerBoard;
+    const shuffledShipsAr = shuffleShipsAr(shipsAr);
+    const boardSectionsAr = getBoardSectionsAr(shuffledShipsAr, computerBoard);
+    placeComputerShips(shuffledShipsAr, boardSectionsAr, computerBoard);
+};
+
+export {
+    Player,
+    assignPlayerEnemies,
+    initializeHumanPlayer,
+    initializeComputerPlayer
+};
