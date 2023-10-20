@@ -23,14 +23,15 @@ const addBoardAttackListeners = (player) => {
     }
 };
 
-const addClickTogglePlaceVertical = (board, button) => {
-    button.addEventListener('click', () => {
+const addClickTogglePlaceVertical = (board) => {
+    const placeVertButton = document.querySelector('#toggle-vertical-placement button');
+    placeVertButton.addEventListener('click', () => {
         if (board.isPlacingShipVertically) {
             board.isPlacingShipVertically = false;
-            togglePlaceVertButtonDisplay(button, 'Horizontal');
+            togglePlaceVertButtonDisplay(placeVertButton, 'Horizontal');
         } else {
             board.isPlacingShipVertically = true;
-            togglePlaceVertButtonDisplay(button, 'Vertical');
+            togglePlaceVertButtonDisplay(placeVertButton, 'Vertical');
         }
     });
 };

@@ -9,6 +9,7 @@ import {
 } from "./page-dom";
 import {
     addBoardPlaceShipListeners,
+    addClickTogglePlaceVertical,
     addBoardAttackListeners
 } from "./user-input";
 
@@ -26,6 +27,7 @@ const initializeBoards = (leftPlayer, rightPlayer, boardSize) => {
 const initializeHumanPlayer = (player, shipsAr) => {
     addShipSelectionsDOM(player, shipsAr);
     addBoardPlaceShipListeners(player);
+    addClickTogglePlaceVertical(player.playerBoard);
     addBoardAttackListeners(player);
 };
 
