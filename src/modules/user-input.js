@@ -1,10 +1,11 @@
-import { attackPlayerBoard, togglePlaceVertButtonDisplay } from "./page-dom";
+import { togglePlaceVertButtonDisplay } from "./page-dom";
+import { simulateUserVsComputerTurn } from "./player";
 import { placePlayerShip } from "./ship";
 import { setActiveShipSelectionClass } from "./attributes";
 
 const addPosClickAttack = (posDiv, player, pos) => {
     posDiv.addEventListener('click', () => {
-        attackPlayerBoard(posDiv, player, pos);
+        simulateUserVsComputerTurn(posDiv, player, pos);
     });
 };
 
