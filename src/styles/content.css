@@ -1,7 +1,7 @@
 #content {
     background-color: rgb(42, 68, 237);
     display: grid;
-    grid-template-rows: 3fr 2fr 15fr 15fr;
+    grid-template-rows: 1fr 15fr;
 }
 
 #content-top {
@@ -44,17 +44,17 @@
 
 /* Ship Menu */
 
-#ship-menu {
+.ship-menu {
     display: grid;
     grid-template-rows: 3fr 1fr;
     border: 4px solid black
 }
 
-#ship-menu.inactive {
+.ship-menu.inactive {
     display: none;
 }
 
-#ship-menu-top {
+.ship-menu-top {
     display: grid;
     grid-template-columns: repeat(3, 1fr)
 }
@@ -84,7 +84,7 @@
     background-color: rgb(217, 255, 0)
 }
 
-#ship-menu-title {
+.ship-menu-title {
     justify-self: center;
 }
 
@@ -116,10 +116,18 @@
 #board-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 8fr;
     padding: 1em;
 }
 
+#left-board-container,
+#right-board-container {
+    display: grid;
+    grid-template-rows: 1fr 3fr;
+}
+
 .board {
+    grid-row-start: 2;
     display: grid;
     grid-template-rows: 1fr 5fr;
     border: 4px solid black;
