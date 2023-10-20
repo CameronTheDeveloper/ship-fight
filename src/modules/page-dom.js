@@ -137,9 +137,9 @@ const displayWinnerDOM = (winnerPlayer) => {
 };
 
 const endGame = (winnerPlayer) => {
+    winnerPlayer.turn = false;
+    winnerPlayer.enemy.turn = false;
     displayWinnerDOM(winnerPlayer);
-    winnerPlayer.playerBoard.clearAvailableAttacks();
-    winnerPlayer.enemy.playerBoard.clearAvailableAttacks();
 };
 
 const sinkShipDOM = (player, enemyPlayer, ship) => {
