@@ -4,14 +4,26 @@
     grid-template-rows: 3fr 2fr 15fr 15fr;
 }
 
+#content-top {
+    display: grid;
+    place-content: center;
+}
+
 #winner-name-display {
     position: relative;
-    place-self: center;
     height: 10%;
     font-size: 2rem;
     font-weight: 900;
     font-style: italic;
     color: rgb(0, 255, 60);
+}
+
+#start-game-button button {
+    height: 2em;
+    width: 10em;
+    background-color: greenyellow;
+    border-radius: 1em;
+    cursor: pointer;
 }
 
 /* Ship Menu */
