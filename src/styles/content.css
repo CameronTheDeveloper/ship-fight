@@ -157,12 +157,9 @@
     background-color: rgb(32 35 2);
 }
 
-.board-pos.attacked.miss {
+#right-board .board-pos.attacked.miss,
+#left-board .board-pos.attacked.miss {
     background-color: rgb(95, 5, 5);
-}
-
-#right-board .board-pos.attacked:hover {
-    background-color: rgba(95, 5, 5, 0.8);
 }
 
 #left-board .board-pos.taken {
