@@ -24,6 +24,7 @@
     height: 2em;
     width: 10em;
     font-weight: 700;
+    border: 1px solid black;
     border-radius: 1em;
     border-width: 2px;
 }
@@ -35,7 +36,14 @@
 
 #start-game-button button.active {
     cursor: pointer;
-    background-color: greenyellow;
+    background-color: rgb(56, 211, 0);
+}
+
+#start-game-button button.active:hover {
+    color: rgb(13, 0, 255);
+    font-weight: 900;
+    background-color: rgb(136, 255, 0);
+    border: 1px dashed black;
 }
 
 #start-game-button.invisible {
