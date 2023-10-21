@@ -47,8 +47,9 @@
 .ship-menu {
     display: grid;
     grid-template-rows: 1fr 4fr;
-    border: 4px solid black;
-    padding: 1em;
+    border: 0.5em double rgba(0, 0, 0, 0.514);
+    border-radius: 0.5em;
+    padding: 0.5em;
     height: 12em;
     margin: 0 5% 0 5%;
 }
