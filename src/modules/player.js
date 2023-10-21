@@ -69,9 +69,12 @@ const simulateUserAttackComputer = (posDiv, userPlayer, pos) => {
 };
 
 const simulateComputerAttacks = (computerPlayer) => {
-    while (computerPlayer.turn) {
+    setTimeout(() => {
         attackRandomPos(computerPlayer);
-    }
+        if (computerPlayer.turn) {
+            simulateComputerAttacks(computerPlayer);
+        }
+    }, 1000);
 };
 
 const simulateUserVsComputerTurn = (posDiv, userPlayer, pos) => {
