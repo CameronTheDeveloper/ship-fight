@@ -59,13 +59,20 @@ const removeClickShipSelection = () => {
     }
 };
 
-const addPosClickPlaceShip = (posDiv, player, pos) => {
+const userShipsArePlaced = (shipsAr, playerBoard) => {
+    return playerBoard.shipsRemaining >= shipsAr.length;
+};
+
+const addPosClickPlaceShip = (posDiv, player, pos, shipsAr) => {
     posDiv.addEventListener('click', () => {
         placePlayerShip(player, pos);
+        if (userShipsArePlaced(shipsAr, player.playerBoard)) {
+            addStartGameClickListener(player, player.enemy, shipsAr);
+        };
     });
 };
 
-const addBoardPlaceShipListeners = (player) => {
+const addBoardPlaceShipListeners = (player, shipsAr) => {
     const board = player.playerBoard;
     const boardSideID = board.side;
     let pos = [];
@@ -74,7 +81,7 @@ const addBoardPlaceShipListeners = (player) => {
         for (let x = 1; x <= board.boardSize; x++) {
             pos = `${x}_${y}`;
             posDiv = document.querySelector(`#${boardSideID}-${pos}`);
-            addPosClickPlaceShip(posDiv, player, pos);
+            addPosClickPlaceShip(posDiv, player, pos, shipsAr);
         }
     }
 };
@@ -95,5 +102,4 @@ export {
     addClickShipSelection,
     removeClickShipSelection,
     addBoardPlaceShipListeners,
-    addStartGameClickListener
 };

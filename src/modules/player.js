@@ -53,7 +53,7 @@ const assignPlayerEnemies = (leftPlayer, rightPlayer) => {
 
 const initializeUserPlayer = (player, shipsAr) => {
     addShipSelectionsDOM(player, shipsAr);
-    addBoardPlaceShipListeners(player);
+    addBoardPlaceShipListeners(player, shipsAr);
     addClickTogglePlaceVertical(player.playerBoard);
 };
 

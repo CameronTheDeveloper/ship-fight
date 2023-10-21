@@ -8,7 +8,6 @@ import {
 import { getShipsAr } from "./ship";
 import {
     addBoardAttackListeners,
-    addStartGameClickListener
 } from "./user-input";
 
 
@@ -23,7 +22,6 @@ const initializeGame = () => {
     assignPlayerEnemies(leftPlayer, rightPlayer);
     initializeBoards(leftPlayer, rightPlayer, boardSize);
     initializeUserPlayer(leftPlayer, shipsAr);
-    addStartGameClickListener(leftPlayer, rightPlayer, shipsAr);
 };
 
 const initializeGameAgainstComputer = (userPlayer, computerPlayer, shipsAr) => {
